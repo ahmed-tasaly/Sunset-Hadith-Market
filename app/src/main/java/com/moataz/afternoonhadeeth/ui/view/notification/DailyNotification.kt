@@ -13,8 +13,8 @@ import com.moataz.afternoonhadeeth.data.model.Hadith
 import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import java.util.*
 
-class NotificationAfternoon: BroadcastReceiver() {
-    private val CHANNEL_ID = "HADITH_AFTERNOON_CHANNEL_ID"
+object NotificationAfternoon: BroadcastReceiver() {
+    private const val CHANNEL_ID = "HADITH_AFTERNOON_CHANNEL_ID"
 
     override fun onReceive(context: Context, intent: Intent?) {
         val notificationIntent = Intent(context, MainActivity::class.java)
