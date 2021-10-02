@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "965182650051",
+    "project_id": "sunset-hadith",
+    "storage_bucket": "sunset-hadith.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965182650051:android:1b98579d0d07a9d0271476",
+        "android_client_info": {
+          "package_name": "com.moataz.afternoonhadeeth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965182650051-rgbgjbivrrkgp4vcb5jbm5tdhl9ug6rc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moataz.afternoonhadeeth",
+            "certificate_hash": "6adb231f517529115e6d2a4cbef37e6471e6e873"
+          }
+        },
+        {
+          "client_id": "965182650051-o86tht8kb84hksqub9q21sbb4u5j48uv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1wtduz5oSOQNTHfJ7R9gPFWQn9PaC-Aw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965182650051-o86tht8kb84hksqub9q21sbb4u5j48uv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

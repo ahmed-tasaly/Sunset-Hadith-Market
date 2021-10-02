@@ -82,5 +82,4 @@ dependencies {
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
     // admob
     implementation 'com.google.android.gms:play-services-ads:20.4.0'
-
 }
