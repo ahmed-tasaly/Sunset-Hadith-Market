@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface APIService {
     @GET("homepagedata.json")
-    fun getObjectsList(): Single<HomeResponse?>?
+    fun getObjectsList(): Single<HomeResponse>
 }

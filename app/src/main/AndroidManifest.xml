@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.moataz.afternoonhadeeth" >
+    package="com.moataz.afternoonhadeeth">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,21 +13,29 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AfterNoonHadeeth" >
+        android:theme="@style/Theme.AfterNoonHadeeth">
         <activity
-            android:name=".ui.view.activity.MainActivity"
-            android:exported="true" >
+            android:name=".ui.view.activity.LaunchActivity"
+            android:theme="@style/LaunchTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".ui.view.notification.NotificationAfternoon" />
+        <activity
+            android:name=".ui.view.activity.MainActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.view.activity.YoutubePlayerActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+
+        <receiver android:name=".ui.notification.NotificationAfternoon" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9745694814821087~6606853602" />
+            android:value="ca-app-pub-8872798649235309~8048723949" />
     </application>
 </manifest>

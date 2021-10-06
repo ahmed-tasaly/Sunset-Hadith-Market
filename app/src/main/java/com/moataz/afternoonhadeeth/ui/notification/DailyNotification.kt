@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.view.notification
+package com.moataz.afternoonhadeeth.ui.notification
 
 import android.annotation.SuppressLint
 import android.app.*

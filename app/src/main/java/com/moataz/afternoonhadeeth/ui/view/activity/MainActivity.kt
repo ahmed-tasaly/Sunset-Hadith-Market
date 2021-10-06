@@ -16,7 +16,7 @@ import com.anjlab.android.iab.v3.TransactionDetails
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
 import com.moataz.afternoonhadeeth.ui.view.fragment.*
-import com.moataz.afternoonhadeeth.ui.view.notification.NotificationAfternoon
+import com.moataz.afternoonhadeeth.ui.notification.NotificationAfternoon
 import com.moataz.afternoonhadeeth.utils.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.helper.Intents
 import com.moataz.afternoonhadeeth.utils.helper.Views
