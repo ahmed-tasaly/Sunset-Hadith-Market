@@ -14,6 +14,7 @@
     <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
     </style>
+
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
@@ -23,6 +24,7 @@
         <item name="android:textSize">@dimen/_9ssp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="color">@android:color/black</item>
@@ -33,4 +35,12 @@
         <item name="android:windowBackground">@drawable/background_splash</item>
         <item name="colorPrimaryDark">@color/main_color</item>
     </style>
+
+    <style name="Theme.AfterNoonHadeeth.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <item name="appWidgetRadius">8dp</item>
+        <item name="appWidgetPadding">4dp</item>
+        <item name="appWidgetInnerRadius">4dp</item>
+    </style>
+
+    <style name="Theme.AfterNoonHadeeth.AppWidgetContainer" parent="Theme.AfterNoonHadeeth.AppWidgetContainerParent" />
 </resources>
