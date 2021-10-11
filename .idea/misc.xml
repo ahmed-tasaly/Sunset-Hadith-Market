@@ -8,11 +8,18 @@
         <entry key="app/src/main/res/drawable-mdpi/black_icon.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-mdpi/rounded_bottomsheet.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-mdpi/rounded_button.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-v21/app_widget_background.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-v21/ic_home1.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-v21/ic_like.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-v21/ic_like1.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-v24/rounder_speak_button.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_moon.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-xhdpi/ic_moon1.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_photo.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_photo1.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_youtube.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-xhdpi/ic_youtube1.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/rounded_widget.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/selector_ebadat.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/selector_image.xml" value="0.37135416666666665" />
@@ -22,6 +29,9 @@
         <entry key="app/src/main/res/drawable/heart.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_film.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_heart.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_heart_bold.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_home_bold.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.37135416666666665" />

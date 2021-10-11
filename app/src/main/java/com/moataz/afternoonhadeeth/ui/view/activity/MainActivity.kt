@@ -1,27 +1,21 @@
 package com.moataz.afternoonhadeeth.ui.view.activity
 
-import android.content.Context
-import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.anjlab.android.iab.v3.BillingProcessor
-import com.anjlab.android.iab.v3.TransactionDetails
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
-import com.moataz.afternoonhadeeth.ui.view.fragment.*
 import com.moataz.afternoonhadeeth.ui.notification.NotificationAfternoon
+import com.moataz.afternoonhadeeth.ui.view.fragment.*
 import com.moataz.afternoonhadeeth.utils.IOnBackPressed
-import com.moataz.afternoonhadeeth.utils.helper.Intents
 import com.moataz.afternoonhadeeth.utils.helper.Views
 
-class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val homeFragment: Fragment = HomeFragment()
@@ -32,9 +26,6 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
     private val fragmentManager = supportFragmentManager
     private var mainFragment = homeFragment
 
-    private lateinit var bp: BillingProcessor
-    private var purchaseTransactionDetails: TransactionDetails? = null
-
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +34,7 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
         setContentView(view)
         initializeView()
         setupNotification()
-        setOnClickToolbarIcons()
         initializeBottomNavigation()
-        setupBillingProcess(this)
     }
 
     private fun initializeView() {
@@ -54,12 +43,6 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
 
     private fun setupNotification() {
         NotificationAfternoon().setupAfternoonNotification(this)
-    }
-
-    private fun setOnClickToolbarIcons() {
-        binding.instagram.setOnClickListener {
-            Intents.openInstagramAccountIntent(this)
-        }
     }
 
     private fun initializeBottomNavigation() {
@@ -74,7 +57,8 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
         fragmentTransaction.commit()
 
         // show and hide them when click on BottomNav items
-        binding.bottomNavigation.itemRippleColor = ColorStateList.valueOf(Color.parseColor("#FFF5E6"))
+        binding.bottomNavigation.itemRippleColor =
+            ColorStateList.valueOf(Color.parseColor("#FFF5E6"))
         binding.bottomNavigation.setOnItemSelectedListener { item: MenuItem ->
             // start a new transaction
             val localFragmentTransaction = fragmentManager.beginTransaction()
@@ -114,53 +98,6 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
         binding.bottomNavigation.selectedItemId = R.id.home_item
     }
 
-    private fun setupBillingProcess(context: Context) {
-        bp = BillingProcessor(
-            context, resources.getString(R.string.play_console_license),
-            this
-        )
-        bp.initialize()
-    }
-
-    /* start of billing methods */
-    override fun onBillingInitialized() {
-        Log.d("MainActivity", "onBillingInitialized: ")
-
-        val premium = resources.getString(R.string.premium)
-        purchaseTransactionDetails = bp.getSubscriptionTransactionDetails(premium)
-        bp.loadOwnedPurchasesFromGoogle()
-
-        binding.support.setOnClickListener {
-            if (bp.isSubscriptionUpdateSupported) {
-                bp.subscribe(this, premium)
-            } else {
-                Log.d(
-                    "MainActivity",
-                    "onBillingInitialized: Subscription updated is not supported"
-                )
-            }
-        }
-    }
-
-    override fun onProductPurchased(productId: String, details: TransactionDetails?) {
-        Log.d("MainActivity", "onProductPurchased: ")
-    }
-
-    override fun onPurchaseHistoryRestored() {
-        Log.d("MainActivity", "onPurchaseHistoryRestored: ")
-    }
-
-    override fun onBillingError(errorCode: Int, error: Throwable?) {
-        Log.d("MainActivity", "onBillingError: ")
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (!bp.handleActivityResult(requestCode, resultCode, data)) {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
-    }
-    /* end of billing methods */
-
     override fun onBackPressed() {
         val fragment = supportFragmentManager.findFragmentById(R.id.fragment_layout)
         if (fragment !is IOnBackPressed) {
@@ -174,10 +111,5 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
         } else {
             super.onBackPressed()
         }
-    }
-
-    override fun onDestroy() {
-        bp.release()
-        super.onDestroy()
     }
 }
