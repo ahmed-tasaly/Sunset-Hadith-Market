@@ -3,13 +3,12 @@ package com.moataz.afternoonhadeeth.ui.adapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
+
 import com.moataz.afternoonhadeeth.R;
 import com.moataz.afternoonhadeeth.data.model.DailyImage;
 import com.moataz.afternoonhadeeth.data.model.DailyPost;
@@ -20,9 +19,15 @@ import com.moataz.afternoonhadeeth.data.model.Live;
 import com.moataz.afternoonhadeeth.data.model.SaheehBukhari;
 import com.moataz.afternoonhadeeth.data.model.SaheehMuslim;
 import com.moataz.afternoonhadeeth.data.model.TahzeebMuslim;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeDailyimageBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeDailypostBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeFirstimageBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeKanzhasanatBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeLiveBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeSaheehbukhariBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeSaheehmuslimBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeTahzeebmuslimBinding;
 import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
-
-import java.util.Objects;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -40,7 +45,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         if (viewType == R.id.first_image) {
             return new FirstImageViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_firstimage,
                             parent,
                             false
@@ -48,7 +54,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
         } else if (viewType == R.id.live_image) {
             return new LiveViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_live,
                             parent,
                             false
@@ -56,7 +63,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
         } else if (viewType == R.id.daily_post) {
             return new DailyPostViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_dailypost,
                             parent,
                             false
@@ -64,7 +72,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
         } else if (viewType == R.id.text_kanz_hasanat) {
             return new KanzHasanatViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_kanzhasanat,
                             parent,
                             false
@@ -72,7 +81,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
         } else if (viewType == R.id.text_tahzeeb_muslim) {
             return new TahzeebMuslimViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_tahzeebmuslim,
                             parent,
                             false
@@ -80,7 +90,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
         } else if (viewType == R.id.daily_image) {
             return new DailyImageViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_dailyimage,
                             parent,
                             false
@@ -88,7 +99,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
         } else if (viewType == R.id.text_saheeh_bukhari) {
             return new SaheehBukhariViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_saheehbukhari,
                             parent,
                             false
@@ -96,7 +108,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             );
         } else if (viewType == R.id.text_saheeh_muslim) {
             return new SaheehMuslimViewHolder(
-                    LayoutInflater.from(parent.getContext()).inflate(
+                    DataBindingUtil.inflate(
+                            LayoutInflater.from(parent.getContext()),
                             R.layout.item_home_saheehmuslim,
                             parent,
                             false
@@ -110,36 +123,36 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         if (getItemViewType(position) == R.id.first_image) {
             FirstImage firstImage = items.getFirstImage().get(position);
-            ((FirstImageViewHolder) holder).setFirstImageData(firstImage);
+            ((FirstImageViewHolder) holder).itemHomeFirstimageBinding.setFirstImageModel(firstImage);
 
         } else if (getItemViewType(position) == R.id.live_image) {
             Live live = items.getLive().get(position - items.getFirstImage().size());
-            ((LiveViewHolder) holder).setLiveImageData(live);
+            ((LiveViewHolder) holder).itemHomeLiveBinding.setLiveModel(live);
             ((LiveViewHolder) holder).setOnClick(live);
 
         } else if (getItemViewType(position) == R.id.daily_post) {
             DailyPost dailyPost = items.getDailyPost().get(position - (items.getFirstImage().size() + items.getLive().size()));
-            ((DailyPostViewHolder) holder).setDailyPostData(dailyPost);
+            ((DailyPostViewHolder) holder).homeDailypostBinding.setDailyPostModel(dailyPost);
 
         } else if (getItemViewType(position) == R.id.text_kanz_hasanat) {
             KanzHasanat kanzHasanat = items.getKanzHasanat().get(position - (items.getFirstImage().size() + items.getLive().size() + items.getDailyPost().size()));
-            ((KanzHasanatViewHolder) holder).setKanzHasanatData(kanzHasanat);
+            ((KanzHasanatViewHolder) holder).itemHomeKanzhasanatBinding.setKanzHasanatModel(kanzHasanat);
 
         } else if (getItemViewType(position) == R.id.text_tahzeeb_muslim) {
             TahzeebMuslim tahzeebMuslim = items.getTahzeebMuslim().get(position - (items.getFirstImage().size() + items.getLive().size() + items.getDailyPost().size() + items.getKanzHasanat().size()));
-            ((TahzeebMuslimViewHolder) holder).setTahzeebMuslimData(tahzeebMuslim);
+            ((TahzeebMuslimViewHolder) holder).itemHomeTahzeebmuslimBinding.setTahzeebMuslimModel(tahzeebMuslim);
 
         } else if (getItemViewType(position) == R.id.daily_image) {
             DailyImage dailyImage = items.getDailyImage().get(position - (items.getFirstImage().size() + items.getLive().size() + items.getDailyPost().size() + items.getKanzHasanat().size() + items.getTahzeebMuslim().size()));
-            ((DailyImageViewHolder) holder).setDailyImageData(dailyImage);
+            ((DailyImageViewHolder) holder).itemHomeDailyimageBinding.setDailyImageModel(dailyImage);
 
         } else if (getItemViewType(position) == R.id.text_saheeh_bukhari) {
             SaheehBukhari saheehBukhari = items.getSaheehBukhari().get(position - (items.getFirstImage().size() + items.getLive().size() + items.getDailyPost().size() + items.getKanzHasanat().size() + items.getTahzeebMuslim().size() + items.getDailyImage().size()));
-            ((SaheehBukhariViewHolder) holder).setSaheehBukhariData(saheehBukhari);
+            ((SaheehBukhariViewHolder) holder).itemHomeSaheehbukhariBinding.setSaheehBukhariModel(saheehBukhari);
 
         } else if (getItemViewType(position) == R.id.text_saheeh_muslim) {
             SaheehMuslim saheehMuslim = items.getSaheehMuslim().get(position - (items.getFirstImage().size() + items.getLive().size() + items.getDailyPost().size() + items.getKanzHasanat().size() + items.getTahzeebMuslim().size() + items.getDailyImage().size() + items.getSaheehBukhari().size()));
-            ((SaheehMuslimViewHolder) holder).setSaheehMuslimData(saheehMuslim);
+            ((SaheehMuslimViewHolder) holder).itemHomeSaheehmuslimBinding.setSaheehMuslimModel(saheehMuslim);
 
         }
     }
@@ -183,36 +196,25 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 + items.getLive().size() + items.getDailyPost().size() + items.getKanzHasanat().size() + items.getTahzeebMuslim().size() + items.getDailyImage().size() + items.getSaheehBukhari().size() + items.getSaheehMuslim().size()) {
             return R.id.text_saheeh_muslim;
 
-        } return R.id.first_image;
+        }
+        return R.id.first_image;
     }
 
     static class FirstImageViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView firstImage;
+        ItemHomeFirstimageBinding itemHomeFirstimageBinding;
 
-        FirstImageViewHolder(@NonNull View itemView) {
-            super(itemView);
-            firstImage = itemView.findViewById(R.id.first_image);
-        }
-
-        void setFirstImageData(FirstImage firstImage) {
-            Glide.with(itemView.getContext())
-                    .load(firstImage.getImageUrl())
-                    .into(this.firstImage);
+        FirstImageViewHolder(@NonNull ItemHomeFirstimageBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeFirstimageBinding = itemView;
         }
     }
 
     static class LiveViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView liveImage;
+        ItemHomeLiveBinding itemHomeLiveBinding;
 
-        LiveViewHolder(@NonNull View itemView) {
-            super(itemView);
-            liveImage = itemView.findViewById(R.id.live_image);
-        }
-
-        void setLiveImageData(Live live) {
-            Glide.with(itemView.getContext())
-                    .load(live.getImage())
-                    .into(liveImage);
+        LiveViewHolder(@NonNull ItemHomeLiveBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeLiveBinding = itemView;
         }
 
         void setOnClick(Live live) {
@@ -225,84 +227,56 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     static class DailyPostViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView dailyPost;
+        ItemHomeDailypostBinding homeDailypostBinding;
 
-        DailyPostViewHolder(@NonNull View itemView) {
-            super(itemView);
-            dailyPost = itemView.findViewById(R.id.daily_post);
-        }
-
-        void setDailyPostData(DailyPost dailyPost) {
-            Glide.with(itemView.getContext())
-                    .load(dailyPost.getImageUrl())
-                    .into(this.dailyPost);
+        DailyPostViewHolder(@NonNull ItemHomeDailypostBinding itemView) {
+            super(itemView.getRoot());
+            homeDailypostBinding = itemView;
         }
     }
 
     static class KanzHasanatViewHolder extends RecyclerView.ViewHolder {
-        private final TextView kanzHasanat;
+        ItemHomeKanzhasanatBinding itemHomeKanzhasanatBinding;
 
-        KanzHasanatViewHolder(@NonNull View itemView) {
-            super(itemView);
-            kanzHasanat = itemView.findViewById(R.id.text_kanz_hasanat);
-        }
-
-        void setKanzHasanatData(KanzHasanat kanzHasanat) {
-            this.kanzHasanat.setText(kanzHasanat.getText());
+        KanzHasanatViewHolder(@NonNull ItemHomeKanzhasanatBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeKanzhasanatBinding = itemView;
         }
     }
 
     static class TahzeebMuslimViewHolder extends RecyclerView.ViewHolder {
-        private final TextView tahzeebMuslim;
+        ItemHomeTahzeebmuslimBinding itemHomeTahzeebmuslimBinding;
 
-        TahzeebMuslimViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tahzeebMuslim = itemView.findViewById(R.id.text_tahzeeb_muslim);
-        }
-
-        void setTahzeebMuslimData(TahzeebMuslim tahzeebMuslim) {
-            this.tahzeebMuslim.setText(tahzeebMuslim.getText());
+        TahzeebMuslimViewHolder(@NonNull ItemHomeTahzeebmuslimBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeTahzeebmuslimBinding = itemView;
         }
     }
 
     static class DailyImageViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView dailyImage;
+        ItemHomeDailyimageBinding itemHomeDailyimageBinding;
 
-        DailyImageViewHolder(@NonNull View itemView) {
-            super(itemView);
-            dailyImage = itemView.findViewById(R.id.daily_image);
-        }
-
-        void setDailyImageData(DailyImage dailyImage) {
-            Glide.with(itemView.getContext())
-                    .load(dailyImage.getImageUrl())
-                    .into(this.dailyImage);
+        DailyImageViewHolder(@NonNull ItemHomeDailyimageBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeDailyimageBinding = itemView;
         }
     }
 
     static class SaheehBukhariViewHolder extends RecyclerView.ViewHolder {
-        private final TextView saheehBukhari;
+        ItemHomeSaheehbukhariBinding itemHomeSaheehbukhariBinding;
 
-        SaheehBukhariViewHolder(@NonNull View itemView) {
-            super(itemView);
-            saheehBukhari = itemView.findViewById(R.id.text_saheeh_bukhari);
-        }
-
-        void setSaheehBukhariData(SaheehBukhari saheehBukhari) {
-            this.saheehBukhari.setText(saheehBukhari.getText());
+        SaheehBukhariViewHolder(@NonNull ItemHomeSaheehbukhariBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeSaheehbukhariBinding = itemView;
         }
     }
 
     static class SaheehMuslimViewHolder extends RecyclerView.ViewHolder {
-        private final TextView saheehMuslim;
+        ItemHomeSaheehmuslimBinding itemHomeSaheehmuslimBinding;
 
-        SaheehMuslimViewHolder(@NonNull View itemView) {
-            super(itemView);
-            saheehMuslim = itemView.findViewById(R.id.text_saheeh_muslim);
-        }
-
-        void setSaheehMuslimData(SaheehMuslim saheehMuslim) {
-            this.saheehMuslim.setText(saheehMuslim.getText());
+        SaheehMuslimViewHolder(@NonNull ItemHomeSaheehmuslimBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeSaheehmuslimBinding = itemView;
         }
     }
 }

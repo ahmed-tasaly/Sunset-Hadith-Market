@@ -1,64 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginRight="@dimen/_6sdp"
-    android:layout_marginLeft="@dimen/_6sdp"
-    android:layout_marginTop="@dimen/_12sdp"
-    app:cardCornerRadius="@dimen/_6sdp"
-    app:cardElevation="@dimen/_2sdp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- or 260sdp -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:background="@color/card_color"
-        android:layout_height="@dimen/_280sdp">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_6sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:cardElevation="@dimen/_2sdp">
 
-        <com.google.android.gms.ads.nativead.NativeAdView
-            android:id="@+id/ad_view"
+        <!-- or 260sdp -->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shape" />
+            android:layout_height="@dimen/_280sdp"
+            android:background="@color/card_color">
 
-        <TextView
-            android:id="@+id/textViewad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:shadowColor="#E1FF0000"
-            android:text="إعلان"
-            android:textColor="#E1FF0000"
-            android:textSize="@dimen/_16ssp"
-            android:elevation="@dimen/_7sdp"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.gms.ads.nativead.NativeAdView
+                android:id="@+id/ad_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shape" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_marginStart="16dp"
-            android:shadowColor="#E1FF0000"
-            android:elevation="@dimen/_7sdp"
-            android:src="@drawable/live_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewad"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewad" />
+            <TextView
+                android:id="@+id/textViewad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:elevation="@dimen/_7sdp"
+                android:shadowColor="#E1FF0000"
+                android:text="إعلان"
+                android:textColor="#E1FF0000"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/shape"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="10dp"
-            android:background="@color/black_overlay"
-            app:layout_constraintTop_toBottomOf="@+id/textViewad" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="16dp"
+                android:elevation="@dimen/_7sdp"
+                android:shadowColor="#E1FF0000"
+                android:src="@drawable/live_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewad"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewad" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/shape"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="10dp"
+                android:background="@color/black_overlay"
+                app:layout_constraintTop_toBottomOf="@+id/textViewad" />
 
-
-</androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

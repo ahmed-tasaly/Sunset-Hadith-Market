@@ -14,23 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AfterNoonHadeeth">
-        <receiver
-            android:name=".ui.widget.ZekrWidget"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.intent.action.DATE_CHANGED"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/zekr_widget_info" />
-        </receiver>
 
         <activity
-            android:name=".ui.view.activity.LaunchActivity"
-            android:theme="@style/LaunchTheme">
+            android:name=".ui.view.activity.MainActivity"
+            android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,14 +26,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.view.activity.MainActivity"
-            android:exported="true" />
-        <activity
             android:name=".ui.view.activity.YoutubePlayerActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape" />
 
         <receiver android:name=".ui.notification.NotificationAfternoon" />
+
+        <receiver
+            android:name=".ui.widget.ZekrWidget"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="AUTO_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/zekr_widget_info" />
+        </receiver>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

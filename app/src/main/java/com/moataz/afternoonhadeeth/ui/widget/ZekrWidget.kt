@@ -8,7 +8,7 @@ import android.content.Intent
 import android.widget.RemoteViews
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.source.ZekrSource
-import com.moataz.afternoonhadeeth.ui.view.activity.LaunchActivity
+import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import org.joda.time.DateTime
 import org.joda.time.chrono.IslamicChronology
 import java.util.*
@@ -46,14 +46,17 @@ internal fun updateAppWidget(
     val dateName = DateTime.now().toString("E", locale)
 
     // opining the app when click on the appWidget
-    val intent = Intent(context, LaunchActivity::class.java)
+    val intent = Intent(context, MainActivity::class.java)
     val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
 
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.zekr_widget)
+
     views.setTextViewText(R.id.appwidget_text, ZekrSource().zekrList())
+
     views.setTextViewText(R.id.date_time, dateTimeArabic)
     views.setTextViewText(R.id.date_name, dateName)
+
     views.setOnClickPendingIntent(R.id.zekr_layout, pendingIntent);
 
     // Instruct the widget manager to update the widget

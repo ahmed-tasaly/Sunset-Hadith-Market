@@ -1,7 +1,8 @@
 package com.moataz.afternoonhadeeth.ui.view.activity
 
+import android.os.Build
 import android.os.Bundle
-import android.view.View
+import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.android.youtube.player.YouTubeBaseActivity
@@ -12,28 +13,32 @@ import com.moataz.afternoonhadeeth.databinding.ActivityYoutubePlayerBinding
 
 class YoutubePlayerActivity : YouTubeBaseActivity() {
 
-    private var binding: ActivityYoutubePlayerBinding? = null
+    private lateinit var binding: ActivityYoutubePlayerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityYoutubePlayerBinding.inflate(
             layoutInflater
         )
-        val view: View = binding!!.root
-        setContentView(view)
+        setContentView(binding.root)
         playYoutubeVideo()
         initializeViews()
     }
 
     private fun initializeViews() {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        ) // hide Status bar
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
     }
 
     private fun playYoutubeVideo() {
-        binding!!.youtubePlayerViewHome.initialize(
+        binding.youtubePlayerViewHome.initialize(
             APIYoutubeKey.API_YOUTUBE_KEY,
             object : YouTubePlayer.OnInitializedListener {
                 override fun onInitializationSuccess(
