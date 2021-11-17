@@ -6,6 +6,10 @@ plugins {
     id 'kotlin-kapt'
 }
 
+kapt {
+    generateStubs = true
+}
+
 android {
     compileSdk 30
 
@@ -68,10 +72,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     // Add the Firebase SDK
     implementation platform('com.google.firebase:firebase-bom:28.2.0')
-    implementation 'com.google.firebase:firebase-analytics:19.0.2'
+    implementation 'com.google.firebase:firebase-analytics:20.0.0'
     implementation 'com.google.firebase:firebase-crashlytics'
     // firebase message
-    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     // swipe to refresh
@@ -88,4 +92,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:20.4.0'
     //joda time library
     implementation 'joda-time:joda-time:2.10.6'
+    // zoom in Image
+    implementation 'com.ablanco.zoomy:zoomy:1.1.0'
+    // animation library
+    implementation "com.airbnb.android:lottie:3.6.0"
 }

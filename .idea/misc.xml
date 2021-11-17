@@ -5,9 +5,13 @@
       <map>
         <entry key="app/src/main/res/drawable-anydpi-v24/ic_notification.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-hdpi/background_splash.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-ldpi/black_icon.xml" value="2.228125" />
         <entry key="app/src/main/res/drawable-mdpi/black_icon.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-mdpi/ic_share_black.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-mdpi/rounded_bottomsheet.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-mdpi/rounded_button.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-nodpi/ic_back_white.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-nodpi/ic_share.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-v21/app_widget_background.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-v21/ic_home1.xml" value="0.37135416666666665" />
@@ -25,10 +29,14 @@
         <entry key="app/src/main/res/drawable-xhdpi/selector_image.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/selector_video.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/background.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/copy.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/fds.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/heart.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_copy_all.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_open_in_tab_24.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_expand_more.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_film.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_heart.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_heart_bold.xml" value="0.37135416666666665" />
@@ -45,6 +53,7 @@
         <entry key="app/src/main/res/drawable/selector_videos.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/splash_text.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/twitter.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/layout/activity_display_images.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_youtube_player.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/bottom_sheet_support.xml" value="0.35520833333333335" />
@@ -53,6 +62,7 @@
         <entry key="app/src/main/res/layout/fragment_hadith.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_image.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/fragment_images.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_premium.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/hhhhhhhhh.xml" value="0.35520833333333335" />
@@ -66,6 +76,7 @@
         <entry key="app/src/main/res/layout/item_home_saheehmuslim.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_tahzeebmuslim.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_video_videos.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/list_images.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/test.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/zekr_widget.xml" value="0.33" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.35520833333333335" />

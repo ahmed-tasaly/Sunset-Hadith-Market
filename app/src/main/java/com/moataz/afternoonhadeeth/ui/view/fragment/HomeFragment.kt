@@ -16,12 +16,12 @@ import com.anjlab.android.iab.v3.BillingProcessor
 import com.anjlab.android.iab.v3.BillingProcessor.IBillingHandler
 import com.anjlab.android.iab.v3.TransactionDetails
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.data.model.HomeResponse
+import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentHomeBinding
 import com.moataz.afternoonhadeeth.ui.adapter.HomeAdapter
 import com.moataz.afternoonhadeeth.ui.viewmodel.HomeViewModel
-import com.moataz.afternoonhadeeth.utils.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.helper.Intents.openInstagramAccountIntent
+import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
@@ -44,7 +44,6 @@ class HomeFragment : Fragment(), IOnBackPressed, IBillingHandler {
         initializeAdapter()
         initializeViewModel()
         getTopList()
-        onSwipeRefresh()
         return binding.root
     }
 
@@ -83,27 +82,6 @@ class HomeFragment : Fragment(), IOnBackPressed, IBillingHandler {
                 }
             }
         )
-    }
-
-    private fun onSwipeRefresh() {
-        binding.swipeToRefresh.setOnRefreshListener {
-            viewModel.makeApiCallHome().observe(requireActivity(),
-                { response: Resource<HomeResponse> ->
-                    when (response.status) {
-                        Status.ERROR -> {
-                            binding.swipeToRefresh.isRefreshing = false
-                        }
-                        Status.LOADING -> {
-                            binding.progressBar.visibility = View.VISIBLE
-                        }
-                        Status.SUCCESS -> {
-                            binding.swipeToRefresh.isRefreshing = false
-                            adapter.setHomeList(response.data)
-                        }
-                    }
-                }
-            )
-        }
     }
 
     private fun initializeViewModel() {

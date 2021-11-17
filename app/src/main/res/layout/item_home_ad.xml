@@ -27,30 +27,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/shape" />
 
             <TextView
-                android:id="@+id/textViewad"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="10dp"
                 android:elevation="@dimen/_7sdp"
                 android:shadowColor="#E1FF0000"
                 android:text="إعلان"
                 android:textColor="#E1FF0000"
                 android:textSize="@dimen/_16ssp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="16dp"
-                android:elevation="@dimen/_7sdp"
-                android:shadowColor="#E1FF0000"
-                android:src="@drawable/live_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/textViewad"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textViewad" />
+            <Button
+                android:id="@+id/button_share_other_images"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@drawable/ic_expand_more"
+                android:layout_marginBottom="@dimen/_3sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
 
             <View
                 android:id="@+id/shape"
@@ -58,7 +58,7 @@
                 android:layout_height="1px"
                 android:layout_marginTop="10dp"
                 android:background="@color/black_overlay"
-                app:layout_constraintTop_toBottomOf="@+id/textViewad" />
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
