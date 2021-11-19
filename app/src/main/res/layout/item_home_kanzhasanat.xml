@@ -59,8 +59,8 @@
 
             <Button
                 android:id="@+id/button_share_other_images"
-                android:layout_width="@dimen/_19sdp"
-                android:layout_height="@dimen/_19sdp"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="@dimen/_12sdp"
                 android:background="@drawable/copy"
