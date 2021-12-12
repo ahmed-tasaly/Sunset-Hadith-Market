@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_15sdp"
-        android:elevation="@dimen/_2sdp"
+        android:elevation="@dimen/_1sdp"
         android:fontFamily="@font/almarai_bold"
         android:text="كن من خيار الناس وشاركنا الأجر والثواب"
         android:textColor="@color/bnv_tab_item_foreground"
