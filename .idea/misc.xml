@@ -43,7 +43,10 @@
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_home_bold.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_play.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_play_button.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.21354166666666666" />
+        <entry key="app/src/main/res/drawable/ic_telegram.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/like.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/love.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/selector_favourite.xml" value="0.37135416666666665" />
@@ -75,6 +78,7 @@
         <entry key="app/src/main/res/layout/item_home_saheehbukhari.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_saheehmuslim.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_tahzeebmuslim.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/item_progress.xml" value="0.22962962962962963" />
         <entry key="app/src/main/res/layout/item_video_videos.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/list_images.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/test.xml" value="0.35520833333333335" />

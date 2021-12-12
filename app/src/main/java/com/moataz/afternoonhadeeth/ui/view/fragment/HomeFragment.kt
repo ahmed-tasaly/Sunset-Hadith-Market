@@ -24,6 +24,9 @@ import com.moataz.afternoonhadeeth.utils.helper.Intents.openInstagramAccountInte
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
+import android.graphics.Movie
+import androidx.recyclerview.widget.GridLayoutManager
+
 
 class HomeFragment : Fragment(), IOnBackPressed, IBillingHandler {
 

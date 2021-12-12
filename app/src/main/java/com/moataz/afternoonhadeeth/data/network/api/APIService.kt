@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.data.api
+package com.moataz.afternoonhadeeth.data.network.api
 
 import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
 import com.moataz.afternoonhadeeth.data.model.image.Images

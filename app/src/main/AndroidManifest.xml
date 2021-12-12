@@ -23,6 +23,7 @@
 
         <activity
             android:name=".ui.view.activity.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true" >
 
             <intent-filter>
@@ -37,7 +38,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".ui.view.activity.DisplayImageActivity"
-            android:screenOrientation="fullSensor" />
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".ui.widget.notification.NotificationAfternoon" />
 

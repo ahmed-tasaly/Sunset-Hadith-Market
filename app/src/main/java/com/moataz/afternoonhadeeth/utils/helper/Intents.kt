@@ -14,7 +14,7 @@ object Intents {
 
     fun openInstagramAccountIntent(view: AppCompatActivity) {
         val openInstagramAccountIntent =
-            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/sunset_hadith/"))
+            Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/SunsetHadith"))
         view.startActivity(openInstagramAccountIntent)
     }
 }
