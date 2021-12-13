@@ -17,16 +17,14 @@ import com.anjlab.android.iab.v3.BillingProcessor.IBillingHandler
 import com.anjlab.android.iab.v3.TransactionDetails
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
+import com.moataz.afternoonhadeeth.utils.helper.URL_Telegram_Channel
 import com.moataz.afternoonhadeeth.databinding.FragmentHomeBinding
 import com.moataz.afternoonhadeeth.ui.adapter.HomeAdapter
 import com.moataz.afternoonhadeeth.ui.viewmodel.HomeViewModel
-import com.moataz.afternoonhadeeth.utils.helper.Intents.openInstagramAccountIntent
+import com.moataz.afternoonhadeeth.utils.helper.Intents.openWebPage
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
-import android.graphics.Movie
-import androidx.recyclerview.widget.GridLayoutManager
-
 
 class HomeFragment : Fragment(), IOnBackPressed, IBillingHandler {
 
@@ -52,7 +50,7 @@ class HomeFragment : Fragment(), IOnBackPressed, IBillingHandler {
 
     private fun setOnClickToolbarIcons() {
         binding.instagram.setOnClickListener {
-            openInstagramAccountIntent((requireActivity() as AppCompatActivity))
+            openWebPage((requireActivity() as AppCompatActivity), URL_Telegram_Channel)
         }
     }
 

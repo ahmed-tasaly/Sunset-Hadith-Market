@@ -19,7 +19,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_208sdp"
+        android:layout_height="@dimen/_210sdp"
         android:background="#FFF1DA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

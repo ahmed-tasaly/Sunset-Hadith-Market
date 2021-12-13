@@ -1,6 +1,6 @@
-package com.moataz.afternoonhadeeth.data.network.request
+package com.moataz.afternoonhadeeth.data.request
 
-import com.moataz.afternoonhadeeth.data.network.api.APIService
+import com.moataz.afternoonhadeeth.data.api.APIService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

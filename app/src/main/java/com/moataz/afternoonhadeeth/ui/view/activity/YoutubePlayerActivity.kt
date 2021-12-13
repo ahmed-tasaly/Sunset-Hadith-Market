@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
-import com.moataz.afternoonhadeeth.data.network.api.APIYoutubeKey
+import com.moataz.afternoonhadeeth.data.api.APIYoutubeKey
 import com.moataz.afternoonhadeeth.databinding.ActivityYoutubePlayerBinding
 
 class YoutubePlayerActivity : YouTubeBaseActivity() {

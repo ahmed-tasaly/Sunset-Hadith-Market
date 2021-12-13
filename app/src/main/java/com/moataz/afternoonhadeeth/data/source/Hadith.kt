@@ -1,6 +1,6 @@
 package com.moataz.afternoonhadeeth.data.source
 
-class HadithSource {
+class Hadith {
 
     fun firstHadith(): String {
         val firstHadith = when (roll()) {

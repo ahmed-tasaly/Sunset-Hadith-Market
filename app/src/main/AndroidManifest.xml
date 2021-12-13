@@ -40,10 +40,10 @@
             android:name=".ui.view.activity.DisplayImageActivity"
             android:screenOrientation="portrait" />
 
-        <receiver android:name=".ui.widget.notification.NotificationAfternoon" />
+        <receiver android:name=".ui.jetpack.notification.NotificationAfternoon" />
 
         <receiver
-            android:name=".ui.widget.widget.ZekrWidget"
+            android:name=".ui.jetpack.widget.ZekrWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

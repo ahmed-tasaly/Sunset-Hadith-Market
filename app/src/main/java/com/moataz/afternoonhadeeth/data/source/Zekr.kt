@@ -1,6 +1,6 @@
 package com.moataz.afternoonhadeeth.data.source
 
-class ZekrSource {
+class Zekr {
 
     fun zekrList(): String {
         val secondHadith = when (roll()) {

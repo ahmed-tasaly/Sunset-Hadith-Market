@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.widget.widget
+package com.moataz.afternoonhadeeth.ui.jetpack.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -7,7 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.data.source.ZekrSource
+import com.moataz.afternoonhadeeth.data.source.Zekr
 import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import org.joda.time.DateTime
 import org.joda.time.chrono.IslamicChronology
@@ -52,7 +52,7 @@ internal fun updateAppWidget(
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.zekr_widget)
 
-    views.setTextViewText(R.id.appwidget_text, ZekrSource().zekrList())
+    views.setTextViewText(R.id.appwidget_text, Zekr().zekrList())
 
     views.setTextViewText(R.id.date_time, dateTimeArabic)
     views.setTextViewText(R.id.date_name, dateName)

@@ -1,19 +1,16 @@
 package com.moataz.afternoonhadeeth.ui.view.activity
 
-import android.Manifest
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
-import com.moataz.afternoonhadeeth.ui.widget.notification.NotificationAfternoon
+import com.moataz.afternoonhadeeth.ui.jetpack.notification.NotificationAfternoon
 import com.moataz.afternoonhadeeth.ui.view.fragment.*
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.helper.Views
