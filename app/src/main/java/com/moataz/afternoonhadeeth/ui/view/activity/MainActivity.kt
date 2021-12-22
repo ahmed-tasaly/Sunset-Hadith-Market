@@ -2,27 +2,19 @@ package com.moataz.afternoonhadeeth.ui.view.activity
 
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.view.MenuItem
-import android.view.View.VISIBLE
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.google.android.ads.nativetemplates.NativeTemplateStyle
-import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.initialization.InitializationStatus
-import com.google.android.gms.ads.nativead.NativeAd
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
 import com.moataz.afternoonhadeeth.ui.jetpack.notification.NotificationAfternoon
 import com.moataz.afternoonhadeeth.ui.view.fragment.*
-import com.moataz.afternoonhadeeth.ui.view.fragment.ImagesFragment
 import com.moataz.afternoonhadeeth.utils.helper.Views
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 
@@ -35,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     private var mainFragment = homeFragment
     private val fragmentManager = supportFragmentManager
     private lateinit var binding: ActivityMainBinding
-    private val PERMISSION_REQUEST_CODE = 0
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,12 +38,13 @@ class MainActivity : AppCompatActivity() {
         setAdMob()
         initializeBottomNavigation()
     }
+
     private fun setAdMob() {
-            MobileAds.initialize(
-                this
-            ) { initializationStatus: InitializationStatus? -> }
-            val adRequest = AdRequest.Builder().build()
-            binding.adView.loadAd(adRequest)
+        MobileAds.initialize(
+            this
+        ) { initializationStatus: InitializationStatus? -> }
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
     }
 
 

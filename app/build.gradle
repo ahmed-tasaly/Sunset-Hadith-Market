@@ -63,17 +63,17 @@ dependencies {
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.1"
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     // RxAndroid
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     // glide library
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     // Add the Firebase SDK
-    implementation platform('com.google.firebase:firebase-bom:28.2.0')
-    implementation 'com.google.firebase:firebase-analytics:20.0.1'
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics'
     // firebase message
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
@@ -92,13 +92,11 @@ dependencies {
     // admob
     implementation 'com.google.android.gms:play-services-ads:20.5.0'
     //joda time library
-    implementation 'joda-time:joda-time:2.10.6'
+    implementation 'joda-time:joda-time:2.10.13'
     // zoom in Image
     implementation 'com.ablanco.zoomy:zoomy:1.1.0'
     // animation library
-    implementation "com.airbnb.android:lottie:3.6.0"
+    implementation 'com.airbnb.android:lottie:4.2.2'
     // ViewPager with RTL support
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
-    //adding native templates
-    implementation project(':nativetemplates')
 }

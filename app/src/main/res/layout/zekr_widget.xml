@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.AfterNoonHadeeth.AppWidget.Container"
     android:id="@+id/zekr_layout"
+    style="@style/Widget.AfterNoonHadeeth.AppWidget.Container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rounded_widget"
@@ -66,9 +66,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/_4sdp"
             android:layout_marginEnd="2dp"
-            tools:text="2 ربيع الأول 1443"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="@dimen/_10ssp"
+            tools:text="2 ربيع الأول 1443" />
 
         <TextView
             android:id="@+id/date_name"
@@ -76,9 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/_4sdp"
-            tools:text="الجمعة"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="@dimen/_10ssp"
+            tools:text="الجمعة" />
 
     </RelativeLayout>
 </RelativeLayout>

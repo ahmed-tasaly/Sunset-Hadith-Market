@@ -12,8 +12,7 @@
         android:background="#FFF1DA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-    </View>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"></View>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -26,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/support"
+            android:id="@+id/support_icon"
             android:layout_width="@dimen/_19sdp"
             android:layout_height="@dimen/_19sdp"
             android:layout_gravity="left"
@@ -46,6 +45,15 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.appcompat.widget.Toolbar>
 
+    <Button
+        android:id="@+id/support"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/top_text"

@@ -61,7 +61,7 @@
         android:background="@color/black"
         android:elevation="@dimen/_2sdp"
         app:adSize="FULL_BANNER"
-        app:adUnitId="ca"
+        app:adUnitId="ca-app-pub-8872798649235309/5130651609"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

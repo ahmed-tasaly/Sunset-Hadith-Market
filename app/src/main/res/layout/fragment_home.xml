@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/instagram"
+                android:id="@+id/instagram_icon"
                 android:layout_width="@dimen/_23sdp"
                 android:layout_height="@dimen/_23sdp"
                 android:layout_gravity="left"
@@ -39,6 +39,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.appcompat.widget.Toolbar>
+
+        <Button
+            android:id="@+id/instagram"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:elevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

@@ -67,7 +67,7 @@
         <entry key="app/src/main/res/drawable/selector_videos.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/splash_text.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/twitter.xml" value="0.37135416666666665" />
-        <entry key="app/src/main/res/layout/activity_display_images.xml" value="0.75" />
+        <entry key="app/src/main/res/layout/activity_display_images.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_youtube_player.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/bottom_sheet_support.xml" value="0.35520833333333335" />
@@ -84,11 +84,11 @@
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/hhhhhhhhh.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_ad.xml" value="0.35520833333333335" />
-        <entry key="app/src/main/res/layout/item_home_counter.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_home_counter.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_home_dailyimage.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_dailypost.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_firstimage.xml" value="0.35520833333333335" />
-        <entry key="app/src/main/res/layout/item_home_firstitem.xml" value="1.1" />
+        <entry key="app/src/main/res/layout/item_home_firstitem.xml" value="0.67" />
         <entry key="app/src/main/res/layout/item_home_kanzhasanat.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_home_live.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_home_saheehbukhari.xml" value="0.35520833333333335" />

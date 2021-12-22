@@ -279,6 +279,12 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 }
                 Actions.INSTANCE.vibrateOnce(itemView.getContext());
             });
+
+            itemHomeCounterBinding.resetButtonOnClick.setOnClickListener(v -> {
+                itemHomeCounterBinding.buttonCounter.setText(Integer.toString(0));
+                counter = 0;
+                Actions.INSTANCE.vibrateOnce(itemView.getContext());
+            });
         }
     }
 

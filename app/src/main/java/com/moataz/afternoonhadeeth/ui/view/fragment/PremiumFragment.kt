@@ -3,7 +3,6 @@ package com.moataz.afternoonhadeeth.ui.view.fragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.anjlab.android.iab.v3.BillingProcessor
 import com.anjlab.android.iab.v3.TransactionDetails
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.initialization.InitializationStatus
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.FragmentPremiumBinding
 import com.moataz.afternoonhadeeth.utils.helper.*
@@ -37,7 +33,11 @@ class PremiumFragment : Fragment(), BillingProcessor.IBillingHandler {
 
     private fun openWebPages() {
         binding.shareAppButton.setOnClickListener {
-            Intents.sharedText(requireContext(), APP_URL, "حمل تطبيق حديث الغروب - وشارك أحاديث وسيرة النبي ﷺ")
+            Intents.sharedText(
+                requireContext(),
+                APP_URL,
+                "حمل تطبيق حديث الغروب - وشارك أحاديث وسيرة النبي ﷺ"
+            )
         }
 
         binding.followUsOnFacebookButton.setOnClickListener {
@@ -82,6 +82,16 @@ class PremiumFragment : Fragment(), BillingProcessor.IBillingHandler {
         val premium = resources.getString(R.string.premium)
         purchaseTransactionDetails = billingProcess.getSubscriptionTransactionDetails(premium)
         billingProcess.loadOwnedPurchasesFromGoogle()
+        binding.support.setOnClickListener {
+            if (billingProcess.isSubscriptionUpdateSupported) {
+                billingProcess.subscribe(requireActivity(), premium)
+            } else {
+                Log.d(
+                    "MainActivity",
+                    "onBillingInitialized: Subscription updated is not supported"
+                )
+            }
+        }
     }
 
     override fun onDestroy() {
