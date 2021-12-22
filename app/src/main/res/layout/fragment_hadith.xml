@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/_2sdp"
                 android:fontFamily="@font/almarai_bold"
-                android:text="أحاديث مختاره"
+                android:text="أحاديث صحيحة"
                 android:textColor="@color/bnv_tab_item_foreground"
                 android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"

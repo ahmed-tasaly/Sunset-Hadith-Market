@@ -52,7 +52,7 @@
                 android:ellipsize="end"
                 android:lineSpacingExtra="@dimen/_3ssp"
                 android:maxLength="15"
-                android:text="حياة المؤمنين"
+                android:text="حياة المؤمن"
                 android:textAlignment="textStart"
                 android:textSize="@dimen/_9ssp"
                 android:fontFamily="@font/almarai_bold"
