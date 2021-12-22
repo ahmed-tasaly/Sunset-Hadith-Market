@@ -7,4 +7,6 @@ const val URL_Telegram_Channel = "https://t.me/SunsetHadith"
 
 const val URL_Twitter_Account = "https://twitter.com/sunset_hadith"
 
+const val URL_Instagram_Account = "https://instagram.com/sunset_hadith/"
+
 const val APP_URL = "https://play.google.com/store/apps/details?id=com.moataz.afternoonhadeeth&hl=ar&gl=US"

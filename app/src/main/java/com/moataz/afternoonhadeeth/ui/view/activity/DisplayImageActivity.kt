@@ -7,13 +7,13 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.ablanco.zoomy.Zoomy
 import com.bumptech.glide.Glide
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.initialization.InitializationStatus
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityDisplayImagesBinding
 import com.moataz.afternoonhadeeth.utils.helper.Views.hideStatusBar
@@ -34,6 +34,7 @@ class DisplayImageActivity : AppCompatActivity() {
         loadImage()
         shareImage()
         zoomIn()
+        loadAd()
     }
 
     private fun initializeView() {
@@ -84,6 +85,12 @@ class DisplayImageActivity : AppCompatActivity() {
                 startActivity(Intent.createChooser(shareIntent, ""))
             }
         }
+    }
+
+    private fun loadAd() {
+        MobileAds.initialize(this) { initializationStatus: InitializationStatus? -> }
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
     }
 
     private fun checkPermission(): Boolean {

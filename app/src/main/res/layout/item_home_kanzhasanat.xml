@@ -22,62 +22,98 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_180sdp"
+            android:layout_height="@dimen/_190sdp"
             android:background="@color/card_color">
 
             <TextView
-                android:id="@+id/text_kanz_hasanat"
+                android:id="@+id/hadith_text_kanzhasanat"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:padding="@dimen/_16sdp"
-                android:text="@{kanzHasanatModel.text}"
-                android:textColor="#2f3137"
-                android:textSize="@dimen/_15sdp"
+                android:text="@{kanzHasanatModel.hadith}"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_14sdp"
+                android:fontFamily="@font/almarai_bold"
+                android:lineSpacingExtra="10sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/author_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:layout_constraintVertical_bias="1.0"
                 tools:text="قال رسول الله صلى الله عليه وسلم  من قال سبحان الله العظيم وبحمده غرست له نخلة في الجنة." />
+
+            <TextView
+                android:id="@+id/author_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:elevation="@dimen/_7sdp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/_3ssp"
+                android:maxLength="15"
+                android:text="@{kanzHasanatModel.authorName}"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_10ssp"
+                android:fontFamily="@font/almarai_bold"
+                android:textColor="@color/black_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="رواه مسلم" />
+
+            <Button
+                android:id="@+id/share_button_article_list"
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:background="@drawable/ic_baseline_share_24"
+                android:layout_marginBottom="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/share_button_onClick"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="@+id/share_button_onClick" />
+
+            <ImageButton
+                android:id="@+id/save_button_article_list"
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_11sdp"
+                android:background="@drawable/copy"
+                app:layout_constraintBottom_toBottomOf="@+id/copy_button_onClick"
+                app:layout_constraintEnd_toStartOf="@+id/share_button_onClick"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- onCLick buttons-->
+            <Button
+                android:id="@+id/share_button_onClick"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/copy_button_onClick" />
+
+            <Button
+
+                android:id="@+id/copy_button_onClick"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_9sdp"
                 android:elevation="@dimen/_7sdp"
-                android:shadowColor="#E1FF0000"
+                android:fontFamily="@font/almarai_bold"
                 android:text="كنز الحسنات"
-                android:textColor="#000000"
-                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/blue_text"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/button_share_other_images"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="16dp"
-                android:text="مشاركة"
-                android:textColor="#5476aa"
-                android:textStyle="bold"
-                android:textSize="@dimen/_11ssp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView" />
-
-            <View
-                android:id="@+id/shape"
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/black_overlay"
-                app:layout_constraintBottom_toTopOf="@+id/text_kanz_hasanat" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

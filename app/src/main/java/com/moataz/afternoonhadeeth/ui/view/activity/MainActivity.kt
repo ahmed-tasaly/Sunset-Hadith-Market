@@ -2,23 +2,33 @@ package com.moataz.afternoonhadeeth.ui.view.activity
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.MenuItem
+import android.view.View.VISIBLE
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.ads.nativetemplates.NativeTemplateStyle
+import com.google.android.gms.ads.AdLoader
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.initialization.InitializationStatus
+import com.google.android.gms.ads.nativead.NativeAd
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
 import com.moataz.afternoonhadeeth.ui.jetpack.notification.NotificationAfternoon
 import com.moataz.afternoonhadeeth.ui.view.fragment.*
-import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
+import com.moataz.afternoonhadeeth.ui.view.fragment.ImagesFragment
 import com.moataz.afternoonhadeeth.utils.helper.Views
+import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 
 class MainActivity : AppCompatActivity() {
 
     private val homeFragment: Fragment = HomeFragment()
-    private val searchFragment: Fragment = SearchFragment()
     private val hadithFragment: Fragment = HadithFragment()
     private val imageFragment: Fragment = ImagesFragment()
     private val premiumFragment: Fragment = PremiumFragment()
@@ -34,8 +44,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initializeView()
         setupNotification()
+        setAdMob()
         initializeBottomNavigation()
     }
+    private fun setAdMob() {
+            MobileAds.initialize(
+                this
+            ) { initializationStatus: InitializationStatus? -> }
+            val adRequest = AdRequest.Builder().build()
+            binding.adView.loadAd(adRequest)
+    }
+
 
     private fun initializeView() {
         Views.intiViews(window)
@@ -48,10 +67,9 @@ class MainActivity : AppCompatActivity() {
     private fun initializeBottomNavigation() {
         // first one transaction to add each Fragment
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment_layout, premiumFragment, "5").hide(premiumFragment)
-        fragmentTransaction.add(R.id.fragment_layout, imageFragment, "4").hide(imageFragment)
-        fragmentTransaction.add(R.id.fragment_layout, hadithFragment, "3").hide(hadithFragment)
-        fragmentTransaction.add(R.id.fragment_layout, searchFragment, "2").hide(searchFragment)
+        fragmentTransaction.add(R.id.fragment_layout, premiumFragment, "4").hide(premiumFragment)
+        fragmentTransaction.add(R.id.fragment_layout, imageFragment, "3").hide(imageFragment)
+        fragmentTransaction.add(R.id.fragment_layout, hadithFragment, "2").hide(hadithFragment)
         fragmentTransaction.add(R.id.fragment_layout, homeFragment, "1")
         // commit once! to finish the transaction
         fragmentTransaction.commit()
@@ -67,11 +85,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.home_item -> {
                     localFragmentTransaction.hide(mainFragment).show(homeFragment).commit()
                     mainFragment = homeFragment
-                    return@setOnItemSelectedListener true
-                }
-                R.id.search_item -> {
-                    localFragmentTransaction.hide(mainFragment).show(searchFragment).commit()
-                    mainFragment = searchFragment
                     return@setOnItemSelectedListener true
                 }
                 R.id.videos_item -> {

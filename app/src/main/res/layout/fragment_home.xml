@@ -20,20 +20,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/support"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:background="@drawable/heart" />
-
-            <Button
                 android:id="@+id/instagram"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_23sdp"
                 android:layout_gravity="left"
                 android:layout_marginLeft="@dimen/_16sdp"
-                android:background="@drawable/test" />
+                android:background="@drawable/messenger" />
 
             <TextView
                 android:id="@+id/app_title"

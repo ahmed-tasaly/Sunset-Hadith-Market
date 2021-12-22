@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,10 +14,11 @@ import com.moataz.afternoonhadeeth.data.model.image.Images
 import com.moataz.afternoonhadeeth.databinding.FragmentImagesBinding
 import com.moataz.afternoonhadeeth.ui.adapter.ImagesAdapter
 import com.moataz.afternoonhadeeth.ui.viewmodel.ImagesViewModel
+import com.moataz.afternoonhadeeth.utils.helper.Intents
+import com.moataz.afternoonhadeeth.utils.helper.URL_Instagram_Account
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
-import java.util.*
 
 class ImagesFragment : Fragment(), IOnBackPressed {
 
@@ -30,15 +32,22 @@ class ImagesFragment : Fragment(), IOnBackPressed {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentImagesBinding.inflate(layoutInflater)
+        setOnClickToolbarIcons()
         initializeAdapter()
         initializeViewModel()
         getTopList()
         return binding.root
     }
 
+    private fun setOnClickToolbarIcons() {
+        binding.instagram.setOnClickListener {
+            Intents.openUrl((requireActivity() as AppCompatActivity), URL_Instagram_Account)
+        }
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     private fun initializeAdapter() {
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.adapter = adapter
         // disable the touch on items when scroll the recyclerview

@@ -9,7 +9,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.data.source.Hadith
+import com.moataz.afternoonhadeeth.data.source.Hadiths
 import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import java.util.*
 
@@ -25,7 +25,7 @@ class NotificationAfternoon: BroadcastReceiver() {
         val builder = Notification.Builder(context)
         val notification: Notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle("كنز اليوم")
-            .setContentText(Hadith().firstHadith())
+            .setContentText(Hadiths().firstHadith())
             .setSmallIcon(R.drawable.ic_notification)
             .setLights(Notification.FLAG_SHOW_LIGHTS, 1000, 500)
             .setDefaults(NotificationCompat.DEFAULT_ALL)

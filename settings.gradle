@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "AfterNoon Hadeeth"
 include ':app'
+include ':nativetemplates'

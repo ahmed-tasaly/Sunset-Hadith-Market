@@ -15,4 +15,8 @@
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
     <color name="yellow">#FFD555</color>
+    <color name="black_images_activity">#0E0E0E</color>
+
+    <color name="black_text">#2f3137</color>
+    <color name="blue_text">#5476aa</color>
 </resources>

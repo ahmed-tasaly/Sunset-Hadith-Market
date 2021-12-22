@@ -73,7 +73,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     // Add the Firebase SDK
     implementation platform('com.google.firebase:firebase-bom:28.2.0')
-    implementation 'com.google.firebase:firebase-analytics:20.0.0'
+    implementation 'com.google.firebase:firebase-analytics:20.0.1'
     implementation 'com.google.firebase:firebase-crashlytics'
     // firebase message
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
@@ -97,4 +97,8 @@ dependencies {
     implementation 'com.ablanco.zoomy:zoomy:1.1.0'
     // animation library
     implementation "com.airbnb.android:lottie:3.6.0"
+    // ViewPager with RTL support
+    implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
+    //adding native templates
+    implementation project(':nativetemplates')
 }

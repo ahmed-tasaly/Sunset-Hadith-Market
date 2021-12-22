@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_color">
 
     <View
-        android:id="@+id/view_one"
+        android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_36sdp"
+        android:layout_height="@dimen/_212sdp"
         android:background="#FFF1DA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+    </View>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="#FFF1DA"
+        android:elevation="@dimen/_1sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-    </View>
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_210sdp"
-        android:background="#FFF1DA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_one">
-    </View>
+        <Button
+            android:id="@+id/support"
+            android:layout_width="@dimen/_19sdp"
+            android:layout_height="@dimen/_19sdp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:background="@drawable/heart" />
 
-    <TextView
-        android:id="@+id/app_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_14sdp"
-        android:fontFamily="@font/aref"
-        android:text="شارك التطبيق"
-        android:textColor="#000000"
-        android:textSize="@dimen/_18ssp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aref"
+            android:text="شارك التطبيق"
+            android:textColor="#000000"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.appcompat.widget.Toolbar>
+
 
     <TextView
         android:id="@+id/top_text"
@@ -127,8 +135,8 @@
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
-        android:elevation="@dimen/_2sdp"
         android:background="@drawable/rounder_speak_button"
+        android:elevation="@dimen/_2sdp"
         android:text="تابعنا على الفيسبوك"
         android:textColor="@color/bnv_tab_item_foreground"
         android:textSize="@dimen/_13ssp"
@@ -142,9 +150,9 @@
         android:layout_width="307dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
-        android:elevation="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/rounder_speak_button"
+        android:elevation="@dimen/_2sdp"
         android:text="إنضم عبر التليجرام"
         android:textColor="@color/bnv_tab_item_foreground"
         android:textSize="@dimen/_13ssp"
@@ -159,32 +167,17 @@
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/rounder_speak_button"
         android:elevation="@dimen/_2sdp"
         android:text="تابعنا على تويتر"
         android:textColor="@color/bnv_tab_item_foreground"
         android:textSize="@dimen/_13ssp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/join_us_in_telegram_button"
         app:layout_constraintVertical_bias="0.0" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/white"
-        android:elevation="@dimen/_2sdp"
-        app:adSize="FULL_BANNER"
-        app:adUnitId="ca-app-pub-9745694814821087/6408102193"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--     <androidx.appcompat.widget.Toolbar

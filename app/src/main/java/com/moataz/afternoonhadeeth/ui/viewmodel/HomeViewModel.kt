@@ -1,13 +1,13 @@
 package com.moataz.afternoonhadeeth.ui.viewmodel
 
-import androidx.lifecycle.ViewModel
-import io.reactivex.disposables.CompositeDisposable
-import androidx.lifecycle.MutableLiveData
-import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
 import com.moataz.afternoonhadeeth.data.repository.Repository
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class HomeViewModel : ViewModel() {
