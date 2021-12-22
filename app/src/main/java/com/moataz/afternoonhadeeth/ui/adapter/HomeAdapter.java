@@ -356,10 +356,14 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         void setOnClick(Live live) {
-            itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), YoutubePlayerActivity.class);
-                intent.putExtra("url", live.getUrl());
-                itemView.getContext().startActivity(intent);
+            itemHomeLiveBinding.copyButtonOnClick.setOnClickListener(v -> {
+                textAction.copyText(Objects.requireNonNull(live.getText()), itemView.getContext());
+                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(live.getText()), itemView.getContext());
+            });
+
+            itemHomeLiveBinding.shareButtonOnClick.setOnClickListener(v -> {
+                Intents.INSTANCE.copyText(Objects.requireNonNull(live.getText()), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(live.getText()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ");
             });
         }
     }
