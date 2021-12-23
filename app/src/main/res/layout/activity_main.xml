@@ -24,7 +24,7 @@
         android:background="@color/main_color"
         android:elevation="@dimen/_2sdp"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-8872798649235309/3153131626"
+        app:adUnitId="ca-app-pub-8872798649235309/9218317849"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

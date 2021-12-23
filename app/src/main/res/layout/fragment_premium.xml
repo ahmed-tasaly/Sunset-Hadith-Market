@@ -12,7 +12,8 @@
         android:background="#FFF1DA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"></View>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+    </View>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -59,8 +60,8 @@
         android:id="@+id/top_text"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
         android:elevation="@dimen/_2sdp"
         android:fontFamily="@font/almarai_bold"
         android:text="خير الناس .. أنفعهم للناس"
@@ -108,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/_3sdp"
         android:elevation="@dimen/_2sdp"
         android:fontFamily="@font/almarai_bold"
         android:text="وشارك أحاديث وسيرة النبي صلى الله عليه وسلم"
@@ -124,9 +125,9 @@
     <Button
         android:id="@+id/share_app_button"
         android:layout_width="307dp"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/_47sdp"
         android:layout_gravity="center"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="@dimen/_40sdp"
         android:background="@drawable/rounder_speak_button"
         android:elevation="@dimen/_20sdp"
         android:text="نسخ الرابط للمشاركة"
@@ -140,7 +141,7 @@
     <Button
         android:id="@+id/follow_us_on_facebook_button"
         android:layout_width="307dp"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/_47sdp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/rounder_speak_button"
@@ -156,7 +157,7 @@
     <Button
         android:id="@+id/join_us_in_telegram_button"
         android:layout_width="307dp"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/_47sdp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/rounder_speak_button"
@@ -172,7 +173,7 @@
     <Button
         android:id="@+id/follow_us_on_twitter_button"
         android:layout_width="307dp"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/_47sdp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/rounder_speak_button"
