@@ -17,6 +17,8 @@ import com.moataz.afternoonhadeeth.ui.jetpack.notification.NotificationAfternoon
 import com.moataz.afternoonhadeeth.ui.view.fragment.*
 import com.moataz.afternoonhadeeth.utils.helper.Views
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
+import com.suddenh4x.ratingdialog.AppRating
+import com.suddenh4x.ratingdialog.preferences.RatingThreshold
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         initializeView()
         setupNotification()
         setAdMob()
+        showRating()
         initializeBottomNavigation()
     }
 
@@ -47,9 +50,21 @@ class MainActivity : AppCompatActivity() {
         binding.adView.loadAd(adRequest)
     }
 
+    private fun showRating() {
+        AppRating.Builder(this)
+            .useGoogleInAppReview()
+            .setMinimumLaunchTimes(5)
+            .setMinimumDays(7)
+            .setMinimumLaunchTimesToShowAgain(50)
+            .setMinimumDaysToShowAgain(0)
+            .setRatingThreshold(RatingThreshold.FOUR)
+            .showIfMeetsConditions()
+    }
+
 
     private fun initializeView() {
         Views.intiViews(window)
+        window.navigationBarColor = resources.getColor(R.color.card_color);
     }
 
     private fun setupNotification() {

@@ -99,4 +99,7 @@ dependencies {
     implementation 'com.airbnb.android:lottie:4.2.2'
     // ViewPager with RTL support
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
+    // extensions library for Play Core:
+    implementation 'com.suddenh4x.ratingdialog:awesome-app-rating:2.4.0'
+
 }

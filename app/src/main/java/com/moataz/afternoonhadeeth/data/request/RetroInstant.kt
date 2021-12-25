@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetroInstant {
 
-    private const val BASE_URL = "https://moatazbadawy.github.io/DataHadith/"
+    private const val BASE_URL = "https://sunsethadithdatabocetforourandroidappishere.s3.us-east-2.amazonaws.com/"
     private var retrofit: Retrofit? = null
 
     fun getRetroInstance(): APIService {

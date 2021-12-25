@@ -3,7 +3,7 @@
     <item android:drawable="@color/main_color" />
     <item android:drawable="@drawable/splash_text"
         android:gravity="bottom"
-        android:bottom="@dimen/_25sdp"
+        android:bottom="@dimen/_45sdp"
         android:left="@dimen/_50sdp"
         android:right="@dimen/_50sdp"/>
 </layer-list>

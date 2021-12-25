@@ -2,6 +2,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_images_activity">
@@ -20,13 +21,22 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <Button
-        android:id="@+id/button_back_other_images"
+        android:id="@+id/button_back_other_images_icon"
         android:layout_width="@dimen/_22sdp"
         android:layout_height="@dimen/_22sdp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/_24sdp"
         android:layout_marginEnd="@dimen/_12sdp"
         android:background="@drawable/ic_back_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_back_other_images"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_65sdp"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/_2sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,13 +52,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_share_other_images"
-        android:layout_width="@dimen/_21sdp"
-        android:layout_height="@dimen/_21sdp"
+        android:id="@+id/button_share_other_images_icon"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_24sdp"
         android:background="@drawable/ic_share"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_share_other_images"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_65sdp"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/_2sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

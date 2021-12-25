@@ -74,9 +74,9 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="@dimen/_16sdp"
-                android:layout_height="@dimen/_16sdp"
-                android:layout_marginTop="16dp"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_11sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
                 android:src="@drawable/reset"
                 app:layout_constraintEnd_toEndOf="parent"
