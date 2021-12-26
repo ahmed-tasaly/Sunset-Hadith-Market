@@ -44,7 +44,7 @@ class HadithFragment : Fragment(), IOnBackPressed {
     }
 
     private fun setOnClickToolbarIcons() {
-        binding.twitter.setOnClickListener {
+        binding.twitterTest.setOnClickListener {
             Intents.openUrl((requireActivity() as AppCompatActivity), URL_Twitter_Account)
         }
     }
