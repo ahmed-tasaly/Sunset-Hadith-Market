@@ -9,6 +9,7 @@ import com.moataz.afternoonhadeeth.utils.status.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 class ImagesViewModel : ViewModel() {
     private val disposables = CompositeDisposable()

@@ -26,6 +26,12 @@ class ImagesFragment : Fragment(), IOnBackPressed {
     private var viewModel = ImagesViewModel()
     private lateinit var binding: FragmentImagesBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initializeViewModel()
+        getTopList()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,8 +40,6 @@ class ImagesFragment : Fragment(), IOnBackPressed {
         binding = FragmentImagesBinding.inflate(layoutInflater)
         setOnClickToolbarIcons()
         initializeAdapter()
-        initializeViewModel()
-        getTopList()
         return binding.root
     }
 

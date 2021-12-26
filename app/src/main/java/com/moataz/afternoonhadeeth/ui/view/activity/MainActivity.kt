@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
             }
-            false
+            true
         }
     }
 

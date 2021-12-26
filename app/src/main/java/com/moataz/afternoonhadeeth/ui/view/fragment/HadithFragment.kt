@@ -1,10 +1,10 @@
 package com.moataz.afternoonhadeeth.ui.view.fragment
 
 import android.annotation.SuppressLint
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,7 +15,6 @@ import com.moataz.afternoonhadeeth.databinding.FragmentHadithBinding
 import com.moataz.afternoonhadeeth.ui.adapter.HadithAdapter
 import com.moataz.afternoonhadeeth.ui.viewmodel.HadithViewModel
 import com.moataz.afternoonhadeeth.utils.helper.Intents
-import com.moataz.afternoonhadeeth.utils.helper.URL_Instagram_Account
 import com.moataz.afternoonhadeeth.utils.helper.URL_Twitter_Account
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
@@ -27,6 +26,12 @@ class HadithFragment : Fragment(), IOnBackPressed {
     private var viewModel = HadithViewModel()
     private lateinit var binding: FragmentHadithBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initializeViewModel()
+        getTopList()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,8 +40,6 @@ class HadithFragment : Fragment(), IOnBackPressed {
         binding = FragmentHadithBinding.inflate(layoutInflater)
         setOnClickToolbarIcons()
         initializeAdapter()
-        initializeViewModel()
-        getTopList()
         return binding.root
     }
 

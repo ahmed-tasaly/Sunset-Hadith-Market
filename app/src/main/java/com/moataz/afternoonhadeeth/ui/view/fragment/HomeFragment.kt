@@ -25,6 +25,12 @@ class HomeFragment : Fragment(), IOnBackPressed {
     private var viewModel = HomeViewModel()
     private lateinit var binding: FragmentHomeBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initializeViewModel()
+        getTopList()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,8 +39,6 @@ class HomeFragment : Fragment(), IOnBackPressed {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         setOnClickToolbarIcons()
         initializeAdapter()
-        initializeViewModel()
-        getTopList()
         return binding.root
     }
 
