@@ -10,10 +10,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
-import com.moataz.afternoonhadeeth.data.model.home.blocks.Blocks;
 import com.moataz.afternoonhadeeth.data.model.home.Counter;
 import com.moataz.afternoonhadeeth.data.model.home.DailyImage;
-import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList;
 import com.moataz.afternoonhadeeth.data.model.home.FirstItem;
 import com.moataz.afternoonhadeeth.data.model.home.HomeResponse;
 import com.moataz.afternoonhadeeth.data.model.home.KanzHasanat;
@@ -21,7 +19,8 @@ import com.moataz.afternoonhadeeth.data.model.home.Live;
 import com.moataz.afternoonhadeeth.data.model.home.SaheehBukhari;
 import com.moataz.afternoonhadeeth.data.model.home.SaheehMuslim;
 import com.moataz.afternoonhadeeth.data.model.home.TahzeebMuslim;
-import com.moataz.afternoonhadeeth.data.source.Hadiths;
+import com.moataz.afternoonhadeeth.data.model.home.blocks.Blocks;
+import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeBlocksBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeCounterBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeDailyimageBinding;
@@ -39,7 +38,9 @@ import com.moataz.afternoonhadeeth.utils.helper.Actions;
 import com.moataz.afternoonhadeeth.utils.helper.Intents;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -159,7 +160,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         } else if (getItemViewType(position) == R.id.hadith_text_kanzhasanat) {
             KanzHasanat kanzHasanat = items.getKanzHasanat().get(position - (items.getFirstItem().size() + items.getBlocks().size() + items.getCounter().size()));
-            ((KanzHasanatViewHolder) holder).itemHomeKanzhasanatBinding.setKanzHasanatModel(kanzHasanat);
+            ((KanzHasanatViewHolder) holder).bind(items.getKanzHasanat());
             ((KanzHasanatViewHolder) holder).setOnClick(kanzHasanat);
 
         } else if (getItemViewType(position) == R.id.text_tahzeeb_muslim) {
@@ -315,18 +316,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     static class KanzHasanatViewHolder extends RecyclerView.ViewHolder {
         ItemHomeKanzhasanatBinding itemHomeKanzhasanatBinding;
 
-        //TODO: هنعمل ايه هنا :(
-        ArrayList<KanzHasanat> texts;
-        Hadiths hadith = new Hadiths();
-
         KanzHasanatViewHolder(@NonNull ItemHomeKanzhasanatBinding itemView) {
             super(itemView.getRoot());
             itemHomeKanzhasanatBinding = itemView;
-
-            //TODO: المفروض هنا هنحل المشكلة
-            //TODO: اه يادنيا حطيتي على الجرح كلونيا :( ههههههه
-            itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(texts.get(hadith.rollHadith()).getHadith());
-
         }
 
         void setOnClick(KanzHasanat kanzHasanat) {
@@ -339,6 +331,14 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 Intents.INSTANCE.copyText(Objects.requireNonNull(kanzHasanat.getHadith()), itemView.getContext());
                 Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(kanzHasanat.getHadith()), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
             });
+        }
+
+        public void bind(List<KanzHasanat> kanzHasanat) {
+            itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(kanzHasanat.get(getRandomNumber(kanzHasanat.size())).getHadith());
+        }
+
+        private int getRandomNumber(int size) {
+            return new Random().nextInt(size - 1);
         }
     }
 
