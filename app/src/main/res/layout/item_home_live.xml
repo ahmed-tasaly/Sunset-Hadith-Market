@@ -14,15 +14,15 @@
         android:id="@+id/tets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginRight="@dimen/_6sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_12sdp"
         app:cardCornerRadius="@dimen/_6sdp"
-        app:cardElevation="@dimen/_2sdp">
+        app:cardElevation="@dimen/_5sdp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_190sdp"
+            android:layout_height="@dimen/_220sdp"
             android:background="@color/card_color">
 
             <TextView

@@ -18,6 +18,7 @@
             android:id="@+id/list_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
+            android:layout_marginTop="1.5dp"
             android:background="@color/card_color"
             android:padding="1.5dp"
             android:scaleType="centerCrop"

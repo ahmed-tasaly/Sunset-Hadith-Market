@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.moataz.afternoonhadeeth">
+    package="com.moataz.afternoonhadeeth" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -15,6 +15,12 @@
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -22,13 +28,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AfterNoonHadeeth">
-
+        android:theme="@style/Theme.AfterNoonHadeeth" >
+        <activity
+            android:name=".ui.view.activity.InfoBlocksActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.view.activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,30 +44,27 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.view.activity.MainOfflineActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.view.activity.YoutubePlayerActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape" />
         <activity
             android:name=".ui.view.activity.DisplayImageActivity"
             android:screenOrientation="portrait" />
-
-        <receiver android:name=".ui.jetpack.notification.NotificationAfternoon" />
+        <activity android:name=".ui.view.activity.PDFActivity" />
 
         <receiver
             android:name=".ui.jetpack.widget.ZekrWidget"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
                 <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="AUTO_UPDATE" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.DATE_CHANGED" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.TIME_SET" />
             </intent-filter>
 
@@ -67,15 +72,17 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/zekr_widget_info" />
         </receiver>
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8872798649235309~8048723949" />
+        <receiver android:name=".ui.jetpack.notification.MorningNotification" />
+        <receiver android:name=".ui.jetpack.notification.ZohorNotification" />
+        <receiver android:name=".ui.jetpack.notification.AfternoonNotification" />
+        <receiver android:name=".ui.jetpack.notification.NightNotification" />
+        <receiver
+            android:name=".ui.jetpack.notification.BootReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
-    <queries>
-        <intent>
-            <action android:name="com.google.android.youtube.api.service.START" />
-        </intent>
-    </queries>
 </manifest>

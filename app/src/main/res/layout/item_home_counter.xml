@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="counterModel"
             type="com.moataz.afternoonhadeeth.data.model.home.Counter" />
@@ -14,16 +13,18 @@
         android:id="@+id/counter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginRight="@dimen/_6sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_12sdp"
         app:cardCornerRadius="@dimen/_6sdp"
-        app:cardElevation="@dimen/_2sdp">
+        app:cardElevation="@dimen/_5sdp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_220sdp"
-            android:background="@color/card_color">
+            android:background="@color/card_color"
+            app:layoutDescription="@xml/item_home_counter_xml_constraintlayout_scene">
 
             <TextView
                 android:id="@+id/hadith_text_counter"
@@ -43,7 +44,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
                 app:layout_constraintVertical_bias="0.61"
-                tools:text="اللهم صلي وسلم\n وبارك على نبينا محمد" />
+                tools:text="اللهم صل وسلم\n وبارك على نبينا محمد" />
 
             <TextView
                 android:id="@+id/textView"
@@ -66,7 +67,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/_12sdp"
                 android:background="@drawable/rounded_save_image"
-                android:text="0"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -89,6 +90,6 @@
                 android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.cardview.widget.CardView>
 </layout>

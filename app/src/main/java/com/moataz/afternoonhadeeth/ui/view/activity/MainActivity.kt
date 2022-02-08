@@ -1,33 +1,29 @@
 package com.moataz.afternoonhadeeth.ui.view.activity
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.view.MenuItem
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.initialization.InitializationStatus
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
+import com.google.android.play.core.review.ReviewManagerFactory
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
-import com.moataz.afternoonhadeeth.ui.jetpack.notification.NotificationAfternoon
-import com.moataz.afternoonhadeeth.ui.view.fragment.*
+import com.moataz.afternoonhadeeth.ui.jetpack.notification.AfternoonNotification
+import com.moataz.afternoonhadeeth.ui.jetpack.notification.MorningNotification
+import com.moataz.afternoonhadeeth.ui.jetpack.notification.NightNotification
+import com.moataz.afternoonhadeeth.ui.jetpack.notification.ZohorNotification
 import com.moataz.afternoonhadeeth.utils.helper.Views
-import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
-import com.suddenh4x.ratingdialog.AppRating
-import com.suddenh4x.ratingdialog.preferences.RatingThreshold
 
 class MainActivity : AppCompatActivity() {
 
-    private val homeFragment: Fragment = HomeFragment()
-    private val hadithFragment: Fragment = HadithFragment()
-    private val imageFragment: Fragment = ImagesFragment()
-    private val premiumFragment: Fragment = PremiumFragment()
-    private var mainFragment = homeFragment
-    private val fragmentManager = supportFragmentManager
     private lateinit var binding: ActivityMainBinding
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
@@ -37,99 +33,77 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initializeView()
         setupNotification()
-        setAdMob()
-        showRating()
         initializeBottomNavigation()
+        showRating()
+        inAppUpdate()
     }
-
-    private fun setAdMob() {
-        MobileAds.initialize(
-            this
-        ) { initializationStatus: InitializationStatus? -> }
-        val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
-    }
-
-    private fun showRating() {
-        AppRating.Builder(this)
-            .useGoogleInAppReview()
-            .setMinimumLaunchTimes(5)
-            .setMinimumDays(7)
-            .setMinimumLaunchTimesToShowAgain(50)
-            .setMinimumDaysToShowAgain(0)
-            .setRatingThreshold(RatingThreshold.FOUR)
-            .showIfMeetsConditions()
-    }
-
 
     private fun initializeView() {
         Views.intiViews(window)
-        window.navigationBarColor = resources.getColor(R.color.card_color);
+        window.navigationBarColor = resources.getColor(R.color.card_color)
     }
 
     private fun setupNotification() {
-        NotificationAfternoon().setupAfternoonNotification(this)
+        MorningNotification().setupMorningNotification(this)
+        ZohorNotification().setupZohorNotification(this)
+        AfternoonNotification().setupAfternoonNotification(this)
+        NightNotification().setupNightNotification(this)
     }
 
     private fun initializeBottomNavigation() {
-        // first one transaction to add each Fragment
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment_layout, premiumFragment, "4").hide(premiumFragment)
-        fragmentTransaction.add(R.id.fragment_layout, imageFragment, "3").hide(imageFragment)
-        fragmentTransaction.add(R.id.fragment_layout, hadithFragment, "2").hide(hadithFragment)
-        fragmentTransaction.add(R.id.fragment_layout, homeFragment, "1")
-        // commit once! to finish the transaction
-        fragmentTransaction.commit()
-
-        // show and hide them when click on BottomNav items
         binding.bottomNavigation.itemRippleColor =
             ColorStateList.valueOf(Color.parseColor("#FFF5E6"))
-        binding.bottomNavigation.setOnItemSelectedListener { item: MenuItem ->
-            // start a new transaction
-            val localFragmentTransaction = fragmentManager.beginTransaction()
-            localFragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-            when (item.itemId) {
-                R.id.home_item -> {
-                    localFragmentTransaction.hide(mainFragment).show(homeFragment).commit()
-                    mainFragment = homeFragment
-                    return@setOnItemSelectedListener true
-                }
-                R.id.videos_item -> {
-                    localFragmentTransaction.hide(mainFragment).show(hadithFragment).commit()
-                    mainFragment = hadithFragment
-                    return@setOnItemSelectedListener true
-                }
-                R.id.saved_item -> {
-                    localFragmentTransaction.hide(mainFragment).show(imageFragment).commit()
-                    mainFragment = imageFragment
-                    return@setOnItemSelectedListener true
-                }
-                R.id.premium_item -> {
-                    localFragmentTransaction.hide(mainFragment).show(premiumFragment).commit()
-                    mainFragment = premiumFragment
-                    return@setOnItemSelectedListener true
+
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+        val navController = navHostFragment.navController
+        binding.bottomNavigation.setupWithNavController(navController)
+    }
+
+    private fun showRating() {
+        val manager = ReviewManagerFactory.create(this)
+        manager.requestReviewFlow().addOnCompleteListener { request ->
+            if (request.isSuccessful) {
+                val reviewInfo = request.result
+                manager.launchReviewFlow(this, reviewInfo).addOnFailureListener {
+                }.addOnCompleteListener { _ ->
                 }
             }
-            true
         }
     }
 
-    private fun setHomeItemBack() {
-        binding.bottomNavigation.selectedItemId = R.id.home_item
+    private fun restart() {
+        val intent = Intent(this, MainActivity::class.java)
+        this.startActivity(intent)
+        finishAffinity()
     }
 
-    override fun onBackPressed() {
-        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_layout)
-        if (fragment !is IOnBackPressed) {
-            super.onBackPressed()
+    private fun inAppUpdate() {
+        val appUpdateManager = AppUpdateManagerFactory.create(this)
+        val appUpdateInfoTask = appUpdateManager.appUpdateInfo
+        appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                && (appUpdateInfo.clientVersionStalenessDays() ?: -1) >= 3
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+            ) {
+                appUpdateManager.startUpdateFlowForResult(
+                    appUpdateInfo,
+                    AppUpdateType.IMMEDIATE,
+                    this,
+                    0
+                )
+            }
         }
+    }
 
-        // Select the right bottom navigation when press back
-        val selectedItemId = binding.bottomNavigation.selectedItemId
-        if (R.id.home_item != selectedItemId) {
-            setHomeItemBack()
-        } else {
-            super.onBackPressed()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 0) {
+            if (resultCode != RESULT_OK) {
+                Log.e("MY_APP", "Update flow failed! Result code: $resultCode")
+                inAppUpdate()
+            }
         }
     }
 }

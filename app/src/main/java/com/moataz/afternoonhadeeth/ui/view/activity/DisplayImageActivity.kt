@@ -9,11 +9,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.ablanco.zoomy.Zoomy
-import com.bumptech.glide.Glide
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.initialization.InitializationStatus
+import coil.load
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityDisplayImagesBinding
 import com.moataz.afternoonhadeeth.utils.helper.Views.hideStatusBar
@@ -22,7 +18,7 @@ import com.moataz.afternoonhadeeth.utils.helper.Views.intiViews
 class DisplayImageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDisplayImagesBinding
-    val PERMISSION_WRITE = 0
+    private val PERMISSION_WRITE = 0
 
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +29,6 @@ class DisplayImageActivity : AppCompatActivity() {
         back()
         loadImage()
         shareImage()
-        zoomIn()
-        loadAd()
     }
 
     private fun initializeView() {
@@ -50,17 +44,10 @@ class DisplayImageActivity : AppCompatActivity() {
         val intent = intent
         if (intent.hasExtra("imageUrl")) {
             val url = intent.getStringExtra("imageUrl")
-            Glide
-                .with(this)
-                .load(url)
-                .placeholder(R.drawable.folder_loading_image)
-                .into(binding.imageDisplayOtherImages)
+            binding.imageDisplayOtherImages.load(url) {
+                placeholder(R.drawable.folder_loading_image)
+            }
         }
-    }
-
-    private fun zoomIn() {
-        val builder = Zoomy.Builder(this).target(binding.imageDisplayOtherImages)
-        builder.register()
     }
 
     private fun shareImage() {
@@ -85,12 +72,6 @@ class DisplayImageActivity : AppCompatActivity() {
                 startActivity(Intent.createChooser(shareIntent, ""))
             }
         }
-    }
-
-    private fun loadAd() {
-        MobileAds.initialize(this) { initializationStatus: InitializationStatus? -> }
-        val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
     }
 
     private fun checkPermission(): Boolean {

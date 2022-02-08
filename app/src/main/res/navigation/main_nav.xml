@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.VideosFragment"
+        android:label="fragment_videos" />
+    <fragment
+        android:id="@+id/hadithFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.HadithFragment"
+        android:label="HadithFragment" />
+    <fragment
+        android:id="@+id/imagesFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.ImagesFragment"
+        android:label="ImagesFragment" />
+    <fragment
+        android:id="@+id/premiumFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.PremiumFragment"
+        android:label="PremiumFragment" />
+</navigation>

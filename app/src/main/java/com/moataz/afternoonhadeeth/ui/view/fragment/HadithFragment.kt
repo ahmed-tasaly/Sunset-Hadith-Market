@@ -20,17 +20,11 @@ import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
-class HadithFragment : Fragment(), IOnBackPressed {
+class HadithFragment : Fragment() {
 
     private var adapter = HadithAdapter()
     private var viewModel = HadithViewModel()
     private lateinit var binding: FragmentHadithBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initializeViewModel()
-        getTopList()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +33,8 @@ class HadithFragment : Fragment(), IOnBackPressed {
     ): View {
         binding = FragmentHadithBinding.inflate(layoutInflater)
         setOnClickToolbarIcons()
+        initializeViewModel()
+        getTopList()
         initializeAdapter()
         return binding.root
     }
@@ -62,34 +58,24 @@ class HadithFragment : Fragment(), IOnBackPressed {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallHadith().observe(requireActivity(),
-            { response: Resource<List<Hadith>> ->
-                when (response.status) {
-                    Status.ERROR -> {
-                        binding.progressBar.visibility = View.GONE
-                    }
-                    Status.LOADING -> {
-                        binding.progressBar.visibility = View.VISIBLE
-                    }
-                    Status.SUCCESS -> {
-                        binding.progressBar.visibility = View.GONE
-                        adapter.setHadithList(response.data)
-                    }
+        viewModel.makeApiCallHadith().observe(requireActivity()
+        ) { response: Resource<List<Hadith>> ->
+            when (response.status) {
+                Status.ERROR -> {
+                    binding.progressBar.visibility = View.GONE
+                }
+                Status.LOADING -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                Status.SUCCESS -> {
+                    binding.progressBar.visibility = View.GONE
+                    adapter.setHadithList(response.data)
                 }
             }
-        )
+        }
     }
 
     private fun initializeViewModel() {
         viewModel = ViewModelProvider(this).get(HadithViewModel::class.java)
-    }
-
-    override fun onBackPressed(): Boolean {
-        val mainFragment = HomeFragment()
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_layout, mainFragment, "findThisFragment")
-            .addToBackStack(null)
-            .commit()
-        return true
     }
 }

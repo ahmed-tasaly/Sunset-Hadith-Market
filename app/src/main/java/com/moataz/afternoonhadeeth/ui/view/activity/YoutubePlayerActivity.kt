@@ -39,7 +39,7 @@ class YoutubePlayerActivity : YouTubeBaseActivity() {
 
     private fun playYoutubeVideo() {
         binding.youtubePlayerViewHome.initialize(
-            APIYoutubeKey.API_YOUTUBE_KEY,
+            com.moataz.afternoonhadeeth.data.api.APIYoutubeKey.API_YOUTUBE_KEY,
             object : YouTubePlayer.OnInitializedListener {
                 override fun onInitializationSuccess(
                     provider: YouTubePlayer.Provider,

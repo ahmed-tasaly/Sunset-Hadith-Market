@@ -65,4 +65,8 @@ class Hadiths {
     private fun roll(): Int {
         return (1..50).random()
     }
+
+    fun rollHadith(): Int {
+        return (0..4).random()
+    }
 }

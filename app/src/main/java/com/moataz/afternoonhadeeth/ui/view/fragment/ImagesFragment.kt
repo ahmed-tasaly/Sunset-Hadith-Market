@@ -2,6 +2,7 @@ package com.moataz.afternoonhadeeth.ui.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,17 +21,11 @@ import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
-class ImagesFragment : Fragment(), IOnBackPressed {
+class ImagesFragment : Fragment() {
 
     private var adapter = ImagesAdapter()
     private var viewModel = ImagesViewModel()
     private lateinit var binding: FragmentImagesBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initializeViewModel()
-        getTopList()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +34,8 @@ class ImagesFragment : Fragment(), IOnBackPressed {
     ): View {
         binding = FragmentImagesBinding.inflate(layoutInflater)
         setOnClickToolbarIcons()
+        initializeViewModel()
+        getTopList()
         initializeAdapter()
         return binding.root
     }
@@ -82,14 +79,5 @@ class ImagesFragment : Fragment(), IOnBackPressed {
 
     private fun initializeViewModel() {
         viewModel = ViewModelProvider(this).get(ImagesViewModel::class.java)
-    }
-
-    override fun onBackPressed(): Boolean {
-        val mainFragment = HomeFragment()
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_layout, mainFragment, "findThisFragment")
-            .addToBackStack(null)
-            .commit()
-        return true
     }
 }

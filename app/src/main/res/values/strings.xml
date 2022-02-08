@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">حديث الغروب</string>
+    <string name="app_name">حديث الغروب - لسيرة النبي ﷺ</string>
     <string name="play_console_license">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkfkKFf1McC23mL2Qb4Cu8Qywtbg4yZ0E6golgO/7IR5CM8Tb/pNv7jpZZ/hUAB7wiTBfWtM/TmwnFi2Z8VB4SqT59Ok89ML0hZ5+X2RkgH4P686zjyadKu+ydGMLj4CUZz9e4hOJK8j99SYrRLEvNmuvcKlkmiBp21gUnZLvWyXRwo3Pms+xGxS2EKAcwH196lMdWTMfZoDWq/f/tqlpnv8L41lu450d/Ox9JY8O4Lwpu5qHe3cJNyX7YNU1VTkBxvbbUJNlI08kud391EBBkVBaDU25RaZZG5FF+m+0X6nduv74SbWKUyrpvbBh3BLD0KBPEG7oGYEbyJFYVq6F2QIDAQAB</string>
     <string name="premium">delete_ads</string>
 
@@ -8,7 +8,7 @@
     <string name="menu_search">فيديوهات</string>
     <string name="menu_videos">أحاديث</string>
     <string name="menu_saved">صور</string>
-    <string name="menu_premium">شارك</string>
+    <string name="menu_premium">المزيد</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -25,4 +25,5 @@
     <string name="featured_images_tab">مميز</string>
     <string name="new_images_tab">جديد</string>
     <string name="all_images_tab">الكل</string>
+    <string name="about_item">حول</string>
 </resources>

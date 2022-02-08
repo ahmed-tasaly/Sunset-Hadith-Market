@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
-import com.moataz.afternoonhadeeth.data.repository.Repository
+import com.moataz.afternoonhadeeth.data.repository.ApiClient
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -13,7 +13,7 @@ import io.reactivex.schedulers.Schedulers
 class HomeViewModel : ViewModel() {
     private val disposables = CompositeDisposable()
     private val mediumObjectsList = MutableLiveData<Resource<HomeResponse>>()
-    private val articlesRepository = Repository()
+    private val articlesRepository = ApiClient()
 
     fun makeApiCallHome(): LiveData<Resource<HomeResponse>> {
         disposables.add(articlesRepository.executeHomeApi()
@@ -21,7 +21,7 @@ class HomeViewModel : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { result: HomeResponse? -> mediumObjectsList.postValue(Resource.success(result)) }
-            ) { throwable: Throwable? -> mediumObjectsList.postValue(Resource.error("error")) })
+            ) { mediumObjectsList.postValue(Resource.error("error")) })
         return mediumObjectsList
     }
 

@@ -10,12 +10,10 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
-import com.moataz.afternoonhadeeth.data.model.image.Images;
 import com.moataz.afternoonhadeeth.databinding.ListImagesBinding;
+import com.moataz.afternoonhadeeth.data.model.image.Images;
 import com.moataz.afternoonhadeeth.ui.view.activity.DisplayImageActivity;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

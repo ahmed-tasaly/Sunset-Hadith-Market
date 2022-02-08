@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        tools:context=".ui.view.fragment.ImagesFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:background="@color/main_color"
+            android:elevation="@dimen/_2sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/instagram_icon"
+                android:layout_width="@dimen/_19sdp"
+                android:layout_height="@dimen/_19sdp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:background="@drawable/instagram" />
+
+            <TextView
+                android:id="@+id/top_text"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:elevation="@dimen/_2sdp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="المكتبة"
+                android:textColor="@color/bnv_tab_item_foreground"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:id="@+id/instagram"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:elevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+        </View>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="199dp"
+            android:layout_height="302dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/nabawe_book_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_text" />
+
+        <TextView
+            android:id="@+id/book_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:elevation="@dimen/_2sdp"
+            android:fontFamily="@font/almarai_bold"
+            android:text="الرحيق المختوم"
+            android:textColor="@color/bnv_tab_item_foreground"
+            android:textSize="@dimen/_22ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <Button
+            android:id="@+id/buttonLib"
+            android:layout_width="206dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/rounder_speak_button"
+            android:elevation="@dimen/_20sdp"
+            android:text="قراءة الكتاب"
+            android:textColor="@color/bnv_tab_item_foreground"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            tools:layout_editor_absoluteX="102dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

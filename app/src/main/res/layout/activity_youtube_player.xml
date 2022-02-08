@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.view.activity.YoutubePlayerActivity">
+    tools:context=".online.ui.view.activity.YoutubePlayerActivity">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_player_view_home"

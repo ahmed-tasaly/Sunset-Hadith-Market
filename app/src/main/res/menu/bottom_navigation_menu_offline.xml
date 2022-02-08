@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_item_offline"
+        android:icon="@drawable/selector_home"
+        android:title="@string/menu_home" />
+
+    <item
+        android:id="@+id/hadith_item_library_offline"
+        android:icon="@drawable/books"
+        android:title="المكتبة" />
+
+    <item
+        android:id="@+id/hadith_item_offline"
+        android:icon="@drawable/selector_ebadat"
+        android:title="@string/menu_videos" />
+
+    <item
+        android:id="@+id/about_item_offline"
+        android:icon="@drawable/selector_premium"
+        android:title="@string/about_item" />
+
+</menu>

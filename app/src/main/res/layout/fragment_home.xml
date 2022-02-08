@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_color"
-        tools:context=".ui.view.fragment.HomeFragment">
+        tools:context=".online.ui.view.fragment.HomeFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/aref"
-                android:text="@string/app_name"
+                android:text="حديث الغروب"
                 android:textColor="#000000"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/toolbar"
@@ -42,13 +42,15 @@
 
         <View
             android:id="@+id/instagram"
-            android:layout_width="@dimen/_55sdp"
-            android:layout_height="0dp"
+            android:layout_width="62dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="4dp"
             android:background="@android:color/transparent"
             android:elevation="@dimen/_2sdp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
         </View>
 
         <androidx.recyclerview.widget.RecyclerView
