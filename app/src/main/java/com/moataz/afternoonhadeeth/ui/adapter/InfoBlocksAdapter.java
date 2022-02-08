@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
 import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList;
+import com.moataz.afternoonhadeeth.databinding.ListDataBlocksBinding;
 
 import java.util.List;
 
@@ -51,7 +52,6 @@ public class InfoBlocksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     static class DisplayListFromBlocksViewHolder extends RecyclerView.ViewHolder {
         ListDataBlocksBinding listDataBlocksBinding;
-        DataList dataList;
 
         DisplayListFromBlocksViewHolder(@NonNull ListDataBlocksBinding itemView) {
             super(itemView.getRoot());

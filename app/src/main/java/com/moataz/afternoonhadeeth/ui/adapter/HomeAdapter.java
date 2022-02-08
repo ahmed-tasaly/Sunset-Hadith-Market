@@ -22,6 +22,15 @@ import com.moataz.afternoonhadeeth.data.model.home.SaheehBukhari;
 import com.moataz.afternoonhadeeth.data.model.home.SaheehMuslim;
 import com.moataz.afternoonhadeeth.data.model.home.TahzeebMuslim;
 import com.moataz.afternoonhadeeth.data.source.Hadiths;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeBlocksBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeCounterBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeDailyimageBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeFirstitemBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeKanzhasanatBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeLiveBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeSaheehbukhariBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeSaheehmuslimBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeTahzeebmuslimBinding;
 import com.moataz.afternoonhadeeth.ui.view.activity.DisplayImageActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.InfoBlocksActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.PDFActivity;
@@ -305,12 +314,17 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     static class KanzHasanatViewHolder extends RecyclerView.ViewHolder {
         ItemHomeKanzhasanatBinding itemHomeKanzhasanatBinding;
+
+        //TODO: هنعمل ايه هنا :(
         ArrayList<KanzHasanat> texts;
         Hadiths hadith = new Hadiths();
 
         KanzHasanatViewHolder(@NonNull ItemHomeKanzhasanatBinding itemView) {
             super(itemView.getRoot());
             itemHomeKanzhasanatBinding = itemView;
+
+            //TODO: المفروض هنا هنحل المشكلة
+            //TODO: اه يادنيا حطيتي على الجرح كلونيا :( ههههههه
             itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(texts.get(hadith.rollHadith()).getHadith());
 
         }
