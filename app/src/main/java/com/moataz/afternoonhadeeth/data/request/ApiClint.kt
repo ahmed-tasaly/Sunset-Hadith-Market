@@ -11,7 +11,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-object NetworkLayer {
+object ApiClint {
 
     private const val BASE_URL = "https://moatazbadawy.github.io/DataHadith/"
     private val moshi: Moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
@@ -23,8 +23,8 @@ object NetworkLayer {
         val builder = OkHttpClient()
             .newBuilder()
             .addInterceptor(interceptor)
-            .callTimeout(3, TimeUnit.SECONDS)
-            .connectTimeout(3, TimeUnit.SECONDS)
+            .callTimeout(1, TimeUnit.MINUTES)
+            .connectTimeout(1, TimeUnit.MINUTES)
         return builder.build()
     }
 

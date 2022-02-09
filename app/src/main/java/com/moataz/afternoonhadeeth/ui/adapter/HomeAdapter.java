@@ -162,7 +162,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((BlocksViewHolder) holder).setOnClick(blocks);
 
         } else if (getItemViewType(position) == R.id.hadith_text_counter) {
-            Counter counter = items.getCounter().get(position - (items.getFirstItem().size() + items.getBlocks().size()));
+            Counter counter = items.getCounter().get(getRandomNumber(items.getCounter().size()));
             ((CounterViewHolder) holder).itemHomeCounterBinding.setCounterModel(counter);
             ((CounterViewHolder) holder).setOnClick();
 
