@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.121875" />
+        <entry key="..\:/Users/USER/StudioProjects/Sunset-Hadith-Market/app/src/main/res/layout/item_home_firstitem.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/USER/StudioProjects/Sunset-Hadith-Market/app/src/main/res/layout/item_home_kanzhasanat.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-anydpi-v24/ic_notification.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-anydpi-v24/live_icon.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-hdpi/background_splash.xml" value="0.37135416666666665" />
@@ -147,7 +149,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
