@@ -34,7 +34,7 @@ import com.moataz.afternoonhadeeth.ui.view.activity.DisplayImageActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.InfoBlocksActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.PDFActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
-import com.moataz.afternoonhadeeth.utils.helper.Actions;
+import com.moataz.afternoonhadeeth.utils.helper.CounterActions;
 import com.moataz.afternoonhadeeth.utils.helper.Intents;
 
 import java.util.ArrayList;
@@ -53,6 +53,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int SAHEEH_MUSLIM_DISPLAYED_COUNT = 1;
     private static final int LIVE_DISPLAYED_COUNT = 1;
     private HomeResponse items = null;
+    private static final CounterActions counter = new CounterActions();
     private static final Intents textAction = Intents.INSTANCE;
 
     @SuppressLint("NotifyDataSetChanged")
@@ -168,8 +169,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         } else if (getItemViewType(position) == R.id.hadith_text_kanzhasanat) {
             KanzHasanat kanzHasanat = items.getKanzHasanat().get(getRandomNumber(items.getKanzHasanat().size()));
-            ((KanzHasanatViewHolder) holder).bind(items.getKanzHasanat());
-            ((KanzHasanatViewHolder) holder).setOnClick(kanzHasanat);
+            ((KanzHasanatViewHolder) holder).changeText(items.getKanzHasanat());
+            ((KanzHasanatViewHolder) holder).setOnClick();
 
         } else if (getItemViewType(position) == R.id.text_tahzeeb_muslim) {
             TahzeebMuslim tahzeebMuslim = items.getTahzeebMuslim().get(getRandomNumber(items.getTahzeebMuslim().size()));
@@ -207,8 +208,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (items == null) return 0;
         return FIRST_ITEM_DISPLAYED_COUNT
                 + items.getBlocks().size()
-                + COUNTER_DISPLAYED_COUNT
                 + KANZ_HASANAT_DISPLAYED_COUNT
+                + COUNTER_DISPLAYED_COUNT
                 + TAHZEEB_MUSLIM_DISPLAYED_COUNT
                 + DAILY_IMAGE_DISPLAYED_COUNT
                 + SAHEEH_BUKHARI_DISPLAYED_COUNT
@@ -225,31 +226,31 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return R.id.item_1;
 
         } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size()
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT) {
-            return R.id.hadith_text_counter;
-
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT) {
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT) {
             return R.id.hadith_text_kanzhasanat;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT) {
+            return R.id.hadith_text_counter;
+
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT) {
             return R.id.text_tahzeeb_muslim;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT) {
             return R.id.daily_image;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT) {
             return R.id.text_saheeh_bukhari;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT) {
             return R.id.live_image;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + COUNTER_DISPLAYED_COUNT + KANZ_HASANAT_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + +LIVE_DISPLAYED_COUNT + SAHEEH_MUSLIM_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + +LIVE_DISPLAYED_COUNT + SAHEEH_MUSLIM_DISPLAYED_COUNT) {
             return R.id.text_saheeh_muslim;
 
         }
@@ -305,33 +306,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    static class CounterViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeCounterBinding itemHomeCounterBinding;
-
-        CounterViewHolder(@NonNull ItemHomeCounterBinding itemView) {
-            super(itemView.getRoot());
-            itemHomeCounterBinding = itemView;
-            Actions.INSTANCE.displayCounter(itemHomeCounterBinding.buttonCounter);
-        }
-
-        void setOnClick() {
-            itemHomeCounterBinding.buttonCounter.setOnClickListener(v -> {
-                Actions.INSTANCE.counter(itemHomeCounterBinding.buttonCounter);
-                Actions.INSTANCE.vibrateOnce(itemView.getContext());
-            });
-
-            itemView.setOnClickListener(v -> {
-                Actions.INSTANCE.counter(itemHomeCounterBinding.buttonCounter);
-                Actions.INSTANCE.vibrateOnce(itemView.getContext());
-            });
-
-            itemHomeCounterBinding.resetButtonOnClick.setOnClickListener(v -> {
-                Actions.INSTANCE.reset(itemHomeCounterBinding.buttonCounter);
-                Actions.INSTANCE.vibrateOnce(itemView.getContext());
-            });
-        }
-    }
-
     static class KanzHasanatViewHolder extends RecyclerView.ViewHolder {
         ItemHomeKanzhasanatBinding itemHomeKanzhasanatBinding;
 
@@ -340,20 +314,56 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             itemHomeKanzhasanatBinding = itemView;
         }
 
-        void setOnClick(KanzHasanat kanzHasanat) {
+        void setOnClick() {
             itemHomeKanzhasanatBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(Objects.requireNonNull(kanzHasanat.getHadith()), itemView.getContext());
-                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(kanzHasanat.getHadith()), itemView.getContext());
+                textAction.copyText(itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
+                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
             });
 
             itemHomeKanzhasanatBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(kanzHasanat.getHadith()), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(kanzHasanat.getHadith()), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+                Intents.INSTANCE.copyText(itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
             });
         }
 
-        public void bind(List<KanzHasanat> kanzHasanat) {
+        public void changeText(@NonNull List<KanzHasanat> kanzHasanat) {
             itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(kanzHasanat.get(getRandomNumber(kanzHasanat.size())).getHadith());
+
+            itemHomeKanzhasanatBinding.changeButtonOnClick.setOnClickListener(v -> {
+                itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(kanzHasanat.get(getRandomNumber(kanzHasanat.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
+            });
+            itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setOnClickListener(v -> {
+                itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(kanzHasanat.get(getRandomNumber(kanzHasanat.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
+            });
+        }
+    }
+
+    static class CounterViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeCounterBinding itemHomeCounterBinding;
+
+        CounterViewHolder(@NonNull ItemHomeCounterBinding itemView) {
+            super(itemView.getRoot());
+            itemHomeCounterBinding = itemView;
+            counter.displayCounter(itemHomeCounterBinding.buttonCounter);
+        }
+
+        void setOnClick() {
+            itemHomeCounterBinding.buttonCounter.setOnClickListener(v -> {
+                counter.addCounter(itemHomeCounterBinding.buttonCounter);
+                counter.vibrateOnce(itemView.getContext());
+            });
+
+            itemView.setOnClickListener(v -> {
+                counter.addCounter(itemHomeCounterBinding.buttonCounter);
+                counter.vibrateOnce(itemView.getContext());
+            });
+
+            itemHomeCounterBinding.resetButtonOnClick.setOnClickListener(v -> {
+                counter.resetCounter(itemHomeCounterBinding.buttonCounter);
+                counter.vibrateOnce(itemView.getContext());
+            });
         }
     }
 

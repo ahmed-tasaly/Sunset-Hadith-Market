@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.moataz.afternoonhadeeth.data.source.Hadiths
 import com.moataz.afternoonhadeeth.databinding.FragmentHomeOfflineBinding
-import com.moataz.afternoonhadeeth.utils.helper.Actions.counter
-import com.moataz.afternoonhadeeth.utils.helper.Actions.reset
-import com.moataz.afternoonhadeeth.utils.helper.Actions.vibrateOnce
+import com.moataz.afternoonhadeeth.utils.helper.CounterActions
 import com.moataz.afternoonhadeeth.utils.helper.Intents.copyText
 import com.moataz.afternoonhadeeth.utils.helper.Intents.shareTextSnackbar
 import com.moataz.afternoonhadeeth.utils.helper.Intents.sharedText
@@ -19,6 +17,7 @@ import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 class HomeFragmentOffline : Fragment(), IOnBackPressed {
 
     private lateinit var binding: FragmentHomeOfflineBinding
+    private val counter = CounterActions()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,18 +33,18 @@ class HomeFragmentOffline : Fragment(), IOnBackPressed {
 
     private fun setupCounter() {
         binding.buttonCounter.setOnClickListener {
-            counter(binding.buttonCounter)
-            vibrateOnce(requireContext())
+            counter.addCounter(binding.buttonCounter)
+            counter.vibrateOnce(requireContext())
         }
 
         binding.counter.setOnClickListener {
-            counter(binding.buttonCounter)
-            vibrateOnce(requireContext())
+            counter.addCounter(binding.buttonCounter)
+            counter.vibrateOnce(requireContext())
         }
 
         binding.resetButtonOnClick.setOnClickListener {
-            reset(binding.buttonCounter)
-            vibrateOnce(requireContext())
+            counter.resetCounter(binding.buttonCounter)
+            counter.vibrateOnce(requireContext())
         }
     }
 

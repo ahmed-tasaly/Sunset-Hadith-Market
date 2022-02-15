@@ -1,8 +1,8 @@
-package com.moataz.afternoonhadeeth.data.api
+package com.moataz.afternoonhadeeth.utils.helper
 
 import android.util.Base64
 
-object APIYoutubeKey {
+object YoutubeKey {
     private const val API_KEY_PART_1 = "AIzaSyC8nxgx"
     private const val API_KEY_PART_2 = "ZihbcaUUn"
     private const val API_KEY_PART_3 = "NQmzGv7k"

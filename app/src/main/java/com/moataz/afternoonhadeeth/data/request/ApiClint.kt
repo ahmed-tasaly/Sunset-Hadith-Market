@@ -1,7 +1,8 @@
 package com.moataz.afternoonhadeeth.data.request
 
-import com.moataz.afternoonhadeeth.data.api.APIService
-import com.moataz.afternoonhadeeth.utils.helper.CacheInterceptor
+import com.moataz.afternoonhadeeth.data.api.HadithsAPIService
+import com.moataz.afternoonhadeeth.data.api.HomeAPIService
+import com.moataz.afternoonhadeeth.data.api.ImagesAPIService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -35,7 +36,15 @@ object ApiClint {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
-    val apiService: APIService by lazy {
-        retrofit.create(APIService::class.java)
+    val apiServiceHome: HomeAPIService by lazy {
+        retrofit.create(HomeAPIService::class.java)
+    }
+
+    val apiServiceHadith: HadithsAPIService by lazy {
+        retrofit.create(HadithsAPIService::class.java)
+    }
+
+    val apiServiceImages: ImagesAPIService by lazy {
+        retrofit.create(ImagesAPIService::class.java)
     }
 }

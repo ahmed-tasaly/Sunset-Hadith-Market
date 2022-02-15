@@ -53,12 +53,12 @@
                 android:fontFamily="@font/almarai_bold"
                 android:lineSpacingExtra="@dimen/_3ssp"
                 android:maxLength="15"
+                android:text="زد حسناتك"
                 android:textAlignment="textStart"
                 android:textColor="@color/black_text"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="رواه مسلم" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/share_button_article_list"
@@ -118,12 +118,12 @@
                 android:layout_height="@dimen/_28sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
-                android:src="@drawable/exchange_test"
+                android:src="@drawable/df"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/reset_button_onClick"
+                android:id="@+id/change_button_onClick"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@android:color/transparent"

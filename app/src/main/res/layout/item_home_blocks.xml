@@ -66,6 +66,8 @@
                         android:layout_width="@dimen/_35sdp"
                         android:layout_height="@dimen/_27sdp"
                         android:src="@drawable/pdf"
+                        android:layout_marginTop="@dimen/_minus2sdp"
+                        android:layout_marginLeft="@dimen/_minus2sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>

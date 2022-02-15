@@ -9,21 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.model.hadith.Hadith
 import com.moataz.afternoonhadeeth.databinding.FragmentHadithBinding
 import com.moataz.afternoonhadeeth.ui.adapter.HadithAdapter
-import com.moataz.afternoonhadeeth.ui.viewmodel.HadithViewModel
+import com.moataz.afternoonhadeeth.ui.viewmodel.HadithsViewModel
 import com.moataz.afternoonhadeeth.utils.helper.Intents
 import com.moataz.afternoonhadeeth.utils.helper.URL_Twitter_Account
-import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
 class HadithFragment : Fragment() {
 
     private var adapter = HadithAdapter()
-    private var viewModel = HadithViewModel()
+    private var viewModel = HadithsViewModel()
     private lateinit var binding: FragmentHadithBinding
 
     override fun onCreateView(
@@ -76,6 +74,6 @@ class HadithFragment : Fragment() {
     }
 
     private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(HadithViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(HadithsViewModel::class.java)
     }
 }
