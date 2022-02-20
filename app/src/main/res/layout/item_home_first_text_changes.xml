@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="FirstTextChangesModel"
+            type="com.moataz.afternoonhadeeth.data.model.home.TextChanges" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/nabe_names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_220sdp"
+            android:background="@color/card_color">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:elevation="@dimen/_7sdp"
+                android:fontFamily="@font/almarai_bold"
+                android:shadowColor="#E1FF0000"
+                android:text="أسماء النبي"
+                android:textColor="@color/blue_text"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_tahzeeb_muslim"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:fontFamily="@font/almarai_bold"
+                android:gravity="center"
+                android:lineSpacingExtra="15sp"
+                android:padding="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_22sdp"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_21sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/button_change"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:text="أبا القاسم" />
+
+            <Button
+                android:id="@+id/button_change"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:background="@drawable/rounded_save_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/change_text_icon"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:background="@drawable/change"
+                app:layout_constraintBottom_toBottomOf="@+id/button_change"
+                app:layout_constraintEnd_toEndOf="@+id/button_change"
+                app:layout_constraintStart_toStartOf="@+id/button_change"
+                app:layout_constraintTop_toTopOf="@+id/button_change" />
+
+            <Button
+                android:id="@+id/change_text"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/button_change"
+                app:layout_constraintEnd_toEndOf="@+id/button_change"
+                app:layout_constraintStart_toStartOf="@+id/button_change"
+                app:layout_constraintTop_toTopOf="@+id/button_change" />
+
+            <ImageView
+                android:id="@+id/share_button_article_list"
+                android:layout_width="@dimen/_19sdp"
+                android:layout_height="@dimen/_19sdp"
+                android:background="@drawable/ic_baseline_share_24"
+                app:layout_constraintBottom_toBottomOf="@+id/share_button_onClick"
+                app:layout_constraintEnd_toEndOf="@+id/share_button_onClick"
+                app:layout_constraintHorizontal_bias="0.4"
+                android:layout_marginRight="@dimen/_2sdp"
+                app:layout_constraintStart_toStartOf="@+id/share_button_onClick"
+                app:layout_constraintTop_toTopOf="@+id/share_button_onClick" />
+
+            <Button
+                android:id="@+id/share_button_onClick"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

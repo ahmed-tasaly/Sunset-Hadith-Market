@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="SaheehBukhariModel"
-            type="com.moataz.afternoonhadeeth.data.model.home.SaheehBukhari" />
+            name="fourthHadithChangesModel"
+            type="com.moataz.afternoonhadeeth.data.model.home.HadithChanges" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -33,18 +33,17 @@
                 android:gravity="center"
                 android:lineSpacingExtra="10sp"
                 android:padding="@dimen/_16sdp"
-                android:text="@{SaheehBukhariModel.hadith}"
                 android:textColor="@color/black_text"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/text_saheeh_bukhari"
+                app:layout_constraintBottom_toTopOf="@+id/author_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
                 tools:text="قال رسول الله صلى الله عليه وسلم  من قال سبحان الله العظيم وبحمده غرست له نخلة في الجنة." />
 
             <TextView
-                android:id="@+id/text_saheeh_bukhari"
+                android:id="@+id/author_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_12sdp"
@@ -54,13 +53,12 @@
                 android:fontFamily="@font/almarai_bold"
                 android:lineSpacingExtra="@dimen/_3ssp"
                 android:maxLength="15"
-                android:text="@{SaheehBukhariModel.authorName}"
+                android:text="رواه مسلم"
                 android:textAlignment="textStart"
                 android:textColor="@color/black_text"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="رواه مسلم" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/share_button_article_list"
@@ -109,10 +107,28 @@
                 android:elevation="@dimen/_7sdp"
                 android:fontFamily="@font/almarai_bold"
                 android:shadowColor="#E1FF0000"
-                android:text="صحيح البخاري"
+                android:text="صحيح مسلم"
                 android:textColor="@color/blue_text"
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:src="@drawable/df"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/change_button_onClick"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -5,13 +5,13 @@ import com.moataz.afternoonhadeeth.data.model.home.blocks.Blocks
 
 @Keep
 class HomeResponse(
-    val firstItem: List<FirstItem>,
+    val videos: List<Videos>,
     val blocks: List<Blocks>,
-    val kanzHasanat: List<KanzHasanat>,
+    val firstHadithChanges: List<HadithChanges>,
     val counter: List<Counter>,
-    val tahzeebMuslim: List<TahzeebMuslim>,
-    val dailyImage: List<DailyImage>,
-    val saheehBukhari: List<SaheehBukhari>,
-    val live: List<Live>,
-    val saheehMuslim: List<SaheehMuslim>
+    val secondHadithChanges: List<HadithChanges>,
+    val firstTextChanges: List<TextChanges>,
+    val thirdHadithChanges: List<HadithChanges>,
+    val secondTextChanges: List<TextChanges>,
+    val fourthHadithChanges: List<HadithChanges>
 )

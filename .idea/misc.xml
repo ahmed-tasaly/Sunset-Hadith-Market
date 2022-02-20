@@ -122,12 +122,15 @@
         <entry key="app/src/main/res/layout/item_home_counter.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_home_dailyimage.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_home_dailypost.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/item_home_first_text_changes.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/item_home_firstimage.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_firstitem.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_home_fourth_hadith_changes.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/item_home_kanzhasanat.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_home_live.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_home_saheehbukhari.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_saheehmuslim.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/item_home_second_hadith_changes.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/item_home_tahzeebmuslim.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_progress.xml" value="0.22962962962962963" />
         <entry key="app/src/main/res/layout/item_video_videos.xml" value="0.35520833333333335" />
@@ -149,7 +152,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

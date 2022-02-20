@@ -11,26 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
 import com.moataz.afternoonhadeeth.data.model.home.Counter;
-import com.moataz.afternoonhadeeth.data.model.home.DailyImage;
-import com.moataz.afternoonhadeeth.data.model.home.FirstItem;
+import com.moataz.afternoonhadeeth.data.model.home.HadithChanges;
 import com.moataz.afternoonhadeeth.data.model.home.HomeResponse;
-import com.moataz.afternoonhadeeth.data.model.home.KanzHasanat;
-import com.moataz.afternoonhadeeth.data.model.home.Live;
-import com.moataz.afternoonhadeeth.data.model.home.SaheehBukhari;
-import com.moataz.afternoonhadeeth.data.model.home.SaheehMuslim;
-import com.moataz.afternoonhadeeth.data.model.home.TahzeebMuslim;
+import com.moataz.afternoonhadeeth.data.model.home.TextChanges;
+import com.moataz.afternoonhadeeth.data.model.home.Videos;
 import com.moataz.afternoonhadeeth.data.model.home.blocks.Blocks;
 import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeBlocksBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeCounterBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemHomeDailyimageBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemHomeFirstitemBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemHomeKanzhasanatBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemHomeLiveBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemHomeSaheehbukhariBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemHomeSaheehmuslimBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemHomeTahzeebmuslimBinding;
-import com.moataz.afternoonhadeeth.ui.view.activity.DisplayImageActivity;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeFirstHadithChangesBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeFirstTextChangesBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeFourthHadithChangesBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeSecondHadithChangesBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeSecondTextChangesBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeThirdHadithChangesBinding;
+import com.moataz.afternoonhadeeth.databinding.ItemHomeVideosBinding;
 import com.moataz.afternoonhadeeth.ui.view.activity.InfoBlocksActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.PDFActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
@@ -67,10 +62,10 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         if (viewType == R.id.hadith_text) {
-            return new FirstItemViewHolder(
+            return new VideosViewHolder(
                     DataBindingUtil.inflate(
                             LayoutInflater.from(parent.getContext()),
-                            R.layout.item_home_firstitem,
+                            R.layout.item_home_videos,
                             parent,
                             false
                     )
@@ -94,55 +89,55 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     )
             );
         } else if (viewType == R.id.hadith_text_kanzhasanat) {
-            return new KanzHasanatViewHolder(
+            return new FirstHadithChangesViewHolder(
                     DataBindingUtil.inflate(
                             LayoutInflater.from(parent.getContext()),
-                            R.layout.item_home_kanzhasanat,
+                            R.layout.item_home_first_hadith_changes,
                             parent,
                             false
                     )
             );
         } else if (viewType == R.id.text_tahzeeb_muslim) {
-            return new TahzeebMuslimViewHolder(
+            return new FirstTextChangesViewHolder(
                     DataBindingUtil.inflate(
                             LayoutInflater.from(parent.getContext()),
-                            R.layout.item_home_tahzeebmuslim,
+                            R.layout.item_home_first_text_changes,
                             parent,
                             false
                     )
             );
         } else if (viewType == R.id.daily_image) {
-            return new DailyImageViewHolder(
+            return new SecondHadithChangesViewHolder(
                     DataBindingUtil.inflate(
                             LayoutInflater.from(parent.getContext()),
-                            R.layout.item_home_dailyimage,
+                            R.layout.item_home_second_hadith_changes,
                             parent,
                             false
                     )
             );
         } else if (viewType == R.id.text_saheeh_bukhari) {
-            return new SaheehBukhariViewHolder(
+            return new ThirdHadithChangesViewHolder(
                     DataBindingUtil.inflate(
                             LayoutInflater.from(parent.getContext()),
-                            R.layout.item_home_saheehbukhari,
+                            R.layout.item_home_third_hadith_changes,
                             parent,
                             false
                     )
             );
         } else if (viewType == R.id.live_image) {
-            return new LiveViewHolder(
+            return new SecondTextChangesViewHolder(
                     DataBindingUtil.inflate(
                             LayoutInflater.from(parent.getContext()),
-                            R.layout.item_home_live,
+                            R.layout.item_home_second_text_changes,
                             parent,
                             false
                     )
             );
         } else if (viewType == R.id.text_saheeh_muslim) {
-            return new SaheehMuslimViewHolder(
+            return new FourthHadithChangesViewHolder(
                     DataBindingUtil.inflate(
                             LayoutInflater.from(parent.getContext()),
-                            R.layout.item_home_saheehmuslim,
+                            R.layout.item_home_fourth_hadith_changes,
                             parent,
                             false
                     )
@@ -153,49 +148,54 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == R.id.hadith_text) {
-            FirstItem firstItem = items.getFirstItem().get(getRandomNumber(items.getFirstItem().size()));
-            ((FirstItemViewHolder) holder).itemHomeFirstitemBinding.setFirstItemModel(firstItem);
-            ((FirstItemViewHolder) holder).setOnClick(firstItem);
+            Videos videos = items.getVideos().get(getRandomNumber(items.getVideos().size()));
+            ((VideosViewHolder) holder).itemHomeVideosBinding.setVideosModel(videos);
+            ((VideosViewHolder) holder).setOnClick(videos);
 
         } else if (getItemViewType(position) == R.id.item_1) {
             Blocks blocks = items.getBlocks().get(position - items.getBlocks().size());
             ((BlocksViewHolder) holder).itemHomeBlocksBinding.setBlocksModel(blocks);
             ((BlocksViewHolder) holder).setOnClick(blocks);
 
+        } else if (getItemViewType(position) == R.id.hadith_text_kanzhasanat) {
+            HadithChanges firstHadithChanges = items.getFirstHadithChanges().get(getRandomNumber(items.getFirstHadithChanges().size()));
+            ((FirstHadithChangesViewHolder) holder).changeText(items.getFirstHadithChanges());
+            ((FirstHadithChangesViewHolder) holder).setOnClick();
+
         } else if (getItemViewType(position) == R.id.hadith_text_counter) {
             Counter counter = items.getCounter().get(getRandomNumber(items.getCounter().size()));
             ((CounterViewHolder) holder).itemHomeCounterBinding.setCounterModel(counter);
             ((CounterViewHolder) holder).setOnClick();
 
-        } else if (getItemViewType(position) == R.id.hadith_text_kanzhasanat) {
-            KanzHasanat kanzHasanat = items.getKanzHasanat().get(getRandomNumber(items.getKanzHasanat().size()));
-            ((KanzHasanatViewHolder) holder).changeText(items.getKanzHasanat());
-            ((KanzHasanatViewHolder) holder).setOnClick();
-
         } else if (getItemViewType(position) == R.id.text_tahzeeb_muslim) {
-            TahzeebMuslim tahzeebMuslim = items.getTahzeebMuslim().get(getRandomNumber(items.getTahzeebMuslim().size()));
-            ((TahzeebMuslimViewHolder) holder).itemHomeTahzeebmuslimBinding.setTahzeebMuslimModel(tahzeebMuslim);
-            ((TahzeebMuslimViewHolder) holder).setOnClick(tahzeebMuslim);
+            TextChanges firstTextChanges = items.getFirstTextChanges().get(getRandomNumber(items.getFirstTextChanges().size()));
+            ((FirstTextChangesViewHolder) holder).itemHomeFirstTextChangesBinding.setFirstTextChangesModel(firstTextChanges);
+            ((FirstTextChangesViewHolder) holder).changeText(items.getFirstTextChanges());
+            ((FirstTextChangesViewHolder) holder).setOnClick();
 
         } else if (getItemViewType(position) == R.id.daily_image) {
-            DailyImage dailyImage = items.getDailyImage().get(getRandomNumber(items.getDailyImage().size()));
-            ((DailyImageViewHolder) holder).itemHomeDailyimageBinding.setDailyImageModel(dailyImage);
-            ((DailyImageViewHolder) holder).setOnClick(dailyImage);
+            HadithChanges secondHadithChanges = items.getSecondHadithChanges().get(getRandomNumber(items.getSecondHadithChanges().size()));
+            ((SecondHadithChangesViewHolder) holder).itemHomeSecondHadithChangesBinding.setSecondHadithChangesModel(secondHadithChanges);
+            ((SecondHadithChangesViewHolder) holder).changeText(items.getSecondHadithChanges());
+            ((SecondHadithChangesViewHolder) holder).setOnClick();
 
         } else if (getItemViewType(position) == R.id.text_saheeh_bukhari) {
-            SaheehBukhari saheehBukhari = items.getSaheehBukhari().get(getRandomNumber(items.getSaheehBukhari().size()));
-            ((SaheehBukhariViewHolder) holder).itemHomeSaheehbukhariBinding.setSaheehBukhariModel(saheehBukhari);
-            ((SaheehBukhariViewHolder) holder).setOnClick(saheehBukhari);
+            HadithChanges thirdHadithChanges = items.getThirdHadithChanges().get(getRandomNumber(items.getThirdHadithChanges().size()));
+            ((ThirdHadithChangesViewHolder) holder).itemHomeThirdHadithChangesBinding.setThirdHadithChangesModel(thirdHadithChanges);
+            ((ThirdHadithChangesViewHolder) holder).changeText(items.getThirdHadithChanges());
+            ((ThirdHadithChangesViewHolder) holder).setOnClick();
 
         } else if (getItemViewType(position) == R.id.live_image) {
-            Live live = items.getLive().get(getRandomNumber(items.getLive().size()));
-            ((LiveViewHolder) holder).itemHomeLiveBinding.setLiveModel(live);
-            ((LiveViewHolder) holder).setOnClick(live);
+            TextChanges secondTextChanges = items.getSecondTextChanges().get(getRandomNumber(items.getSecondTextChanges().size()));
+            ((SecondTextChangesViewHolder) holder).itemHomeSecondTextChangesBinding.setSecondTextChangesModel(secondTextChanges);
+            ((SecondTextChangesViewHolder) holder).changeText(items.getSecondTextChanges());
+            ((SecondTextChangesViewHolder) holder).setOnClick();
 
         } else if (getItemViewType(position) == R.id.text_saheeh_muslim) {
-            SaheehMuslim saheehMuslim = items.getSaheehMuslim().get(getRandomNumber(items.getSaheehMuslim().size()));
-            ((SaheehMuslimViewHolder) holder).itemHomeSaheehmuslimBinding.setSaheehMuslimModel(saheehMuslim);
-            ((SaheehMuslimViewHolder) holder).setOnClick(saheehMuslim);
+            HadithChanges saheehMuslim = items.getFourthHadithChanges().get(getRandomNumber(items.getFourthHadithChanges().size()));
+            ((FourthHadithChangesViewHolder) holder).itemHomeFourthHadithChangesBinding.setFourthHadithChangesModel(saheehMuslim);
+            ((FourthHadithChangesViewHolder) holder).changeText(items.getFourthHadithChanges());
+            ((FourthHadithChangesViewHolder) holder).setOnClick();
         }
     }
 
@@ -210,8 +210,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 + items.getBlocks().size()
                 + KANZ_HASANAT_DISPLAYED_COUNT
                 + COUNTER_DISPLAYED_COUNT
-                + TAHZEEB_MUSLIM_DISPLAYED_COUNT
                 + DAILY_IMAGE_DISPLAYED_COUNT
+                + TAHZEEB_MUSLIM_DISPLAYED_COUNT
                 + SAHEEH_BUKHARI_DISPLAYED_COUNT
                 + LIVE_DISPLAYED_COUNT
                 + SAHEEH_MUSLIM_DISPLAYED_COUNT;
@@ -234,41 +234,41 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return R.id.hadith_text_counter;
 
         } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT) {
-            return R.id.text_tahzeeb_muslim;
-
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT) {
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT) {
             return R.id.daily_image;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT) {
+            return R.id.text_tahzeeb_muslim;
+
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT) {
             return R.id.text_saheeh_bukhari;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT) {
             return R.id.live_image;
 
-        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT
-                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + +LIVE_DISPLAYED_COUNT + SAHEEH_MUSLIM_DISPLAYED_COUNT) {
+        } else if (position == FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + LIVE_DISPLAYED_COUNT
+                && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size() + KANZ_HASANAT_DISPLAYED_COUNT + COUNTER_DISPLAYED_COUNT + DAILY_IMAGE_DISPLAYED_COUNT + TAHZEEB_MUSLIM_DISPLAYED_COUNT + SAHEEH_BUKHARI_DISPLAYED_COUNT + +LIVE_DISPLAYED_COUNT + SAHEEH_MUSLIM_DISPLAYED_COUNT) {
             return R.id.text_saheeh_muslim;
 
         }
         return R.id.hadith_text;
     }
 
-    static class FirstItemViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeFirstitemBinding itemHomeFirstitemBinding;
+    static class VideosViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeVideosBinding itemHomeVideosBinding;
 
-        FirstItemViewHolder(@NonNull ItemHomeFirstitemBinding itemView) {
+        VideosViewHolder(@NonNull ItemHomeVideosBinding itemView) {
             super(itemView.getRoot());
-            itemHomeFirstitemBinding = itemView;
+            itemHomeVideosBinding = itemView;
         }
 
-        void setOnClick(FirstItem firstItem) {
+        void setOnClick(Videos videos) {
             itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), YoutubePlayerActivity.class);
-                intent.putExtra("url", firstItem.getUrl());
+                intent.putExtra("url", videos.getUrl());
                 itemView.getContext().startActivity(intent);
             });
         }
@@ -306,35 +306,35 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    static class KanzHasanatViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeKanzhasanatBinding itemHomeKanzhasanatBinding;
+    static class FirstHadithChangesViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeFirstHadithChangesBinding itemHomeFirstHadithChangesBinding;
 
-        KanzHasanatViewHolder(@NonNull ItemHomeKanzhasanatBinding itemView) {
+        FirstHadithChangesViewHolder(@NonNull ItemHomeFirstHadithChangesBinding itemView) {
             super(itemView.getRoot());
-            itemHomeKanzhasanatBinding = itemView;
+            itemHomeFirstHadithChangesBinding = itemView;
         }
 
         void setOnClick() {
-            itemHomeKanzhasanatBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
-                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
+            itemHomeFirstHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
+                textAction.copyText(itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
+                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
             });
 
-            itemHomeKanzhasanatBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeKanzhasanatBinding.hadithTextKanzhasanat.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+            itemHomeFirstHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
+                Intents.INSTANCE.copyText(itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
             });
         }
 
-        public void changeText(@NonNull List<KanzHasanat> kanzHasanat) {
-            itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(kanzHasanat.get(getRandomNumber(kanzHasanat.size())).getHadith());
+        void changeText(@NonNull List<HadithChanges> firstHadithChanges) {
+            itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.setText(firstHadithChanges.get(getRandomNumber(firstHadithChanges.size())).getHadith());
 
-            itemHomeKanzhasanatBinding.changeButtonOnClick.setOnClickListener(v -> {
-                itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(kanzHasanat.get(getRandomNumber(kanzHasanat.size())).getHadith());
+            itemHomeFirstHadithChangesBinding.changeButtonOnClick.setOnClickListener(v -> {
+                itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.setText(firstHadithChanges.get(getRandomNumber(firstHadithChanges.size())).getHadith());
                 counter.vibrateOnce(itemView.getContext());
             });
-            itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setOnClickListener(v -> {
-                itemHomeKanzhasanatBinding.hadithTextKanzhasanat.setText(kanzHasanat.get(getRandomNumber(kanzHasanat.size())).getHadith());
+            itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.setOnClickListener(v -> {
+                itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.setText(firstHadithChanges.get(getRandomNumber(firstHadithChanges.size())).getHadith());
                 counter.vibrateOnce(itemView.getContext());
             });
         }
@@ -367,103 +367,162 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    static class TahzeebMuslimViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeTahzeebmuslimBinding itemHomeTahzeebmuslimBinding;
+    static class SecondHadithChangesViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeSecondHadithChangesBinding itemHomeSecondHadithChangesBinding;
 
-        TahzeebMuslimViewHolder(@NonNull ItemHomeTahzeebmuslimBinding itemView) {
+        SecondHadithChangesViewHolder(@NonNull ItemHomeSecondHadithChangesBinding itemView) {
             super(itemView.getRoot());
-            itemHomeTahzeebmuslimBinding = itemView;
+            itemHomeSecondHadithChangesBinding = itemView;
         }
 
-        void setOnClick(TahzeebMuslim tahzeebMuslim) {
-            itemHomeTahzeebmuslimBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(Objects.requireNonNull(tahzeebMuslim.getHadith()), itemView.getContext());
-                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(tahzeebMuslim.getHadith()), itemView.getContext());
+        void setOnClick() {
+            itemHomeSecondHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
+                textAction.copyText(itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext());
+                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext());
             });
 
-            itemHomeTahzeebmuslimBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(tahzeebMuslim.getHadith()), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(tahzeebMuslim.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ");
+            itemHomeSecondHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
+                Intents.INSTANCE.copyText(itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+            });
+        }
+
+        void changeText(@NonNull List<HadithChanges> secondHadithChanges) {
+            itemHomeSecondHadithChangesBinding.dailyImage.setText(secondHadithChanges.get(getRandomNumber(secondHadithChanges.size())).getHadith());
+
+            itemHomeSecondHadithChangesBinding.changeButtonOnClick.setOnClickListener(v -> {
+                itemHomeSecondHadithChangesBinding.dailyImage.setText(secondHadithChanges.get(getRandomNumber(secondHadithChanges.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
+            });
+            itemHomeSecondHadithChangesBinding.dailyImage.setOnClickListener(v -> {
+                itemHomeSecondHadithChangesBinding.dailyImage.setText(secondHadithChanges.get(getRandomNumber(secondHadithChanges.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
             });
         }
     }
 
-    static class DailyImageViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeDailyimageBinding itemHomeDailyimageBinding;
+    static class FirstTextChangesViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeFirstTextChangesBinding itemHomeFirstTextChangesBinding;
 
-        DailyImageViewHolder(@NonNull ItemHomeDailyimageBinding itemView) {
+        FirstTextChangesViewHolder(@NonNull ItemHomeFirstTextChangesBinding itemView) {
             super(itemView.getRoot());
-            itemHomeDailyimageBinding = itemView;
+            itemHomeFirstTextChangesBinding = itemView;
         }
 
-        void setOnClick(DailyImage images) {
-            itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), DisplayImageActivity.class);
-                intent.putExtra("imageUrl", images.getImage());
-                itemView.getContext().startActivity(intent);
+        void changeText(@NonNull List<TextChanges> firstTextChanges) {
+            itemHomeFirstTextChangesBinding.textTahzeebMuslim.setText(firstTextChanges.get(getRandomNumber(firstTextChanges.size())).getText());
+
+            itemHomeFirstTextChangesBinding.changeText.setOnClickListener(v -> {
+                itemHomeFirstTextChangesBinding.textTahzeebMuslim.setText(firstTextChanges.get(getRandomNumber(firstTextChanges.size())).getText());
+                counter.vibrateOnce(itemView.getContext());
+            });
+            itemHomeFirstTextChangesBinding.textTahzeebMuslim.setOnClickListener(v -> {
+                itemHomeFirstTextChangesBinding.textTahzeebMuslim.setText(firstTextChanges.get(getRandomNumber(firstTextChanges.size())).getText());
+                counter.vibrateOnce(itemView.getContext());
+            });
+        }
+
+        void setOnClick() {
+            itemHomeFirstTextChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
+                Intents.INSTANCE.copyText(itemHomeFirstTextChangesBinding.textTahzeebMuslim.getText().toString(), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFirstTextChangesBinding.textTahzeebMuslim.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ");
             });
         }
     }
 
-    static class SaheehBukhariViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeSaheehbukhariBinding itemHomeSaheehbukhariBinding;
+    static class ThirdHadithChangesViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeThirdHadithChangesBinding itemHomeThirdHadithChangesBinding;
 
-        SaheehBukhariViewHolder(@NonNull ItemHomeSaheehbukhariBinding itemView) {
+        ThirdHadithChangesViewHolder(@NonNull ItemHomeThirdHadithChangesBinding itemView) {
             super(itemView.getRoot());
-            itemHomeSaheehbukhariBinding = itemView;
+            itemHomeThirdHadithChangesBinding = itemView;
         }
 
-        void setOnClick(SaheehBukhari saheehBukhari) {
-            itemHomeSaheehbukhariBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(Objects.requireNonNull(saheehBukhari.getHadith()), itemView.getContext());
-                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(saheehBukhari.getHadith()), itemView.getContext());
+        void setOnClick() {
+            itemHomeThirdHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
+                textAction.copyText(itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
+                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
             });
 
-            itemHomeSaheehbukhariBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(saheehBukhari.getHadith()), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(saheehBukhari.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ");
+            itemHomeThirdHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
+                Intents.INSTANCE.copyText(itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+            });
+        }
+
+        void changeText(@NonNull List<HadithChanges> thirdHadithChanges) {
+            itemHomeThirdHadithChangesBinding.hadithText.setText(thirdHadithChanges.get(getRandomNumber(thirdHadithChanges.size())).getHadith());
+
+            itemHomeThirdHadithChangesBinding.changeButtonOnClick.setOnClickListener(v -> {
+                itemHomeThirdHadithChangesBinding.hadithText.setText(thirdHadithChanges.get(getRandomNumber(thirdHadithChanges.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
+            });
+            itemHomeThirdHadithChangesBinding.hadithText.setOnClickListener(v -> {
+                itemHomeThirdHadithChangesBinding.hadithText.setText(thirdHadithChanges.get(getRandomNumber(thirdHadithChanges.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
             });
         }
     }
 
-    static class LiveViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeLiveBinding itemHomeLiveBinding;
+    static class SecondTextChangesViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeSecondTextChangesBinding itemHomeSecondTextChangesBinding;
 
-        LiveViewHolder(@NonNull ItemHomeLiveBinding itemView) {
+        SecondTextChangesViewHolder(@NonNull ItemHomeSecondTextChangesBinding itemView) {
             super(itemView.getRoot());
-            itemHomeLiveBinding = itemView;
+            itemHomeSecondTextChangesBinding = itemView;
         }
 
-        void setOnClick(Live live) {
-            itemHomeLiveBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(Objects.requireNonNull(live.getText()), itemView.getContext());
-                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(live.getText()), itemView.getContext());
-            });
+        public void changeText(@NonNull List<TextChanges> secondTextChanges) {
+            itemHomeSecondTextChangesBinding.liveImage.setText(secondTextChanges.get(getRandomNumber(secondTextChanges.size())).getText());
 
-            itemHomeLiveBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(live.getText()), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(live.getText()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ");
+            itemHomeSecondTextChangesBinding.changeText.setOnClickListener(v -> {
+                itemHomeSecondTextChangesBinding.liveImage.setText(secondTextChanges.get(getRandomNumber(secondTextChanges.size())).getText());
+                counter.vibrateOnce(itemView.getContext());
+            });
+            itemHomeSecondTextChangesBinding.liveImage.setOnClickListener(v -> {
+                itemHomeSecondTextChangesBinding.liveImage.setText(secondTextChanges.get(getRandomNumber(secondTextChanges.size())).getText());
+                counter.vibrateOnce(itemView.getContext());
+            });
+        }
+
+        void setOnClick() {
+            itemHomeSecondTextChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
+                Intents.INSTANCE.copyText(itemHomeSecondTextChangesBinding.liveImage.getText().toString(), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeSecondTextChangesBinding.liveImage.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ");
             });
         }
     }
 
-    static class SaheehMuslimViewHolder extends RecyclerView.ViewHolder {
-        ItemHomeSaheehmuslimBinding itemHomeSaheehmuslimBinding;
+    static class FourthHadithChangesViewHolder extends RecyclerView.ViewHolder {
+        ItemHomeFourthHadithChangesBinding itemHomeFourthHadithChangesBinding;
 
-        SaheehMuslimViewHolder(@NonNull ItemHomeSaheehmuslimBinding itemView) {
+        FourthHadithChangesViewHolder(@NonNull ItemHomeFourthHadithChangesBinding itemView) {
             super(itemView.getRoot());
-            itemHomeSaheehmuslimBinding = itemView;
+            itemHomeFourthHadithChangesBinding = itemView;
         }
 
-        void setOnClick(SaheehMuslim saheehMuslim) {
-            itemHomeSaheehmuslimBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(Objects.requireNonNull(saheehMuslim.getHadith()), itemView.getContext());
-                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(saheehMuslim.getHadith()), itemView.getContext());
+        void setOnClick() {
+            itemHomeFourthHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
+                textAction.copyText(itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
+                textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
             });
 
-            itemHomeSaheehmuslimBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(saheehMuslim.getHadith()), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(saheehMuslim.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ");
+            itemHomeFourthHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
+                Intents.INSTANCE.copyText(itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+            });
+        }
+
+        public void changeText(@NonNull List<HadithChanges> saheehMuslim) {
+            itemHomeFourthHadithChangesBinding.hadithText.setText(saheehMuslim.get(getRandomNumber(saheehMuslim.size())).getHadith());
+
+            itemHomeFourthHadithChangesBinding.changeButtonOnClick.setOnClickListener(v -> {
+                itemHomeFourthHadithChangesBinding.hadithText.setText(saheehMuslim.get(getRandomNumber(saheehMuslim.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
+            });
+            itemHomeFourthHadithChangesBinding.hadithText.setOnClickListener(v -> {
+                itemHomeFourthHadithChangesBinding.hadithText.setText(saheehMuslim.get(getRandomNumber(saheehMuslim.size())).getHadith());
+                counter.vibrateOnce(itemView.getContext());
             });
         }
     }

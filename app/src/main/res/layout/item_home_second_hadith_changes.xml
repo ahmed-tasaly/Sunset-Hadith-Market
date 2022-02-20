@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="liveModel"
-            type="com.moataz.afternoonhadeeth.data.model.home.Live" />
+            name="SecondHadithChangesModel"
+            type="com.moataz.afternoonhadeeth.data.model.home.HadithChanges" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -26,38 +26,37 @@
             android:background="@color/card_color">
 
             <TextView
-                android:id="@+id/hadith_text_kanzhasanat"
+                android:id="@+id/daily_image"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:fontFamily="@font/almarai_bold"
                 android:gravity="center"
                 android:lineSpacingExtra="10sp"
                 android:padding="@dimen/_16sdp"
-                android:text="@{liveModel.text}"
                 android:textColor="@color/black_text"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/adView_itemHome"
+                app:layout_constraintBottom_toTopOf="@+id/author_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/live_image"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
                 tools:text="قال رسول الله صلى الله عليه وسلم  من قال سبحان الله العظيم وبحمده غرست له نخلة في الجنة." />
 
             <TextView
-                android:id="@+id/adView_itemHome"
+                android:id="@+id/author_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_12sdp"
-                android:layout_marginBottom="@dimen/_6sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:elevation="@dimen/_7sdp"
                 android:ellipsize="end"
                 android:fontFamily="@font/almarai_bold"
                 android:lineSpacingExtra="@dimen/_3ssp"
                 android:maxLength="15"
-                android:text="حياة المؤمن"
+                android:text="أحاديث النبي"
                 android:textAlignment="textStart"
                 android:textColor="@color/black_text"
-                android:textSize="@dimen/_9ssp"
+                android:textSize="@dimen/_10ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -100,18 +99,35 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/live_image"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_9sdp"
                 android:elevation="@dimen/_7sdp"
                 android:fontFamily="@font/almarai_bold"
-                android:shadowColor="#E1FF0000"
-                android:text="وصايا النبي"
+                android:text="أحاديث صحيحة"
                 android:textColor="@color/blue_text"
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:src="@drawable/df"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/change_button_onClick"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
