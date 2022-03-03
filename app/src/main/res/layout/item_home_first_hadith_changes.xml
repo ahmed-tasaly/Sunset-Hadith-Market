@@ -46,7 +46,7 @@
                 android:fontFamily="@font/almarai_bold"
                 android:lineSpacingExtra="@dimen/_3ssp"
                 android:maxLength="15"
-                android:text="زد حسناتك"
+                android:text="أجر عظيم"
                 android:textAlignment="textStart"
                 android:textColor="@color/black_text"
                 android:textSize="@dimen/_10ssp"

@@ -3,6 +3,7 @@ package com.moataz.afternoonhadeeth.data.request
 import com.moataz.afternoonhadeeth.data.api.HadithsAPIService
 import com.moataz.afternoonhadeeth.data.api.HomeAPIService
 import com.moataz.afternoonhadeeth.data.api.ImagesAPIService
+import com.moataz.afternoonhadeeth.data.api.VideosAPIService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -38,6 +39,10 @@ object ApiClint {
 
     val apiServiceHome: HomeAPIService by lazy {
         retrofit.create(HomeAPIService::class.java)
+    }
+
+    val apiServiceVideos: VideosAPIService by lazy {
+        retrofit.create(VideosAPIService::class.java)
     }
 
     val apiServiceHadith: HadithsAPIService by lazy {

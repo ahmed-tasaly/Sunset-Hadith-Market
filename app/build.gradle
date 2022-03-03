@@ -17,8 +17,8 @@ android {
         applicationId "com.moataz.afternoonhadeeth"
         minSdk 25
         targetSdk 31
-        versionCode 6
-        versionName "3.1.241"
+        versionCode 8
+        versionName "3.1.232"
         multiDexEnabled true  // to fix error "cannot fit requested classes in a single dex file"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -81,18 +81,14 @@ dependencies {
     // firebase message
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
     // Navigation component
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
     // swipe to refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     // sdp library for support all sizes on the screen
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     // ssp library for support all sizes on the screen
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
-    // billing library
-    implementation "com.android.billingclient:billing-ktx:4.0.0"
-    implementation "com.android.billingclient:billing:4.0.0"
-    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
     //joda time library
     implementation 'joda-time:joda-time:2.10.13'
     // zoom
@@ -112,4 +108,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     // toasty
     implementation 'com.github.GrenderG:Toasty:1.5.2'
+    // Chrome tabs
+    implementation "androidx.browser:browser:1.4.0"
 }

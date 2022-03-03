@@ -26,7 +26,7 @@ import com.moataz.afternoonhadeeth.databinding.ItemHomeSecondHadithChangesBindin
 import com.moataz.afternoonhadeeth.databinding.ItemHomeSecondTextChangesBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeThirdHadithChangesBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeVideosBinding;
-import com.moataz.afternoonhadeeth.ui.view.activity.InfoBlocksActivity;
+import com.moataz.afternoonhadeeth.ui.view.activity.DataInsideBlocksActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.PDFActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
 import com.moataz.afternoonhadeeth.utils.helper.CounterActions;
@@ -221,6 +221,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemViewType(int position) {
         if (position == 0) {
             return R.id.hadith_text;
+
         } else if (position == FIRST_ITEM_DISPLAYED_COUNT
                 && position < FIRST_ITEM_DISPLAYED_COUNT + items.getBlocks().size()) {
             return R.id.item_1;
@@ -288,19 +289,19 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             itemHomeBlocksBinding.item2.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithInfo(itemView.getContext(),
-                            InfoBlocksActivity.class,
+                            DataInsideBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(blocks.getItemTwo()).getTitle()),
                             (ArrayList<DataList>) Objects.requireNonNull(blocks.getItemTwo().getDataList())));
 
             itemHomeBlocksBinding.item3.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithInfo(itemView.getContext(),
-                            InfoBlocksActivity.class,
+                            DataInsideBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(blocks.getItemThree()).getTitle()),
                             (ArrayList<DataList>) Objects.requireNonNull(blocks.getItemThree().getDataList())));
 
             itemHomeBlocksBinding.item4.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithInfo(itemView.getContext(),
-                            InfoBlocksActivity.class,
+                            DataInsideBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(blocks.getItemFour()).getTitle()),
                             (ArrayList<DataList>) Objects.requireNonNull(blocks.getItemFour().getDataList())));
         }
@@ -316,13 +317,13 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setOnClick() {
             itemHomeFirstHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
+                textAction.copyText(itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext(), "");
                 textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
             });
 
             itemHomeFirstHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+                Intents.INSTANCE.copyText(itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), itemView.getContext(), "");
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFirstHadithChangesBinding.hadithTextKanzhasanat.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ", "");
             });
         }
 
@@ -377,13 +378,13 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setOnClick() {
             itemHomeSecondHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext());
+                textAction.copyText(itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext(), "");
                 textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext());
             });
 
             itemHomeSecondHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+                Intents.INSTANCE.copyText(itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), itemView.getContext(), "");
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeSecondHadithChangesBinding.dailyImage.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ", "");
             });
         }
 
@@ -424,8 +425,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setOnClick() {
             itemHomeFirstTextChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(itemHomeFirstTextChangesBinding.textTahzeebMuslim.getText().toString(), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFirstTextChangesBinding.textTahzeebMuslim.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ");
+                Intents.INSTANCE.copyText(itemHomeFirstTextChangesBinding.textTahzeebMuslim.getText().toString(), itemView.getContext(), "من أسماء النبي: ");
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFirstTextChangesBinding.textTahzeebMuslim.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ","من أسماء النبي: ");
             });
         }
     }
@@ -440,13 +441,13 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setOnClick() {
             itemHomeThirdHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
+                textAction.copyText(itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext(), "");
                 textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
             });
 
             itemHomeThirdHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+                Intents.INSTANCE.copyText(itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), itemView.getContext(), "");
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeThirdHadithChangesBinding.hadithText.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ",  "");
             });
         }
 
@@ -487,8 +488,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setOnClick() {
             itemHomeSecondTextChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(itemHomeSecondTextChangesBinding.liveImage.getText().toString(), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeSecondTextChangesBinding.liveImage.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ");
+                Intents.INSTANCE.copyText(itemHomeSecondTextChangesBinding.liveImage.getText().toString(), itemView.getContext(), "من وصايا النبي: ");
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeSecondTextChangesBinding.liveImage.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ", "من وصايا النبي: ");
             });
         }
     }
@@ -503,13 +504,13 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setOnClick() {
             itemHomeFourthHadithChangesBinding.copyButtonOnClick.setOnClickListener(v -> {
-                textAction.copyText(itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
+                textAction.copyText(itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext(), "");
                 textAction.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
             });
 
             itemHomeFourthHadithChangesBinding.shareButtonOnClick.setOnClickListener(v -> {
-                Intents.INSTANCE.copyText(itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: لسيرة النبي ﷺ");
+                Intents.INSTANCE.copyText(itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), itemView.getContext(), "");
+                Intents.INSTANCE.sharedText(itemView.getContext(), itemHomeFourthHadithChangesBinding.hadithText.getText().toString(), "تم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ", "");
             });
         }
 

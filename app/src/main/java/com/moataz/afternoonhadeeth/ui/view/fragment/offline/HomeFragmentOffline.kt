@@ -60,7 +60,7 @@ class HomeFragmentOffline : Fragment(), IOnBackPressed {
             copyText(
                 binding.hadithTextKanzhasanat.text.toString(),
                 requireContext()
-            )
+            ,"")
             shareTextSnackbar(
                 requireView(), "تم نسخ الحديث",
                 binding.hadithTextKanzhasanat.text.toString(),
@@ -69,12 +69,12 @@ class HomeFragmentOffline : Fragment(), IOnBackPressed {
         }
 
         binding.shareButtonOnClick.setOnClickListener {
-            copyText(binding.hadithTextKanzhasanat.text.toString(), requireContext())
+            copyText(binding.hadithTextKanzhasanat.text.toString(), requireContext(),"")
             sharedText(
                 requireContext(),
                 binding.hadithTextKanzhasanat.text.toString(),
                 "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ"
-            )
+            ,"")
         }
     }
 

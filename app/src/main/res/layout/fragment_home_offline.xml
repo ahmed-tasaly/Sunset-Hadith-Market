@@ -56,7 +56,7 @@
                 android:gravity="center"
                 android:lineSpacingExtra="15sp"
                 android:padding="@dimen/_16sdp"
-                android:text="اللهم صلي وسلم\n وبارك على نبينا محمد"
+                android:text="اللهم صلِّ وسلم\n وبارك على نبينا محمد"
                 android:textColor="@color/black_text"
                 android:textSize="@dimen/_18sdp"
                 android:textStyle="bold"
@@ -66,7 +66,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
                 app:layout_constraintVertical_bias="0.61"
-                tools:text="اللهم صلي وسلم\n وبارك على نبينا محمد" />
+                tools:text="اللهم صلِّ وسلم\n وبارك على نبينا محمد" />
 
             <TextView
                 android:id="@+id/textView"

@@ -71,13 +71,13 @@ public class HadithOfflineAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         void setOnClick(HadithOffline hadithOffline) {
             listHadithBinding.copyButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext());
+                Intents.INSTANCE.copyText(Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext(),"");
                 Intents.INSTANCE.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext());
             });
 
             listHadithBinding.shareButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(hadithOffline.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ");
+                Intents.INSTANCE.copyText(Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext(),"");
+                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(hadithOffline.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ","");
             });
         }
     }

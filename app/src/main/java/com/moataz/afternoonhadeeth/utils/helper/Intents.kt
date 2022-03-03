@@ -4,13 +4,16 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
+import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList
+import com.moataz.afternoonhadeeth.data.model.videos.top.Data
 import es.dmoral.toasty.Toasty
-import java.util.ArrayList
 
 
 object Intents {
@@ -23,23 +26,23 @@ object Intents {
         } else null
     }
 
-    fun sharedText(context: Context, sharedText: String, title: String) {
+    fun sharedText(context: Context, sharedText: String, title: String, extraText: String) {
         val intent = Intent()
         intent.action = Intent.ACTION_SEND
         intent.type = "text/plain"
         intent.putExtra(
             Intent.EXTRA_TEXT,
-            "$sharedText\n\n$title"
+            "$extraText$sharedText\n\n$title"
         )
         context.startActivity(Intent.createChooser(intent, ""))
     }
 
-    fun copyText(sharedText: String, context: Context) {
+    fun copyText(sharedText: String, context: Context, extraText: String) {
         val clipboardManager =
             context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = ClipData.newPlainText(
             "text",
-            "$sharedText\n\nتم الإرسال من تطبيق حديث الغروب: لحياة النبي ﷺ"
+            "$extraText$sharedText\n\nتم الإرسال من تطبيق حديث الغروب: سيرة النبي ﷺ"
         )
         clipboardManager.setPrimaryClip(clipData)
     }
@@ -60,5 +63,40 @@ object Intents {
         intent.putParcelableArrayListExtra("BlocksInfoList", blocksInfoList);
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         context.startActivity(intent)
+    }
+
+    fun openNewActivityWithVideos(context: Context, cls: Class<*>?, title: String, blocksInfoList: ArrayList<Data>) {
+        val intent = Intent(context, cls)
+        intent.putExtra("topVideosTitle", title)
+        intent.putParcelableArrayListExtra("topVideosBlocksList", blocksInfoList);
+        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        context.startActivity(intent)
+    }
+
+    fun openTabUrl(context: Context, url: String) {
+            val customTabIntent: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
+            customTabIntent.setToolbarColor(Color.parseColor("#FFF5E6"))
+            customTabIntent.setStartAnimations(
+                context,
+                R.anim.slide_in_right,
+                R.anim.slide_out_left
+            )
+            customTabIntent.setExitAnimations(
+                context,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
+            customTabIntent.setShowTitle(true)
+            openCustomTabs(
+                context,
+                customTabIntent.build(),
+                Uri.parse(url)
+            )
+    }
+
+    private fun openCustomTabs(activity: Context, customTabsIntent: CustomTabsIntent, uri: Uri) {
+        val packageName = "com.android.chrome"
+        customTabsIntent.intent.setPackage(packageName)
+        customTabsIntent.launchUrl(activity, uri)
     }
 }

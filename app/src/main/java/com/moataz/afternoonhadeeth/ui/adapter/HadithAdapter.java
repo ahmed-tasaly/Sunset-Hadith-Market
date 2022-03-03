@@ -64,13 +64,13 @@ public class HadithAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         void setOnClick(Hadith hadith) {
             listHadithBinding.copyButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadith.getHadith()), itemView.getContext());
+                Intents.INSTANCE.copyText(Objects.requireNonNull(hadith.getHadith()), itemView.getContext(),"");
                 Intents.INSTANCE.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(hadith.getHadith()), itemView.getContext());
             });
 
             listHadithBinding.shareButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadith.getHadith()), itemView.getContext());
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(hadith.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ");
+                Intents.INSTANCE.copyText(Objects.requireNonNull(hadith.getHadith()), itemView.getContext(),"");
+                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(hadith.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ","");
             });
         }
     }
