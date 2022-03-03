@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentVideosTopBinding
-import com.moataz.afternoonhadeeth.ui.adapter.TopVideosAdapter
+import com.moataz.afternoonhadeeth.ui.adapter.videos.top.TopVideosBlocksAdapter
+import com.moataz.afternoonhadeeth.ui.adapter.videos.top.TopVideosListAdapter
 import com.moataz.afternoonhadeeth.ui.viewmodel.TopVideosViewModel
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
@@ -18,7 +20,9 @@ import com.moataz.afternoonhadeeth.utils.status.Status
 class TopVideosFragment : Fragment() {
 
     private lateinit var binding: FragmentVideosTopBinding
-    private var adapter = TopVideosAdapter()
+    private var blocksAdapter = TopVideosBlocksAdapter()
+    private var listAdapter = TopVideosListAdapter()
+    private val concatAdapter = ConcatAdapter(blocksAdapter, listAdapter)
     private var viewModel = TopVideosViewModel()
 
     override fun onCreateView(
@@ -33,16 +37,16 @@ class TopVideosFragment : Fragment() {
         return binding.root
     }
 
-
     @SuppressLint("ClickableViewAccessibility")
     private fun initializeAdapter() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.setHasFixedSize(true)
-        binding.recyclerView.adapter = adapter
-        // disable the touch on items when scroll the recyclerview
-        binding.recyclerView.setOnTouchListener { _, motionEvent ->
-            binding.recyclerView.onTouchEvent(motionEvent)
-            true
+        binding.recyclerView.apply {
+            LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            concatAdapter
+            setOnTouchListener { _, motionEvent ->
+                binding.recyclerView.onTouchEvent(motionEvent)
+                true
+            }
         }
     }
 
@@ -59,7 +63,8 @@ class TopVideosFragment : Fragment() {
                 }
                 Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
-                    adapter.setTopVideosList(response.data)
+                    blocksAdapter.setTopVideosBlocks(response.data)
+                    listAdapter.setTopVideosList(response.data)
                 }
             }
         }

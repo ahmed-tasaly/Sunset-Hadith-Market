@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.adapter;
+package com.moataz.afternoonhadeeth.ui.adapter.videos.top;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -23,12 +23,12 @@ import com.moataz.afternoonhadeeth.utils.helper.Intents;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class TopVideosAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class TopVideosBlocksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private TopVideosResponse items = null;
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setTopVideosList(TopVideosResponse items) {
+    public void setTopVideosBlocks(TopVideosResponse items) {
         this.items = items;
         notifyDataSetChanged();
     }
@@ -36,59 +36,27 @@ public class TopVideosAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        if (viewType == R.id.item_top_videos_1) {
-            return new BlocksViewHolder(
-                    DataBindingUtil.inflate(
-                            LayoutInflater.from(parent.getContext()),
-                            R.layout.item_videos_top_blocks,
-                            parent,
-                            false
-                    )
-            );
-        } else if (viewType == R.id.image_top_videos) {
-            return new TopVideosViewHolder(
-                    DataBindingUtil.inflate(
-                            LayoutInflater.from(parent.getContext()),
-                            R.layout.item_videos_top_list_videos,
-                            parent,
-                            false
-                    )
-            );
-        } else throw new IllegalArgumentException("unknown view type");
+        return new BlocksViewHolder(
+                DataBindingUtil.inflate(
+                        LayoutInflater.from(parent.getContext()),
+                        R.layout.item_videos_top_blocks,
+                        parent,
+                        false
+                )
+        );
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if (getItemViewType(position) == R.id.item_top_videos_1) {
-            TopVideosBlocks blocks = items.getTopVideosBlocks().get(position);
-            ((BlocksViewHolder) holder).itemVideosTopBlocksBinding.setBlocksTopVideosModel(blocks);
-            ((BlocksViewHolder) holder).setOnClick(blocks);
-
-        } else if (getItemViewType(position) == R.id.image_top_videos) {
-            TopVideosList topVideosList = items.getTopVideosList().get(position - items.getTopVideosList().size());
-            ((TopVideosViewHolder) holder).itemVideosTopListVideosBinding.setListTopVideosModel(topVideosList);
-            ((TopVideosViewHolder) holder).setOnClick(topVideosList);
-        }
+        TopVideosBlocks blocks = items.getTopVideosBlocks().get(position);
+        ((BlocksViewHolder) holder).itemVideosTopBlocksBinding.setBlocksTopVideosModel(blocks);
+        ((BlocksViewHolder) holder).setOnClick(blocks);
     }
 
     @Override
     public int getItemCount() {
         if (items == null) return 0;
-        return items.getTopVideosBlocks().size() + items.getTopVideosList().size();
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0 && position < items.getTopVideosBlocks().size()) {
-            return R.id.item_top_videos_1;
-
-        } else if (position == items.getTopVideosBlocks().size() && position < items.getTopVideosBlocks().size()
-                + items.getTopVideosList().size()) {
-            return R.id.image_top_videos;
-
-        }
-        return R.id.image_top_videos;
+        return items.getTopVideosBlocks().size();
     }
 
     static class BlocksViewHolder extends RecyclerView.ViewHolder {
