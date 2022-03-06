@@ -33,5 +33,6 @@ class VideosFragment : Fragment() {
                 else -> "اختيار المحررين"
             }
         }.attach()
+        binding.videosViewPager.isUserInputEnabled = false
     }
 }

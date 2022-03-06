@@ -40,9 +40,9 @@ class TopVideosFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     private fun initializeAdapter() {
         binding.recyclerView.apply {
-            LinearLayoutManager(requireContext())
+            layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
-            concatAdapter
+            adapter = concatAdapter
             setOnTouchListener { _, motionEvent ->
                 binding.recyclerView.onTouchEvent(motionEvent)
                 true
