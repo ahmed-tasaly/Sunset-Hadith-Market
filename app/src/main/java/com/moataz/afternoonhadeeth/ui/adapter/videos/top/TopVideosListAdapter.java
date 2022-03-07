@@ -10,18 +10,10 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
-import com.moataz.afternoonhadeeth.data.model.videos.top.Data;
-import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosBlocks;
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosList;
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse;
-import com.moataz.afternoonhadeeth.databinding.ItemVideosTopBlocksBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemVideosTopListVideosBinding;
-import com.moataz.afternoonhadeeth.ui.view.activity.DataInsideBlocksActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
-import com.moataz.afternoonhadeeth.utils.helper.Intents;
-
-import java.util.ArrayList;
-import java.util.Objects;
 
 public class TopVideosListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

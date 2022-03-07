@@ -29,7 +29,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AfterNoonHadeeth" >
         <activity
-            android:name=".ui.view.activity.DataInsideBlocksActivity"
+            android:name=".ui.view.activity.DisplayHomeBlocksActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.activity.DisplayVideoBlocksActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity

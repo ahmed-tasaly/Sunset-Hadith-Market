@@ -90,7 +90,9 @@
         <entry key="app/src/main/res/drawable/twitter.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/woman.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/layout/activity_display_images.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_info_Videos_blocks.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/activity_info_blocks.xml" value="0.25546875" />
+        <entry key="app/src/main/res/layout/activity_info_videos_blocks.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main_offline.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.33" />
@@ -144,6 +146,7 @@
         <entry key="app/src/main/res/layout/item_videos_top_blocks.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/item_videos_top_list_videos.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/list_data_blocks.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/list_data_videos_blocks.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/list_hadith.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/list_hadith_offline.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/list_images.xml" value="0.35520833333333335" />

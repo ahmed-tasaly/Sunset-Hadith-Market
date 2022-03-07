@@ -32,6 +32,7 @@ class VideosFragment : Fragment() {
                 0 -> "شائع"
                 else -> "اختيار المحررين"
             }
+            tab.view.isClickable = false
         }.attach()
         binding.videosViewPager.isUserInputEnabled = false
     }

@@ -1,7 +1,6 @@
 package com.moataz.afternoonhadeeth.ui.adapter.videos.top;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -12,12 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.moataz.afternoonhadeeth.R;
 import com.moataz.afternoonhadeeth.data.model.videos.top.Data;
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosBlocks;
-import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosList;
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse;
 import com.moataz.afternoonhadeeth.databinding.ItemVideosTopBlocksBinding;
-import com.moataz.afternoonhadeeth.databinding.ItemVideosTopListVideosBinding;
-import com.moataz.afternoonhadeeth.ui.view.activity.DataInsideBlocksActivity;
-import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
+import com.moataz.afternoonhadeeth.ui.view.activity.DisplayVideoBlocksActivity;
 import com.moataz.afternoonhadeeth.utils.helper.Intents;
 
 import java.util.ArrayList;
@@ -70,44 +66,27 @@ public class TopVideosBlocksAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         void setOnClick(TopVideosBlocks topVideosBlocks) {
             itemVideosTopBlocksBinding.itemTopVideos1.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithVideos(itemView.getContext(),
-                            DataInsideBlocksActivity.class,
-                            Objects.requireNonNull(Objects.requireNonNull(topVideosBlocks.getItemTwo()).getTitle()),
-                            (ArrayList<Data>) Objects.requireNonNull(topVideosBlocks.getItemTwo().getDataList())));
+                            DisplayVideoBlocksActivity.class,
+                            Objects.requireNonNull(Objects.requireNonNull(topVideosBlocks.getItemOne()).getTitle()),
+                            (ArrayList<Data>) Objects.requireNonNull(topVideosBlocks.getItemOne().getDataList())));
 
             itemVideosTopBlocksBinding.itemTopVideos2.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithVideos(itemView.getContext(),
-                            DataInsideBlocksActivity.class,
+                            DisplayVideoBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(topVideosBlocks.getItemTwo()).getTitle()),
                             (ArrayList<Data>) Objects.requireNonNull(topVideosBlocks.getItemTwo().getDataList())));
 
             itemVideosTopBlocksBinding.itemTopVideos3.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithVideos(itemView.getContext(),
-                            DataInsideBlocksActivity.class,
+                            DisplayVideoBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(topVideosBlocks.getItemThree()).getTitle()),
                             (ArrayList<Data>) Objects.requireNonNull(topVideosBlocks.getItemThree().getDataList())));
 
             itemVideosTopBlocksBinding.itemTopVideos4.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithVideos(itemView.getContext(),
-                            DataInsideBlocksActivity.class,
+                            DisplayVideoBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(topVideosBlocks.getItemFour()).getTitle()),
                             (ArrayList<Data>) Objects.requireNonNull(topVideosBlocks.getItemFour().getDataList())));
-        }
-    }
-
-    static class TopVideosViewHolder extends RecyclerView.ViewHolder {
-        ItemVideosTopListVideosBinding itemVideosTopListVideosBinding;
-
-        TopVideosViewHolder(@NonNull ItemVideosTopListVideosBinding itemView) {
-            super(itemView.getRoot());
-            itemVideosTopListVideosBinding = itemView;
-        }
-
-        void setOnClick(TopVideosList topVideosList) {
-            itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), YoutubePlayerActivity.class);
-                intent.putExtra("url", topVideosList.getUrl());
-                itemView.getContext().startActivity(intent);
-            });
         }
     }
 }

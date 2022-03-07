@@ -26,7 +26,7 @@ import com.moataz.afternoonhadeeth.databinding.ItemHomeSecondHadithChangesBindin
 import com.moataz.afternoonhadeeth.databinding.ItemHomeSecondTextChangesBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeThirdHadithChangesBinding;
 import com.moataz.afternoonhadeeth.databinding.ItemHomeVideosBinding;
-import com.moataz.afternoonhadeeth.ui.view.activity.DataInsideBlocksActivity;
+import com.moataz.afternoonhadeeth.ui.view.activity.DisplayHomeBlocksActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.PDFActivity;
 import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
 import com.moataz.afternoonhadeeth.utils.helper.CounterActions;
@@ -289,19 +289,19 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             itemHomeBlocksBinding.item2.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithInfo(itemView.getContext(),
-                            DataInsideBlocksActivity.class,
+                            DisplayHomeBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(blocks.getItemTwo()).getTitle()),
                             (ArrayList<DataList>) Objects.requireNonNull(blocks.getItemTwo().getDataList())));
 
             itemHomeBlocksBinding.item3.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithInfo(itemView.getContext(),
-                            DataInsideBlocksActivity.class,
+                            DisplayHomeBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(blocks.getItemThree()).getTitle()),
                             (ArrayList<DataList>) Objects.requireNonNull(blocks.getItemThree().getDataList())));
 
             itemHomeBlocksBinding.item4.setOnClickListener(v ->
                     Intents.INSTANCE.openNewActivityWithInfo(itemView.getContext(),
-                            DataInsideBlocksActivity.class,
+                            DisplayHomeBlocksActivity.class,
                             Objects.requireNonNull(Objects.requireNonNull(blocks.getItemFour()).getTitle()),
                             (ArrayList<DataList>) Objects.requireNonNull(blocks.getItemFour().getDataList())));
         }
