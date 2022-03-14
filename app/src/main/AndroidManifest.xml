@@ -58,6 +58,10 @@
         <activity
             android:name=".ui.view.activity.DisplayImageActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.activity.DisplayWallpaperImageActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.view.activity.PDFActivity" />
 
         <receiver

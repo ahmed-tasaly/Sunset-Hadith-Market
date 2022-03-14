@@ -6,5 +6,18 @@ import retrofit2.http.GET
 
 interface ImagesAPIService {
     @GET("images.json")
-    fun getImagesList(): Single<List<Images>>
+    fun getImagesWallpaperList(): Single<List<Images>>
+
+    @GET("masjidimages.json")
+    fun getImagesMasjidList(): Single<List<Images>>
+
+    @GET("nabiimages.json")
+    fun getImagesNabiList(): Single<List<Images>>
+
+    @GET("kabaimages.json")
+    fun getImagesKabaList(): Single<List<Images>>
+
+    @GET("aqsaimages.json")
+    fun getImagesAqsaList(): Single<List<Images>>
+
 }

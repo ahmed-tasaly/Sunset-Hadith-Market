@@ -5,5 +5,6 @@ import androidx.annotation.Keep
 @Keep
 data class ItemThree(
     val dataList: List<Data>?,
-    val title: String?
+    val title: String?,
+    val image: String?
 )

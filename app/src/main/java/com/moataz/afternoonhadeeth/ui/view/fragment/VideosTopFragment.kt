@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.view.fragment.videos
+package com.moataz.afternoonhadeeth.ui.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -11,19 +11,21 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentVideosTopBinding
-import com.moataz.afternoonhadeeth.ui.adapter.videos.top.TopVideosBlocksAdapter
-import com.moataz.afternoonhadeeth.ui.adapter.videos.top.TopVideosListAdapter
-import com.moataz.afternoonhadeeth.ui.viewmodel.TopVideosViewModel
+import com.moataz.afternoonhadeeth.ui.adapter.VideosTopBlocksAdapter
+import com.moataz.afternoonhadeeth.ui.adapter.VideosTopListAdapter
+import com.moataz.afternoonhadeeth.ui.viewmodel.VideosTopViewModel
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
-class TopVideosFragment : Fragment() {
+class VideosTopFragment : Fragment() {
 
     private lateinit var binding: FragmentVideosTopBinding
-    private var blocksAdapter = TopVideosBlocksAdapter()
-    private var listAdapter = TopVideosListAdapter()
+    private var blocksAdapter =
+        VideosTopBlocksAdapter()
+    private var listAdapter =
+        VideosTopListAdapter()
     private val concatAdapter = ConcatAdapter(blocksAdapter, listAdapter)
-    private var viewModel = TopVideosViewModel()
+    private var viewModel = VideosTopViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -71,6 +73,6 @@ class TopVideosFragment : Fragment() {
     }
 
     private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(TopVideosViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(VideosTopViewModel::class.java)
     }
 }

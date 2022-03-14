@@ -1,7 +1,6 @@
-package com.moataz.afternoonhadeeth.ui.adapter.videos.top;
+package com.moataz.afternoonhadeeth.ui.adapter;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -10,18 +9,19 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
-import com.moataz.afternoonhadeeth.data.model.videos.top.Data;
-import com.moataz.afternoonhadeeth.databinding.ListDataVideosBlocksBinding;
-import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
+import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList;
+import com.moataz.afternoonhadeeth.databinding.ListDataBlocksBinding;
+import com.moataz.afternoonhadeeth.utils.helper.Intents;
 
 import java.util.List;
+import java.util.Objects;
 
-public class DisplayBlocksDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HomeBlocksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Data> items = null;
+    private List<DataList> items = null;
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setDataList(List<Data> items) {
+    public void setDataList(List<DataList> items) {
         this.items = items;
         notifyDataSetChanged();
     }
@@ -32,7 +32,7 @@ public class DisplayBlocksDataAdapter extends RecyclerView.Adapter<RecyclerView.
         return new DisplayListFromBlocksViewHolder(
                 DataBindingUtil.inflate(
                         LayoutInflater.from(parent.getContext()),
-                        R.layout.list_data_videos_blocks,
+                        R.layout.list_data_blocks,
                         parent,
                         false
                 )
@@ -41,8 +41,8 @@ public class DisplayBlocksDataAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Data dataList = items.get(position);
-        ((DisplayListFromBlocksViewHolder) holder).listDataVideosBlocksBinding.setListBlocksVideosModel(dataList);
+        DataList dataList = items.get(position);
+        ((DisplayListFromBlocksViewHolder) holder).listDataBlocksBinding.setDataListBlocksModel(dataList);
         ((DisplayListFromBlocksViewHolder) holder).setOnClick(dataList);
     }
 
@@ -53,19 +53,15 @@ public class DisplayBlocksDataAdapter extends RecyclerView.Adapter<RecyclerView.
     }
 
     static class DisplayListFromBlocksViewHolder extends RecyclerView.ViewHolder {
-        ListDataVideosBlocksBinding listDataVideosBlocksBinding;
+        ListDataBlocksBinding listDataBlocksBinding;
 
-        DisplayListFromBlocksViewHolder(@NonNull ListDataVideosBlocksBinding itemView) {
+        DisplayListFromBlocksViewHolder(@NonNull ListDataBlocksBinding itemView) {
             super(itemView.getRoot());
-            listDataVideosBlocksBinding = itemView;
+            listDataBlocksBinding = itemView;
         }
 
-        void setOnClick(Data dataList) {
-            listDataVideosBlocksBinding.tets.setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), YoutubePlayerActivity.class);
-                intent.putExtra("url", dataList.getUrl());
-                itemView.getContext().startActivity(intent);
-            });
+        void setOnClick(DataList dataList) {
+            listDataBlocksBinding.tets.setOnClickListener(v-> Intents.INSTANCE.openTabUrl(itemView.getContext(), Objects.requireNonNull(dataList.getUrl())));
         }
     }
 }

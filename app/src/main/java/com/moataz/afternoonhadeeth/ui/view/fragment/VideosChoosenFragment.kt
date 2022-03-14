@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.view.fragment.videos
+package com.moataz.afternoonhadeeth.ui.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.moataz.afternoonhadeeth.databinding.FragmentVideosStarBinding
 
-class StarVideosFragment : Fragment() {
+class VideosChoosenFragment : Fragment() {
 
     private lateinit var binding: FragmentVideosStarBinding
 

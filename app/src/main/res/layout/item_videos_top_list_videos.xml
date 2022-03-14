@@ -49,6 +49,7 @@
                 android:text="@{listTopVideosModel.text}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
+                android:lineSpacingExtra="@dimen/_7ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

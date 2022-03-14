@@ -10,14 +10,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
-import com.moataz.afternoonhadeeth.databinding.ListImagesBinding;
 import com.moataz.afternoonhadeeth.data.model.image.Images;
-import com.moataz.afternoonhadeeth.ui.view.activity.DisplayImageActivity;
+import com.moataz.afternoonhadeeth.databinding.ListImagesWallpaperBinding;
+import com.moataz.afternoonhadeeth.ui.view.activity.DisplayWallpaperImageActivity;
 
 import java.util.Collections;
 import java.util.List;
 
-public class ImagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ImagesWallpaperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Images> items = null;
 
@@ -34,7 +34,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return new ImagesViewHolder(
                 DataBindingUtil.inflate(
                         LayoutInflater.from(parent.getContext()),
-                        R.layout.list_images,
+                        R.layout.list_images_wallpaper,
                         parent,
                         false
                 )
@@ -55,16 +55,16 @@ public class ImagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     static class ImagesViewHolder extends RecyclerView.ViewHolder {
-        ListImagesBinding listImagesBinding;
+        ListImagesWallpaperBinding listImagesBinding;
 
-        ImagesViewHolder(@NonNull ListImagesBinding itemView) {
+        ImagesViewHolder(@NonNull ListImagesWallpaperBinding itemView) {
             super(itemView.getRoot());
             listImagesBinding = itemView;
         }
 
         void setOnClick(Images images) {
             itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), DisplayImageActivity.class);
+                Intent intent = new Intent(itemView.getContext(), DisplayWallpaperImageActivity.class);
                 intent.putExtra("imageUrl", images.getImageUrl());
                 itemView.getContext().startActivity(intent);
             });

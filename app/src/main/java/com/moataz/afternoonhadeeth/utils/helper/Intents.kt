@@ -18,12 +18,12 @@ import es.dmoral.toasty.Toasty
 
 object Intents {
 
-    fun openUrl(view: AppCompatActivity, url: String): Unit? {
+    fun openUrl(view: AppCompatActivity, url: String) {
         val webpage = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webpage)
-        return if (intent.resolveActivity(view.packageManager) != null) {
+        if (intent.resolveActivity(view.packageManager) != null) {
             view.startActivity(intent)
-        } else null
+        }
     }
 
     fun sharedText(context: Context, sharedText: String, title: String, extraText: String) {

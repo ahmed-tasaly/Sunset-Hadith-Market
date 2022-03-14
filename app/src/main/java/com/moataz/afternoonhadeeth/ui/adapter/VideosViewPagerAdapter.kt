@@ -3,8 +3,8 @@ package com.moataz.afternoonhadeeth.ui.adapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.moataz.afternoonhadeeth.ui.view.fragment.videos.StarVideosFragment
-import com.moataz.afternoonhadeeth.ui.view.fragment.videos.TopVideosFragment
+import com.moataz.afternoonhadeeth.ui.view.fragment.VideosChoosenFragment
+import com.moataz.afternoonhadeeth.ui.view.fragment.VideosTopFragment
 
 class VideosViewPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 
@@ -14,8 +14,8 @@ class VideosViewPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> TopVideosFragment()
-            else -> StarVideosFragment()
+            0 -> VideosTopFragment()
+            else -> VideosChoosenFragment()
         }
     }
 }

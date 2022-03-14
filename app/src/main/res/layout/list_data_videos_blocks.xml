@@ -49,6 +49,7 @@
                 android:gravity="center"
                 android:text="@{listBlocksVideosModel.text}"
                 android:textColor="@color/black"
+                android:lineSpacingExtra="@dimen/_7ssp"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList
 import com.moataz.afternoonhadeeth.databinding.ActivityInfoHomeBlocksBinding
-import com.moataz.afternoonhadeeth.ui.adapter.DataInsideBlocksAdapter
+import com.moataz.afternoonhadeeth.ui.adapter.HomeBlocksAdapter
 import com.moataz.afternoonhadeeth.utils.helper.Views
 
 class DisplayHomeBlocksActivity : AppCompatActivity() {
 
     private var adapter =
-        DataInsideBlocksAdapter()
+        HomeBlocksAdapter()
     private lateinit var binding: ActivityInfoHomeBlocksBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

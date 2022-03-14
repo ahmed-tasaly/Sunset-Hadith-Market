@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.adapter.videos.top;
+package com.moataz.afternoonhadeeth.ui.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ import com.moataz.afternoonhadeeth.utils.helper.Intents;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class TopVideosBlocksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class VideosTopBlocksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private TopVideosResponse items = null;
 

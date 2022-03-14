@@ -44,6 +44,28 @@
                     android:layout_height="@dimen/_46sdp"
                     android:background="@color/card_color">
 
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        app:imageUrlWithPlaceHolder="@{blocksTopVideosModel.itemOne.image}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/shadow"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/hd_shadow_overlay_gradient_large_transparent_png_image_" />
+
                     <TextView
                         android:id="@+id/item_1_text"
                         android:layout_width="match_parent"
@@ -53,7 +75,7 @@
                         android:lineSpacingExtra="15sp"
                         android:text="@{blocksTopVideosModel.itemOne.title}"
                         tools:text="سيرة الرسول"
-                        android:textColor="@color/black_text"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13ssp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,6 +107,28 @@
                     android:layout_height="@dimen/_46sdp"
                     android:background="@color/card_color">
 
+                    <ImageView
+                        android:id="@+id/image_two"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        app:imageUrlWithPlaceHolder="@{blocksTopVideosModel.itemTwo.image}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/shadow_two"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/hd_shadow_overlay_gradient_large_transparent_png_image_" />
+
                     <TextView
                         android:id="@+id/item_top_videos_2"
                         android:layout_width="match_parent"
@@ -94,7 +138,7 @@
                         android:lineSpacingExtra="15sp"
                         android:text="@{blocksTopVideosModel.itemTwo.title}"
                         tools:text="النبي في القرآن"
-                        android:textColor="@color/black_text"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13ssp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -136,6 +180,28 @@
                     android:layout_height="@dimen/_46sdp"
                     android:background="@color/card_color">
 
+                    <ImageView
+                        android:id="@+id/image_three"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        app:imageUrlWithPlaceHolder="@{blocksTopVideosModel.itemThree.image}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/shadow_three"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/hd_shadow_overlay_gradient_large_transparent_png_image_" />
+
                     <TextView
                         android:id="@+id/item_top_videos_3"
                         android:layout_width="match_parent"
@@ -145,7 +211,7 @@
                         android:lineSpacingExtra="15sp"
                         android:text="@{blocksTopVideosModel.itemThree.title}"
                         tools:text="على خطى الحبيب"
-                        android:textColor="@color/black_text"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13ssp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -177,6 +243,28 @@
                     android:layout_height="@dimen/_46sdp"
                     android:background="@color/card_color">
 
+                    <ImageView
+                        android:id="@+id/image_four"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        app:imageUrlWithPlaceHolder="@{blocksTopVideosModel.itemFour.image}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/shadow_four"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/hd_shadow_overlay_gradient_large_transparent_png_image_" />
+
                     <TextView
                         android:id="@+id/item_top_videos_4"
                         android:layout_width="match_parent"
@@ -186,7 +274,7 @@
                         android:lineSpacingExtra="15sp"
                         android:text="@{blocksTopVideosModel.itemFour.title}"
                         tools:text="خواطر محمديه"
-                        android:textColor="@color/black_text"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13ssp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"

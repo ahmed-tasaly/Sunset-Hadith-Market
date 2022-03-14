@@ -8,7 +8,23 @@ import io.reactivex.Single
 class ImagesRepository {
     private val apiServiceImages: ImagesAPIService = ApiClint.apiServiceImages
 
-    fun executeImagesApi(): Single<List<Images>> {
-        return apiServiceImages.getImagesList()
+    fun executeImagesWallpaperApi(): Single<List<Images>> {
+        return apiServiceImages.getImagesWallpaperList()
+    }
+
+    fun executeImagesMasjidApi(): Single<List<Images>> {
+        return apiServiceImages.getImagesMasjidList()
+    }
+
+    fun executeImagesNabiApi(): Single<List<Images>> {
+        return apiServiceImages.getImagesNabiList()
+    }
+
+    fun executeImagesKabaApi(): Single<List<Images>> {
+        return apiServiceImages.getImagesKabaList()
+    }
+
+    fun executeImagesAqsaApi(): Single<List<Images>> {
+        return apiServiceImages.getImagesAqsaList()
     }
 }

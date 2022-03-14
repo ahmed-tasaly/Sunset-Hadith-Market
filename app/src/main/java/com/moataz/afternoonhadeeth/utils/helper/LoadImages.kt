@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.moataz.afternoonhadeeth.R
 
 @BindingAdapter("imageUrl")

@@ -5,47 +5,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.moataz.afternoonhadeeth.data.model.hadith.Hadith
-import com.moataz.afternoonhadeeth.databinding.FragmentHadithBinding
-import com.moataz.afternoonhadeeth.ui.adapter.HadithAdapter
-import com.moataz.afternoonhadeeth.ui.viewmodel.HadithViewModel
-import com.moataz.afternoonhadeeth.utils.helper.Intents
-import com.moataz.afternoonhadeeth.utils.helper.URL_Twitter_Account
+import androidx.recyclerview.widget.GridLayoutManager
+import com.moataz.afternoonhadeeth.data.model.image.Images
+import com.moataz.afternoonhadeeth.databinding.FragmentImagesWallpaperBinding
+import com.moataz.afternoonhadeeth.ui.adapter.ImagesWallpaperAdapter
+import com.moataz.afternoonhadeeth.ui.viewmodel.ImagesWallpaperViewModel
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
-class HadithFragment : Fragment() {
-
-    private var adapter = HadithAdapter()
-    private var viewModel = HadithViewModel()
-    private lateinit var binding: FragmentHadithBinding
+class ImagesWallpaperFragment : Fragment() {
+    private var adapter =
+        ImagesWallpaperAdapter()
+    private var viewModel = ImagesWallpaperViewModel()
+    private lateinit var binding: FragmentImagesWallpaperBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHadithBinding.inflate(layoutInflater)
-        setOnClickToolbarIcons()
+        binding = FragmentImagesWallpaperBinding.inflate(layoutInflater)
         initializeViewModel()
-        getTopList()
         initializeAdapter()
+        getTopList()
         return binding.root
-    }
-
-    private fun setOnClickToolbarIcons() {
-        binding.twitterTest.setOnClickListener {
-            Intents.openUrl((requireActivity() as AppCompatActivity), URL_Twitter_Account)
-        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initializeAdapter() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.adapter = adapter
         // disable the touch on items when scroll the recyclerview
@@ -56,8 +46,9 @@ class HadithFragment : Fragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallHadith().observe(requireActivity()
-        ) { response: Resource<List<Hadith>> ->
+        viewModel.makeApiCallImages().observe(
+            requireActivity()
+        ) { response: Resource<List<Images>> ->
             when (response.status) {
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
@@ -67,13 +58,13 @@ class HadithFragment : Fragment() {
                 }
                 Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
-                    adapter.setHadithList(response.data)
+                    adapter.setImagesList(response.data)
                 }
             }
         }
     }
 
     private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(HadithViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ImagesWallpaperViewModel::class.java)
     }
 }

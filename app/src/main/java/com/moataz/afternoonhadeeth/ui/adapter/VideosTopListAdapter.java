@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.adapter.videos.top;
+package com.moataz.afternoonhadeeth.ui.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,13 +15,16 @@ import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse;
 import com.moataz.afternoonhadeeth.databinding.ItemVideosTopListVideosBinding;
 import com.moataz.afternoonhadeeth.ui.view.activity.YoutubePlayerActivity;
 
-public class TopVideosListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+import java.util.Collections;
+
+public class VideosTopListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private TopVideosResponse items = null;
 
     @SuppressLint("NotifyDataSetChanged")
     public void setTopVideosList(TopVideosResponse items) {
         this.items = items;
+        Collections.shuffle(items.getTopVideosList());
         notifyDataSetChanged();
     }
 

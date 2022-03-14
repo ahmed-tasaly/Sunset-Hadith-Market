@@ -30,16 +30,22 @@
         <entry key="app/src/main/res/drawable-v21/ic_like.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-v21/ic_like1.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-v24/rounder_speak_button.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-xhdpi/ic_download.xml" value="0.357" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_moon.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_moon1.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_photo.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_photo1.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-xhdpi/ic_wallpaper_black_24dp.xml" value="0.357" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_youtube.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/ic_youtube1.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-xhdpi/rounded_save_image_two.xml" value="0.357" />
         <entry key="app/src/main/res/drawable-xhdpi/rounded_widget.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/selector_ebadat.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/selector_image.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-xhdpi/selector_video.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-xxhdpi/tab_background_selected.xml" value="0.357" />
+        <entry key="app/src/main/res/drawable-xxhdpi/tab_background_unselected.xml" value="0.357" />
+        <entry key="app/src/main/res/drawable-xxhdpi/tab_layout_selector.xml" value="0.357" />
         <entry key="app/src/main/res/drawable/background.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/books.xml" value="0.278515625" />
         <entry key="app/src/main/res/drawable/copy.xml" value="0.37135416666666665" />
@@ -54,6 +60,7 @@
         <entry key="app/src/main/res/drawable/ic_black_favorite_24.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_circel.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_expand_more.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_fav.xml" value="0.357" />
         <entry key="app/src/main/res/drawable/ic_film.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_film_bold.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_following.xml" value="0.37135416666666665" />
@@ -90,6 +97,7 @@
         <entry key="app/src/main/res/drawable/twitter.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/woman.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/layout/activity_display_images.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_display_wallpaper_images.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/activity_info_Videos_blocks.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/activity_info_blocks.xml" value="0.25546875" />
         <entry key="app/src/main/res/layout/activity_info_videos_blocks.xml" value="0.266796875" />
@@ -109,8 +117,11 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home_offline.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_image.xml" value="0.35520833333333335" />
-        <entry key="app/src/main/res/layout/fragment_images.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_images.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_images_masjed.xml" value="0.266796875" />
+        <entry key="app/src/main/res/layout/fragment_images_wallpaper.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/fragment_library.xml" value="0.26640625" />
+        <entry key="app/src/main/res/layout/fragment_masjed_images.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/fragment_new_images.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_on_boarding_first.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_pdf_view.xml" value="0.212298682284041" />
@@ -120,6 +131,7 @@
         <entry key="app/src/main/res/layout/fragment_videos.xml" value="0.26640625" />
         <entry key="app/src/main/res/layout/fragment_videos_star.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/fragment_videos_top.xml" value="0.25546875" />
+        <entry key="app/src/main/res/layout/fragment_wallpaper_images.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/hhhhhhhhh.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_ad.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/item_home_blocks.xml" value="0.33" />
@@ -150,6 +162,9 @@
         <entry key="app/src/main/res/layout/list_hadith.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/list_hadith_offline.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/list_images.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/list_images_masjid.xml" value="0.266796875" />
+        <entry key="app/src/main/res/layout/list_images_wallpaper.xml" value="0.266796875" />
+        <entry key="app/src/main/res/layout/list_wallpaper_images.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/rounded_bottomsheet.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/test.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/zekr_widget.xml" value="0.33" />
@@ -164,7 +179,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -10,7 +10,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class TopVideosViewModel : ViewModel() {
+class VideosTopViewModel : ViewModel() {
     private val disposables = CompositeDisposable()
     private val topVideosObjectsList = MutableLiveData<Resource<TopVideosResponse>>()
     private val videosRepository = VideosRepository()

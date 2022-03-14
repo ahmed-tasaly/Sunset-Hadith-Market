@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="imagesModel"
+            type="com.moataz.afternoonhadeeth.data.model.image.Images" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="wrap_content"
+            android:layout_height="240dp"
+            android:padding="1.2dp"
+            android:scaleType="fitXY"
+            app:imageUrlWithPlaceHolder="@{imagesModel.imageUrl}"
+            tools:src="@drawable/hd_shadow_overlay_gradient_large_transparent_png_image_" />
+    </RelativeLayout>
+</layout>

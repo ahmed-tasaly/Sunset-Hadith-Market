@@ -11,13 +11,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class ImagesViewModel : ViewModel() {
+class ImagesAqsaaViewModel : ViewModel() {
     private val disposables = CompositeDisposable()
     private val imagesObjectsList = MutableLiveData<Resource<List<Images>>>()
     private val repository = ImagesRepository()
 
     fun makeApiCallImages(): LiveData<Resource<List<Images>>> {
-        disposables.add(repository.executeImagesApi()
+        disposables.add(repository.executeImagesAqsaApi()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
