@@ -2,19 +2,18 @@ package com.moataz.afternoonhadeeth.ui.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.moataz.afternoonhadeeth.data.model.hadith.Hadith
+import com.moataz.afternoonhadeeth.data.model.hadith.HadithResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentHadithBinding
 import com.moataz.afternoonhadeeth.ui.adapter.HadithAdapter
 import com.moataz.afternoonhadeeth.ui.viewmodel.HadithViewModel
-import com.moataz.afternoonhadeeth.utils.helper.Intents
-import com.moataz.afternoonhadeeth.utils.helper.URL_Twitter_Account
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
@@ -30,17 +29,18 @@ class HadithFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHadithBinding.inflate(layoutInflater)
-        setOnClickToolbarIcons()
+        setupEditText()
         initializeViewModel()
         getTopList()
         initializeAdapter()
         return binding.root
     }
 
-    private fun setOnClickToolbarIcons() {
-        binding.twitterTest.setOnClickListener {
-            Intents.openUrl((requireActivity() as AppCompatActivity), URL_Twitter_Account)
+    private fun setupEditText() {
+        binding.editText.setOnClickListener {
+            Toast.makeText(requireContext(), "ميزة البحث عن الأحاديث ستتوفر قريبا", Toast.LENGTH_SHORT).show()
         }
+        binding.editText.inputType = InputType.TYPE_NULL
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -56,8 +56,9 @@ class HadithFragment : Fragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallHadith().observe(requireActivity()
-        ) { response: Resource<List<Hadith>> ->
+        viewModel.makeApiCallHadith().observe(
+            requireActivity()
+        ) { response: Resource<HadithResponse> ->
             when (response.status) {
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE

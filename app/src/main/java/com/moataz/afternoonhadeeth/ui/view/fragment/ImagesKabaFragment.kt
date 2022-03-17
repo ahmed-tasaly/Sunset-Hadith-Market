@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.moataz.afternoonhadeeth.data.model.image.Images
 import com.moataz.afternoonhadeeth.databinding.FragmentImagesMasjedBinding
 import com.moataz.afternoonhadeeth.ui.adapter.ImagesOtherAdapter
+import com.moataz.afternoonhadeeth.ui.viewmodel.ImagesKabaViewModel
 import com.moataz.afternoonhadeeth.ui.viewmodel.ImagesNabiViewModel
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
@@ -18,7 +19,7 @@ import com.moataz.afternoonhadeeth.utils.status.Status
 class ImagesKabaFragment : Fragment() {
     private var adapter =
         ImagesOtherAdapter()
-    private var viewModel = ImagesNabiViewModel()
+    private var viewModel = ImagesKabaViewModel()
     private lateinit var binding: FragmentImagesMasjedBinding
 
     override fun onCreateView(
@@ -66,6 +67,6 @@ class ImagesKabaFragment : Fragment() {
     }
 
     private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(ImagesNabiViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ImagesKabaViewModel::class.java)
     }
 }

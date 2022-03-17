@@ -37,6 +37,12 @@
             android:name=".ui.view.activity.DisplayVideoBlocksActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.view.activity.DisplayHadithListActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.view.activity.MainActivity"
             android:exported="true"

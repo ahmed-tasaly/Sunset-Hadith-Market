@@ -90,8 +90,9 @@
             android:textColor="@color/bnv_tab_item_foreground"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            tools:layout_editor_absoluteX="102dp" />
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

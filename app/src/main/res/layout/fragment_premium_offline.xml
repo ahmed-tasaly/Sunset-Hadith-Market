@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_12sdp"
         android:elevation="@dimen/_2sdp"
-        android:text="3.1.0"
+        android:text="3.4.173"
         android:textSize="@dimen/_13ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/top_text_5"

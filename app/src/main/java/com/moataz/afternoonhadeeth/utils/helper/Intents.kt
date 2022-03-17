@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import com.moataz.afternoonhadeeth.R
+import com.moataz.afternoonhadeeth.data.model.hadith.Hadith
 import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList
 import com.moataz.afternoonhadeeth.data.model.videos.top.Data
 import es.dmoral.toasty.Toasty
@@ -21,9 +22,7 @@ object Intents {
     fun openUrl(view: AppCompatActivity, url: String) {
         val webpage = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webpage)
-        if (intent.resolveActivity(view.packageManager) != null) {
-            view.startActivity(intent)
-        }
+        view.startActivity(intent)
     }
 
     fun sharedText(context: Context, sharedText: String, title: String, extraText: String) {
@@ -69,6 +68,14 @@ object Intents {
         val intent = Intent(context, cls)
         intent.putExtra("topVideosTitle", title)
         intent.putParcelableArrayListExtra("topVideosBlocksList", blocksInfoList);
+        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        context.startActivity(intent)
+    }
+
+    fun openNewActivityWithHadith(context: Context, cls: Class<*>?, title: String, hadithList: ArrayList<Hadith>) {
+        val intent = Intent(context, cls)
+        intent.putExtra("hadithTitle", title)
+        intent.putParcelableArrayListExtra("hadithList", hadithList);
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         context.startActivity(intent)
     }

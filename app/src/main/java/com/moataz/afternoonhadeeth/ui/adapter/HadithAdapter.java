@@ -10,21 +10,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moataz.afternoonhadeeth.R;
 import com.moataz.afternoonhadeeth.data.model.hadith.Hadith;
+import com.moataz.afternoonhadeeth.data.model.hadith.HadithMainData;
+import com.moataz.afternoonhadeeth.data.model.hadith.HadithResponse;
 import com.moataz.afternoonhadeeth.databinding.ListHadithBinding;
+import com.moataz.afternoonhadeeth.ui.view.activity.DisplayHadithListActivity;
 import com.moataz.afternoonhadeeth.utils.helper.Intents;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class HadithAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Hadith> items = null;
+    private HadithResponse items = null;
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setHadithList(List<Hadith> items) {
+    public void setHadithList(HadithResponse items) {
         this.items = items;
-        Collections.shuffle(items);
         notifyDataSetChanged();
     }
 
@@ -43,15 +43,15 @@ public class HadithAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Hadith hadith = items.get(position);
-        ((HadithViewHolder) holder).listHadithBinding.setHadithModel(hadith);
+        HadithMainData hadith = items.getHadithMainData().get(position);
+        ((HadithViewHolder) holder).listHadithBinding.setHadithMainModel(hadith);
         ((HadithViewHolder) holder).setOnClick(hadith);
     }
 
     @Override
     public int getItemCount() {
         if (items == null) return 0;
-        return items.size();
+        return items.getHadithMainData().size();
     }
 
     static class HadithViewHolder extends RecyclerView.ViewHolder {
@@ -62,16 +62,12 @@ public class HadithAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             listHadithBinding = itemView;
         }
 
-        void setOnClick(Hadith hadith) {
-            listHadithBinding.copyButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadith.getHadith()), itemView.getContext(),"");
-                Intents.INSTANCE.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(hadith.getHadith()), itemView.getContext());
-            });
-
-            listHadithBinding.shareButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadith.getHadith()), itemView.getContext(),"");
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(hadith.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ","");
-            });
+        void setOnClick(HadithMainData hadithData) {
+            itemView.setOnClickListener(v ->
+                    Intents.INSTANCE.openNewActivityWithHadith(itemView.getContext(),
+                            DisplayHadithListActivity.class,
+                            hadithData.getTitle(),
+                            (ArrayList<Hadith>) hadithData.getDataList()));
         }
     }
 }
