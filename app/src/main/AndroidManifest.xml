@@ -60,15 +60,19 @@
         <activity
             android:name=".ui.view.activity.YoutubePlayerActivity"
             android:launchMode="singleTop"
+            android:exported="true"
             android:screenOrientation="landscape" />
         <activity
             android:name=".ui.view.activity.DisplayImageActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.view.activity.DisplayWallpaperImageActivity"
+            android:exported="true"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.view.activity.PDFActivity" />
+        <activity android:name=".ui.view.activity.PDFActivity"
+            android:exported="true" />
 
         <receiver
             android:name=".ui.jetpack.widget.ZekrWidget"

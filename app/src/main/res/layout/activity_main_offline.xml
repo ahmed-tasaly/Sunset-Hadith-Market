@@ -23,7 +23,6 @@
         android:background="@color/main_color"
         android:elevation="@dimen/_2sdp"
         android:paddingLeft="@dimen/_6sdp"
-        android:paddingTop="@dimen/_4sdp"
         android:paddingRight="@dimen/_6sdp"
         android:theme="@style/BottomNavigationTextStyle"
         app:itemIconTint="@color/bnv_tab_item_foreground"

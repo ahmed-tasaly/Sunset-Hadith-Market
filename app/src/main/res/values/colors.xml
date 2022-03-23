@@ -6,7 +6,7 @@
     <color name="teal_200">#FF000000</color>
     <color name="teal_700">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="black_overlay">#66000000</color>
+    <color name="black_overlay">#323333</color>
     <color name="black">#FF000000</color>
     <color name="main_color">#FFF5E6</color>
     <color name="card_color">#FFF3E0</color>
@@ -16,7 +16,6 @@
     <color name="light_blue_900">#FF01579B</color>
     <color name="yellow">#FFD555</color>
     <color name="black_images_activity">#0E0E0E</color>
-
     <color name="black_text">#2f3137</color>
     <color name="blue_text">#5476aa</color>
 </resources>

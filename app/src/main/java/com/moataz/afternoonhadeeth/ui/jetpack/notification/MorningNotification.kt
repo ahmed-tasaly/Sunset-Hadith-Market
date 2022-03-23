@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.source.MorningHadiths
@@ -16,6 +17,7 @@ import java.util.*
 class MorningNotification : BroadcastReceiver() {
     private val CHANNEL_ID = "HADITH_MORNING_CHANNEL_ID"
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context, intent: Intent?) {
 
         val notificationIntent = Intent(context, MainActivity::class.java)
@@ -62,7 +64,8 @@ class MorningNotification : BroadcastReceiver() {
                 context,
                 0,
                 notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_UPDATE_CURRENT or
+                        PendingIntent.FLAG_IMMUTABLE
             )
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             alarmManager.setInexactRepeating(

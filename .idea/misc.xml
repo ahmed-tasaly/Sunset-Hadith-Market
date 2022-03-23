@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/drawable-nodpi/ic_back_white.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-nodpi/ic_download.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-nodpi/ic_eye.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable-nodpi/ic_launcher_test.xml" value="0.191" />
         <entry key="app/src/main/res/drawable-nodpi/ic_share.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-nodpi/ic_wallpaper_black_24dp.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable-nodpi/rounded_save_image.xml" value="0.37135416666666665" />
@@ -71,6 +72,7 @@
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_home_bold.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_instagram_round.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/ic_launcher.xml" value="0.1205" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_play.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/ic_play_button.xml" value="0.37135416666666665" />
@@ -97,14 +99,15 @@
         <entry key="app/src/main/res/drawable/test.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/twitter.xml" value="0.37135416666666665" />
         <entry key="app/src/main/res/drawable/woman.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/yes.xml" value="0.357" />
         <entry key="app/src/main/res/layout/activity_display_hadith_list.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/activity_display_images.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_display_wallpaper_images.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/activity_info_Videos_blocks.xml" value="0.266796875" />
         <entry key="app/src/main/res/layout/activity_info_blocks.xml" value="0.25546875" />
         <entry key="app/src/main/res/layout/activity_info_videos_blocks.xml" value="0.266796875" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_main_offline.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main_offline.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_youtube_player.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/actvity_pdf_view.xml" value="0.26640625" />
@@ -182,7 +185,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

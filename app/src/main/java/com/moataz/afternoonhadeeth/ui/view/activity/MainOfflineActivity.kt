@@ -29,7 +29,7 @@ class MainOfflineActivity : AppCompatActivity() {
 
     private fun initializeView() {
         Views.intiViews(window)
-        window.navigationBarColor = resources.getColor(R.color.card_color);
+        window.navigationBarColor = resources.getColor(R.color.black_overlay);
     }
 
     private fun initializeBottomNavigation() {
