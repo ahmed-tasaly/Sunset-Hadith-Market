@@ -29,8 +29,8 @@ class VideosFragment : Fragment() {
             VideosViewPagerAdapter(requireActivity() as AppCompatActivity)
         TabLayoutMediator(binding.videosTabLayout, binding.videosViewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "شائع"
-                else -> "اختيار المحررين"
+                0 -> "مختارات"
+                else -> ""
             }
             tab.view.isClickable = false
         }.attach()

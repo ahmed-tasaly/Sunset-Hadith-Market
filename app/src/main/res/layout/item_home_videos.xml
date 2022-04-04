@@ -20,7 +20,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_70sdp"
+            android:layout_height="@dimen/_90sdp"
             android:background="@color/card_color">
 
             <ImageView
@@ -43,6 +43,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/shadow_three"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/hd_shadow_overlay_gradient_large_transparent_png_image_" />
+
+
             <TextView
                 android:id="@+id/hadith_text"
                 android:layout_width="match_parent"
@@ -51,7 +63,6 @@
                 android:fontFamily="@font/almarai_bold"
                 android:gravity="center"
                 android:lineSpacingExtra="10sp"
-                android:padding="@dimen/_16sdp"
                 android:text="@{videosModel.text}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15ssp"

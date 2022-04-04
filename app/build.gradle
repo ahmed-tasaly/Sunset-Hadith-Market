@@ -17,8 +17,8 @@ android {
         applicationId "com.moataz.afternoonhadeeth"
         minSdk 25
         targetSdk 31
-        versionCode 14
-        versionName "3.4.233"
+        versionCode 15
+        versionName "3.5.044"
         multiDexEnabled true  // to fix error "cannot fit requested classes in a single dex file"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -112,5 +112,6 @@ dependencies {
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
     // to avoid Android 12 errors
-    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    implementation 'androidx.work:work-runtime-ktx:2.8.0-alpha01'
+    implementation 'androidx.work:work-runtime:2.7.1'
 }
