@@ -14,7 +14,7 @@
     <item
         android:id="@+id/hadith_item_offline"
         android:icon="@drawable/selector_ebadat"
-        android:title="@string/menu_videos" />
+        android:title="@string/menu_hadiths" />
 
     <item
         android:id="@+id/about_item_offline"

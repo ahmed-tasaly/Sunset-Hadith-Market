@@ -17,8 +17,8 @@ android {
         applicationId "com.moataz.afternoonhadeeth"
         minSdk 25
         targetSdk 31
-        versionCode 15
-        versionName "3.5.044"
+        versionCode 16
+        versionName "3.6.224"
         multiDexEnabled true  // to fix error "cannot fit requested classes in a single dex file"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -79,10 +79,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics'
     // firebase message
-    implementation 'com.google.firebase:firebase-messaging:23.0.2'
+    implementation 'com.google.firebase:firebase-messaging:23.0.3'
     // Navigation component
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     // swipe to refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     // sdp library for support all sizes on the screen
@@ -112,6 +112,6 @@ dependencies {
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
     // to avoid Android 12 errors
-    implementation 'androidx.work:work-runtime-ktx:2.8.0-alpha01'
+    implementation 'androidx.work:work-runtime-ktx:2.8.0-alpha02'
     implementation 'androidx.work:work-runtime:2.7.1'
 }

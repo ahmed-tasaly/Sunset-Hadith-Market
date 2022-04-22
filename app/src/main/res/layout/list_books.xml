@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="BooksModel"
+            type="com.moataz.afternoonhadeeth.data.model.books.Books" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_6sdp"
+            app:cardElevation="@dimen/_2sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_105sdp"
+                android:background="@color/card_color">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="@dimen/_115sdp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:elevation="@dimen/_2sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/folder_loading_image"
+            app:imageUrlWithPlaceHolder="@{BooksModel.imageURL}"
+            app:layout_constraintBottom_toBottomOf="@+id/tets"
+            app:layout_constraintStart_toStartOf="@+id/tets"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:elevation="@dimen/_2sdp"
+            android:fontFamily="@font/almarai_bold"
+            android:gravity="center"
+            android:text="@{BooksModel.title}"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/book_image"
+            app:layout_constraintTop_toTopOf="@+id/tets"
+            tools:text="الرحيق المختوم" />
+
+        <TextView
+            android:id="@+id/author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            android:elevation="@dimen/_2sdp"
+            android:gravity="center"
+            android:text="@{BooksModel.author}"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toEndOf="@+id/book_image"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="الإمام الغزالي" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            android:numStars="5"
+            android:progressTint="#ffff8800"
+            android:elevation="@dimen/_2sdp"
+            app:layout_constraintStart_toEndOf="@+id/book_image"
+            app:layout_constraintTop_toBottomOf="@+id/author_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

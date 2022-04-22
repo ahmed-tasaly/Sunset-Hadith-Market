@@ -9,20 +9,20 @@
     <item
         android:id="@+id/videosFragment"
         android:icon="@drawable/selector_videos"
-        android:title="@string/menu_search" />
+        android:title="@string/menu_videos" />
 
     <item
         android:id="@+id/hadithFragment"
         android:icon="@drawable/selector_ebadat"
-        android:title="@string/menu_videos" />
-
-    <item
-        android:id="@+id/imagesFragment"
-        android:icon="@drawable/selector_image"
-        android:title="@string/menu_saved" />
+        android:title="@string/menu_hadiths" />
 
     <item
         android:id="@+id/premiumFragment"
         android:icon="@drawable/selector_premium"
-        android:title="@string/menu_premium" />
+        android:title="@string/menu_books" />
+
+    <item
+        android:id="@+id/imagesFragment"
+        android:icon="@drawable/selector_image"
+        android:title="@string/menu_images" />
 </menu>
