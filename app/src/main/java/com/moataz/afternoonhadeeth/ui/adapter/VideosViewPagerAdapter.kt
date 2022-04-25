@@ -9,13 +9,12 @@ import com.moataz.afternoonhadeeth.ui.view.fragment.VideosTopFragment
 class VideosViewPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 
     override fun getItemCount(): Int {
-        return 2
+        return 1
     }
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> VideosTopFragment()
-            else -> VideosChoosenFragment()
+            else -> VideosTopFragment()
         }
     }
 }

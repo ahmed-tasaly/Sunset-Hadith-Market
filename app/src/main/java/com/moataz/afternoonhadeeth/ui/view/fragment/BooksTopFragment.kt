@@ -9,16 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.data.model.books.BooksResponse
-import com.moataz.afternoonhadeeth.databinding.FragmentBooksBinding
 import com.moataz.afternoonhadeeth.databinding.FragmentBooksTopBinding
 import com.moataz.afternoonhadeeth.ui.adapter.BooksAdapter
-import com.moataz.afternoonhadeeth.ui.viewmodel.BooksViewModel
+import com.moataz.afternoonhadeeth.ui.viewmodel.BooksTopViewModel
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
 class BooksTopFragment : Fragment() {
     private var adapter = BooksAdapter()
-    private var viewModel = BooksViewModel()
+    private var viewModel = BooksTopViewModel()
     private lateinit var binding: FragmentBooksTopBinding
 
     override fun onCreateView(
@@ -65,6 +64,6 @@ class BooksTopFragment : Fragment() {
     }
 
     private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(BooksTopViewModel::class.java)
     }
 }

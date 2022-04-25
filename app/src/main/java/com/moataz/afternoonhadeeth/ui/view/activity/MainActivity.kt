@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         initializeView()
         setupNotification()
         initializeBottomNavigation()
-        showRating()
         inAppUpdate()
     }
 

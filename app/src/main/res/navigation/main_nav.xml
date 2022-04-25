@@ -17,11 +17,11 @@
         android:name="com.moataz.afternoonhadeeth.ui.view.fragment.HadithFragment"
         android:label="HadithFragment" />
     <fragment
-        android:id="@+id/premiumFragment"
-        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.BooksFragment"
-        android:label="PremiumFragment" />
-    <fragment
         android:id="@+id/imagesFragment"
         android:name="com.moataz.afternoonhadeeth.ui.view.fragment.ImagesFragment"
         android:label="ImagesFragment" />
+    <fragment
+        android:id="@+id/premiumFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.BooksFragment"
+        android:label="PremiumFragment" />
 </navigation>

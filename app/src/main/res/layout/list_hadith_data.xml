@@ -25,20 +25,10 @@
             android:layout_height="wrap_content"
             android:background="@color/card_color">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_180sdp"
-                android:scaleType="fitXY"
-                android:src="@drawable/cover_hadith"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/hadith_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_76sdp"
                 android:fontFamily="@font/almarai_bold"
                 android:gravity="center"
                 android:lineSpacingExtra="10sp"

@@ -30,13 +30,12 @@ class ImagesFragment : Fragment() {
         TabLayoutMediator(binding.videosTabLayout, binding.videosViewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> "خلفيات"
-                1 -> "الرسول الكريم"
+                1 -> "مشكاة النبوة"
                 2 -> "المسجد النبوي"
-                3 -> "الحرم المكي"
-                else -> "المسجد الأقصى"
+                else -> "الرسول الكريم"
             }
         }.attach()
-        binding.videosViewPager.offscreenPageLimit = 4
+        binding.videosViewPager.offscreenPageLimit = 3
         binding.videosViewPager.isUserInputEnabled = false
     }
 }

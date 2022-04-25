@@ -8,16 +8,15 @@ import com.moataz.afternoonhadeeth.ui.view.fragment.*
 class ImagesViewPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 
     override fun getItemCount(): Int {
-        return 5
+        return 4
     }
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> ImagesWallpaperFragment()
-            1 -> ImagesNabiFragment()
+            1 -> ImagesKabaFragment()
             2 -> ImagesMasjidFragment()
-            3 -> ImagesKabaFragment()
-            else -> ImagesAqsaFragment()
+            else -> ImagesNabiFragment()
         }
     }
 }

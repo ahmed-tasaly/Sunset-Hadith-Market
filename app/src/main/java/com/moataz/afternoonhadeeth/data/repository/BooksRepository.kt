@@ -10,7 +10,15 @@ import io.reactivex.Single
 class BooksRepository {
     private val apiServiceBooks: BooksAPIService = ApiClint.apiServiceBooks
 
-    fun executeBooksApi(): Single<BooksResponse> {
-        return apiServiceBooks.getBooksList()
+    fun executeBooksTopApi(): Single<BooksResponse> {
+        return apiServiceBooks.getBooksTopList()
+    }
+
+    fun executeBooksSerahApi(): Single<BooksResponse> {
+        return apiServiceBooks.getBooksSerahList()
+    }
+
+    fun executeBooksHadithApi(): Single<BooksResponse> {
+        return apiServiceBooks.getBooksHadithList()
     }
 }

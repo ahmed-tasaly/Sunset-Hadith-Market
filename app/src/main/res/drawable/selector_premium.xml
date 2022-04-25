@@ -1,4 +1,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/read_1" android:state_checked="true" />
-    <item android:drawable="@drawable/read" android:state_checked="false" />
+    <item android:drawable="@drawable/book_1" android:state_checked="true" />
+    <item android:drawable="@drawable/book" android:state_checked="false" />
 </selector>
