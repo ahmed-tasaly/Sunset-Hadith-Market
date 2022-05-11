@@ -12,8 +12,7 @@ import com.moataz.afternoonhadeeth.utils.helper.Views
 
 class DisplayHadithListActivity : AppCompatActivity() {
 
-    private var adapter =
-        HadithListAdapter()
+    private var adapter = HadithListAdapter()
     private lateinit var binding: ActivityDisplayHadithListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

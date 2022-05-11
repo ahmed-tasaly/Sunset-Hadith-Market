@@ -11,23 +11,35 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.source.Hadiths
+import com.moataz.afternoonhadeeth.data.source.MorningHadiths
+import com.moataz.afternoonhadeeth.ui.view.activity.DisplayNotificationHadith
 import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import java.util.*
 
 class ZohorNotification : BroadcastReceiver() {
+
     private val CHANNEL_ID = "HADITH_ZOHOR_CHANNEL_ID"
+    private var NOTIFICATION_TITLE = "حديث اليوم"
+    private var NOTIFICATION_MESSAGE = Hadiths().firstHadith()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context, intent: Intent?) {
-        val notificationIntent = Intent(context, MainActivity::class.java)
+
+        // send content of notification to activity
+        val notificationIntent = Intent(context, DisplayNotificationHadith::class.java)
+        notificationIntent.putExtra("hadithNotification", NOTIFICATION_MESSAGE)
+        notificationIntent.putExtra("titleNotification", NOTIFICATION_TITLE)
+        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
         val stackBuilder = TaskStackBuilder.create(context)
         stackBuilder.addParentStack(MainActivity::class.java)
         stackBuilder.addNextIntent(notificationIntent)
         val pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+
         Notification.Builder(context, CHANNEL_ID)
         val notification: Notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setContentTitle("حديث اليوم")
-            .setContentText(Hadiths().firstHadith())
+            .setContentTitle(NOTIFICATION_TITLE)
+            .setContentText(NOTIFICATION_MESSAGE)
             .setSmallIcon(R.drawable.ic_notification)
             .setLights(Notification.FLAG_SHOW_LIGHTS, 1000, 500)
             .setDefaults(NotificationCompat.DEFAULT_ALL)
@@ -35,7 +47,10 @@ class ZohorNotification : BroadcastReceiver() {
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
             .setStyle(NotificationCompat.BigTextStyle())
+            .setColor(Color.BLUE)
+            .setLights(Color.BLUE, 500, 500)
             .build()
+
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channel = NotificationChannel(

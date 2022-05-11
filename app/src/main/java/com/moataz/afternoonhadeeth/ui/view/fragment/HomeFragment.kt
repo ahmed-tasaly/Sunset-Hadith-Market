@@ -110,7 +110,6 @@ class HomeFragment : BottomSheetDialogFragment() {
                 restart()
             }
         }
-
         /* go to offline button */
         val buttonOffline = bottomSheetDialog.findViewById<Button>(R.id.buttonNoInternet)
         buttonOffline?.setOnClickListener {

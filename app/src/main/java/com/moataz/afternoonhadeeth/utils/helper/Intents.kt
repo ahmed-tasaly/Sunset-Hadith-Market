@@ -50,6 +50,10 @@ object Intents {
         Toasty.normal(context, text, Toast.LENGTH_SHORT).show()
     }
 
+    fun showToast( context: Context, text: String) {
+        Toasty.normal(context, text, Toast.LENGTH_SHORT).show()
+    }
+
     fun openNewActivity(context: Context, cls: Class<*>?) {
         val intent = Intent(context, cls)
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP

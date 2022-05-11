@@ -16,17 +16,15 @@ import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
-import com.moataz.afternoonhadeeth.ui.jetpack.notification.AfternoonNotification
-import com.moataz.afternoonhadeeth.ui.jetpack.notification.MorningNotification
-import com.moataz.afternoonhadeeth.ui.jetpack.notification.NightNotification
-import com.moataz.afternoonhadeeth.ui.jetpack.notification.ZohorNotification
+import com.moataz.afternoonhadeeth.ui.jetpack.notification.*
 import com.moataz.afternoonhadeeth.utils.helper.Views
+import com.suddenh4x.ratingdialog.AppRating
+import com.suddenh4x.ratingdialog.preferences.RatingThreshold
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -35,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         setupNotification()
         initializeBottomNavigation()
         inAppUpdate()
+        inAppRating()
     }
 
     private fun initializeView() {
@@ -60,22 +59,15 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
     }
 
-    private fun showRating() {
-        val manager = ReviewManagerFactory.create(this)
-        manager.requestReviewFlow().addOnCompleteListener { request ->
-            if (request.isSuccessful) {
-                val reviewInfo = request.result
-                manager.launchReviewFlow(this, reviewInfo).addOnFailureListener {
-                }.addOnCompleteListener { _ ->
-                }
-            }
-        }
-    }
-
-    private fun restart() {
-        val intent = Intent(this, MainActivity::class.java)
-        this.startActivity(intent)
-        finishAffinity()
+    private fun inAppRating() {
+        AppRating.Builder(this)
+            .setMinimumLaunchTimes(5)
+            .setMinimumDays(5)
+            .useGoogleInAppReview()
+            .setMinimumLaunchTimesToShowAgain(25)
+            .setMinimumDaysToShowAgain(10)
+            .setRatingThreshold(RatingThreshold.FOUR)
+            .showIfMeetsConditions()
     }
 
     private fun inAppUpdate() {
