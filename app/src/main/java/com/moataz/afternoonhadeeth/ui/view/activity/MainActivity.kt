@@ -61,11 +61,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun inAppRating() {
         AppRating.Builder(this)
-            .setMinimumLaunchTimes(5)
-            .setMinimumDays(5)
+            .setMinimumLaunchTimes(3)
+            .setMinimumDays(3)
             .useGoogleInAppReview()
-            .setMinimumLaunchTimesToShowAgain(25)
-            .setMinimumDaysToShowAgain(10)
+            .setMinimumLaunchTimesToShowAgain(10)
+            .setMinimumDaysToShowAgain(7)
             .setRatingThreshold(RatingThreshold.FOUR)
             .showIfMeetsConditions()
     }

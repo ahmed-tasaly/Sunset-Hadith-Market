@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.model.videos.top.Data
-import com.moataz.afternoonhadeeth.databinding.ActivityInfoVideosBlocksBinding
+import com.moataz.afternoonhadeeth.databinding.ActivityDisplayVideosDataBlocksBinding
 import com.moataz.afternoonhadeeth.ui.adapter.VideosTopBlocksListAdapter
 import com.moataz.afternoonhadeeth.utils.helper.Views
 
@@ -14,11 +14,11 @@ class DisplayVideoBlocksActivity : AppCompatActivity() {
 
     private var adapter =
         VideosTopBlocksListAdapter()
-    private lateinit var binding: ActivityInfoVideosBlocksBinding
+    private lateinit var binding: ActivityDisplayVideosDataBlocksBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityInfoVideosBlocksBinding.inflate(layoutInflater)
+        binding = ActivityDisplayVideosDataBlocksBinding.inflate(layoutInflater)
         setContentView(binding.root)
         intiView()
         intiToolbar()

@@ -11,19 +11,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import coil.load
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.databinding.ActivityDisplayImagesBinding
+import com.moataz.afternoonhadeeth.databinding.ActivityDisplayImageBinding
 import com.moataz.afternoonhadeeth.utils.helper.Views.hideStatusBar
 import com.moataz.afternoonhadeeth.utils.helper.Views.intiViews
 
 class DisplayImageActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDisplayImagesBinding
+    private lateinit var binding: ActivityDisplayImageBinding
     private val PERMISSION_WRITE = 0
 
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDisplayImagesBinding.inflate(layoutInflater)
+        binding = ActivityDisplayImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initializeView()
         back()

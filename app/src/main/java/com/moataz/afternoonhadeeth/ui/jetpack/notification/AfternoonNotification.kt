@@ -28,13 +28,17 @@ class AfternoonNotification : BroadcastReceiver() {
         val notificationIntent = Intent(context, DisplayNotificationHadith::class.java)
         notificationIntent.putExtra("hadithNotification", NOTIFICATION_MESSAGE)
         notificationIntent.putExtra("titleNotification", NOTIFICATION_TITLE)
-        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(notificationIntent)
 
-        val stackBuilder = TaskStackBuilder.create(context)
-        stackBuilder.addParentStack(MainActivity::class.java)
-        stackBuilder.addNextIntent(notificationIntent)
-        val pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+        val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(context).run {
+            // Add the intent, which inflates the back stack
+            addNextIntentWithParentStack(notificationIntent)
+            // Get the PendingIntent containing the entire back stack
+            getPendingIntent(
+                0,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
+        }
 
         Notification.Builder(context, CHANNEL_ID)
         val notification: Notification = NotificationCompat.Builder(context, CHANNEL_ID)
@@ -45,7 +49,7 @@ class AfternoonNotification : BroadcastReceiver() {
             .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
-            .setContentIntent(pendingIntent)
+            .setContentIntent(resultPendingIntent)
             .setStyle(NotificationCompat.BigTextStyle())
             .setColor(Color.BLUE)
             .setLights(Color.BLUE, 500, 500)
@@ -68,8 +72,8 @@ class AfternoonNotification : BroadcastReceiver() {
     fun setupAfternoonNotification(context: Context) {
         val cal = Calendar.getInstance()
         cal.timeInMillis = System.currentTimeMillis()
-        cal[Calendar.HOUR_OF_DAY] = 17
-        cal[Calendar.MINUTE] = 0
+        cal[Calendar.HOUR_OF_DAY] = 16
+        cal[Calendar.MINUTE] = 45
         cal[Calendar.SECOND] = 0
         if (cal.timeInMillis > System.currentTimeMillis()) {
             val notificationIntent = Intent(

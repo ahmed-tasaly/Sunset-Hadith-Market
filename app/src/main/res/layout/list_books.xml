@@ -53,7 +53,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/book_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
@@ -70,7 +70,7 @@
             tools:text="الرحيق المختوم" />
 
         <TextView
-            android:id="@+id/author_name"
+            android:id="@+id/book_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
@@ -81,7 +81,7 @@
             android:textColor="@color/black_text"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintStart_toEndOf="@+id/book_image"
-            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/book_title"
             tools:text="الإمام الغزالي" />
 
         <RatingBar
@@ -95,6 +95,6 @@
             android:progressTint="#ffff8800"
             android:elevation="@dimen/_2sdp"
             app:layout_constraintStart_toEndOf="@+id/book_image"
-            app:layout_constraintTop_toBottomOf="@+id/author_name" />
+            app:layout_constraintTop_toBottomOf="@+id/book_author" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

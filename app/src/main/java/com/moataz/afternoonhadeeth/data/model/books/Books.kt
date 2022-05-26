@@ -7,5 +7,6 @@ data class Books(
     val author: String,
     val imageURL: String,
     val title: String,
-    val url: String
+    val url: String,
+    val details: String
 )

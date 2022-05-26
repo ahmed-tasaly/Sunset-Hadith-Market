@@ -12,19 +12,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import coil.load
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.databinding.ActivityDisplayWallpaperImagesBinding
+import com.moataz.afternoonhadeeth.databinding.ActivityDisplayWallpaperBinding
 import com.moataz.afternoonhadeeth.utils.helper.Views.hideStatusBar
 import com.moataz.afternoonhadeeth.utils.helper.Views.intiViews
 import es.dmoral.toasty.Toasty
 
 class DisplayWallpaperImageActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDisplayWallpaperImagesBinding
+    private lateinit var binding: ActivityDisplayWallpaperBinding
     private val PERMISSION_WRITE = 0
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDisplayWallpaperImagesBinding.inflate(layoutInflater)
+        binding = ActivityDisplayWallpaperBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initializeView()
         back()

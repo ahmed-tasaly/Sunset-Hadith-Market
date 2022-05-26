@@ -6,18 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.model.hadith.Hadith
-import com.moataz.afternoonhadeeth.databinding.ActivityDisplayHadithListBinding
+import com.moataz.afternoonhadeeth.databinding.ActivityDisplayHadithsBinding
 import com.moataz.afternoonhadeeth.ui.adapter.HadithListAdapter
 import com.moataz.afternoonhadeeth.utils.helper.Views
 
 class DisplayHadithListActivity : AppCompatActivity() {
 
     private var adapter = HadithListAdapter()
-    private lateinit var binding: ActivityDisplayHadithListBinding
+    private lateinit var binding: ActivityDisplayHadithsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDisplayHadithListBinding.inflate(layoutInflater)
+        binding = ActivityDisplayHadithsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         intiView()
         intiToolbar()

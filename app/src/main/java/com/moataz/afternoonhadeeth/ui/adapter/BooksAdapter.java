@@ -1,12 +1,11 @@
 package com.moataz.afternoonhadeeth.ui.adapter;
 
 import android.annotation.SuppressLint;
-import android.content.res.ColorStateList;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +13,7 @@ import com.moataz.afternoonhadeeth.R;
 import com.moataz.afternoonhadeeth.data.model.books.Books;
 import com.moataz.afternoonhadeeth.data.model.books.BooksResponse;
 import com.moataz.afternoonhadeeth.databinding.ListBooksBinding;
-import com.moataz.afternoonhadeeth.utils.helper.Intents;
+import com.moataz.afternoonhadeeth.ui.view.activity.DisplayBookActivity;
 
 import java.util.Collections;
 
@@ -65,7 +64,16 @@ public class BooksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
 
         void setOnClick(Books books) {
-            itemView.setOnClickListener(v -> Intents.INSTANCE.openTabUrl(itemView.getContext(), books.getUrl()));
+            itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(itemView.getContext(), DisplayBookActivity.class);
+                // send data to DisplayBookActivity
+                intent.putExtra("bookTitle", books.getTitle());
+                intent.putExtra("bookAuthor", books.getAuthor());
+                intent.putExtra("bookDetails", books.getDetails());
+                intent.putExtra("bookImage", books.getImageURL());
+                intent.putExtra("bookUrl", books.getUrl());
+                itemView.getContext().startActivity(intent);
+            });
         }
     }
 }

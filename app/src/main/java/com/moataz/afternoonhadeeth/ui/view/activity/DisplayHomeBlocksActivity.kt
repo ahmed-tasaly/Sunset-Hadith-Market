@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList
-import com.moataz.afternoonhadeeth.databinding.ActivityInfoHomeBlocksBinding
+import com.moataz.afternoonhadeeth.databinding.ActivityDisplayHomeDataBlocksBinding
 import com.moataz.afternoonhadeeth.ui.adapter.HomeBlocksAdapter
 import com.moataz.afternoonhadeeth.utils.helper.Views
 
@@ -14,11 +14,11 @@ class DisplayHomeBlocksActivity : AppCompatActivity() {
 
     private var adapter =
         HomeBlocksAdapter()
-    private lateinit var binding: ActivityInfoHomeBlocksBinding
+    private lateinit var binding: ActivityDisplayHomeDataBlocksBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityInfoHomeBlocksBinding.inflate(layoutInflater)
+        binding = ActivityDisplayHomeDataBlocksBinding.inflate(layoutInflater)
         setContentView(binding.root)
         intiView()
         intiToolbar()

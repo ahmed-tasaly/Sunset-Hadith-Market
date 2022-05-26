@@ -10,10 +10,8 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.data.source.Hadiths
 import com.moataz.afternoonhadeeth.data.source.NightHadiths
 import com.moataz.afternoonhadeeth.ui.view.activity.DisplayNotificationHadith
-import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import java.util.*
 
 class NightNotification : BroadcastReceiver() {
@@ -29,12 +27,16 @@ class NightNotification : BroadcastReceiver() {
         val notificationIntent = Intent(context, DisplayNotificationHadith::class.java)
         notificationIntent.putExtra("hadithNotification", NOTIFICATION_MESSAGE)
         notificationIntent.putExtra("titleNotification", NOTIFICATION_TITLE)
-        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
-        val stackBuilder = TaskStackBuilder.create(context)
-        stackBuilder.addParentStack(MainActivity::class.java)
-        stackBuilder.addNextIntent(notificationIntent)
-        val pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+        val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(context).run {
+            // Add the intent, which inflates the back stack
+            addNextIntentWithParentStack(notificationIntent)
+            // Get the PendingIntent containing the entire back stack
+            getPendingIntent(
+                0,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
+        }
 
         Notification.Builder(context, CHANNEL_ID)
         val notification: Notification = NotificationCompat.Builder(context, CHANNEL_ID)
@@ -45,7 +47,7 @@ class NightNotification : BroadcastReceiver() {
             .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
-            .setContentIntent(pendingIntent)
+            .setContentIntent(resultPendingIntent)
             .setStyle(NotificationCompat.BigTextStyle())
             .setColor(Color.BLUE)
             .setLights(Color.BLUE, 500, 500)

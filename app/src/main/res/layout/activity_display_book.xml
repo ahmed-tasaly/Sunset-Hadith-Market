@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="DisplayBooksModel"
+            type="com.moataz.afternoonhadeeth.data.model.books.Books" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:background="@color/main_color"
+                android:elevation="@dimen/_1sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/top_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_13sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:fontFamily="@font/almarai_bold"
+                    android:text="مكتبة المسلم"
+                    android:textColor="@color/bnv_tab_item_foreground"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.055"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/back_icon"
+                    android:layout_width="@dimen/_21sdp"
+                    android:layout_height="@dimen/_21sdp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:background="@drawable/ic_back_black" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <ImageView
+                android:id="@+id/book_image"
+                android:layout_width="@dimen/_89sdp"
+                android:layout_height="@dimen/_131sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:elevation="@dimen/_2sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/folder_loading_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <TextView
+                android:id="@+id/book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:elevation="@dimen/_2sdp"
+                android:fontFamily="@font/almarai_bold"
+                android:gravity="center"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/book_image"
+                app:layout_constraintHorizontal_bias="0.56"
+                app:layout_constraintStart_toStartOf="@+id/book_image"
+                app:layout_constraintTop_toBottomOf="@+id/book_image"
+                tools:text="الرحيق المختوم" />
+
+            <TextView
+                android:id="@+id/book_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:elevation="@dimen/_2sdp"
+                android:gravity="center"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="@+id/book_title"
+                app:layout_constraintStart_toStartOf="@+id/book_title"
+                app:layout_constraintTop_toBottomOf="@+id/book_title"
+                tools:text="الإمام الغزالي" />
+
+            <RatingBar
+                android:id="@+id/rating_bar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:elevation="@dimen/_2sdp"
+                android:numStars="5"
+                android:progressTint="#ffff8800"
+                app:layout_constraintEnd_toEndOf="@+id/book_author"
+                app:layout_constraintStart_toStartOf="@+id/book_author"
+                app:layout_constraintTop_toBottomOf="@+id/book_author" />
+
+            <TextView
+                android:id="@+id/book_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:elevation="@dimen/_2sdp"
+                android:fontFamily="@font/almarai_bold"
+                android:gravity="center"
+                android:lineSpacingExtra="10sp"
+                android:textColor="@color/bnv_tab_item_foreground"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rating_bar"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="إن هذا الكتاب حسن الطوية فهو ينبهك منذ البداية إني لا أستهدف من ورائه مقصداً إلا ما ينفع العام والخاص، ولم أرد به خدمتك أو إعلاء ذكرى فإن مواهبي تعجز عن تحقيق مثل هذه الغاية... لقد خصصته لمنفعة الخاصة من أهلي وأصدقائي حتى إذا ما افتقدوني استطاعوا أن يجدوا فيه صورة لطباعي وميولي، فيسترجعوا ذكراي التي خلفتها لهم حيّة كاملة ولو كان هدفي أن أظفر بإعجاب العالم لعملت على إطراء نفسي وإظيعتها ما سمح لي العرف بذلك..." />
+
+            <View
+                android:id="@+id/download_book"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_46sdp"
+                android:background="#AA0000"
+                android:elevation="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/download_book_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="@dimen/_2sdp"
+                android:fontFamily="@font/almarai_bold"
+                android:text="تحميل الكتاب"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_17ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/download_book"
+                app:layout_constraintEnd_toEndOf="@+id/download_book"
+                app:layout_constraintStart_toStartOf="@+id/download_book"
+                app:layout_constraintTop_toTopOf="@+id/download_book" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
+

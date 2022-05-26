@@ -47,7 +47,7 @@
                 tools:text="قال رسول الله صلى الله عليه وسلم  من قال سبحان الله العظيم وبحمده غرست له نخلة في الجنة." />
 
             <TextView
-                android:id="@+id/author_name"
+                android:id="@+id/book_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_14sdp"
