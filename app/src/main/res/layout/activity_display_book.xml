@@ -3,18 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="DisplayBooksModel"
-            type="com.moataz.afternoonhadeeth.data.model.books.Books" />
-    </data>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_color"
-        android:fillViewport="true">
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -121,6 +116,7 @@
                 android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_18sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="16dp"
                 android:elevation="@dimen/_2sdp"
                 android:fontFamily="@font/almarai_bold"
                 android:gravity="center"
@@ -128,7 +124,7 @@
                 android:textColor="@color/bnv_tab_item_foreground"
                 android:textSize="@dimen/_13ssp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/download_book"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

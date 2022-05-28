@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.view.View
@@ -15,7 +16,6 @@ import com.moataz.afternoonhadeeth.data.model.hadith.Hadith
 import com.moataz.afternoonhadeeth.data.model.home.blocks.DataList
 import com.moataz.afternoonhadeeth.data.model.videos.top.Data
 import es.dmoral.toasty.Toasty
-
 
 object Intents {
 
@@ -50,7 +50,7 @@ object Intents {
         Toasty.normal(context, text, Toast.LENGTH_SHORT).show()
     }
 
-    fun showToast( context: Context, text: String) {
+    fun showToast(context: Context, text: String) {
         Toasty.normal(context, text, Toast.LENGTH_SHORT).show()
     }
 
@@ -60,7 +60,12 @@ object Intents {
         context.startActivity(intent)
     }
 
-    fun openNewActivityWithInfo(context: Context, cls: Class<*>?, title: String, blocksInfoList: ArrayList<DataList>) {
+    fun openNewActivityWithInfo(
+        context: Context,
+        cls: Class<*>?,
+        title: String,
+        blocksInfoList: ArrayList<DataList>
+    ) {
         val intent = Intent(context, cls)
         intent.putExtra("title", title)
         intent.putParcelableArrayListExtra("BlocksInfoList", blocksInfoList);
@@ -68,7 +73,12 @@ object Intents {
         context.startActivity(intent)
     }
 
-    fun openNewActivityWithVideos(context: Context, cls: Class<*>?, title: String, blocksInfoList: ArrayList<Data>) {
+    fun openNewActivityWithVideos(
+        context: Context,
+        cls: Class<*>?,
+        title: String,
+        blocksInfoList: ArrayList<Data>
+    ) {
         val intent = Intent(context, cls)
         intent.putExtra("topVideosTitle", title)
         intent.putParcelableArrayListExtra("topVideosBlocksList", blocksInfoList);
@@ -76,7 +86,12 @@ object Intents {
         context.startActivity(intent)
     }
 
-    fun openNewActivityWithHadith(context: Context, cls: Class<*>?, title: String, hadithList: ArrayList<Hadith>) {
+    fun openNewActivityWithHadith(
+        context: Context,
+        cls: Class<*>?,
+        title: String,
+        hadithList: ArrayList<Hadith>
+    ) {
         val intent = Intent(context, cls)
         intent.putExtra("hadithTitle", title)
         intent.putParcelableArrayListExtra("hadithList", hadithList);
@@ -84,25 +99,30 @@ object Intents {
         context.startActivity(intent)
     }
 
+    /*
+     * @function openNewActivityWithInfo
+     * open url in custom tab with chrome
+     * @function openTabUrl + openCustomTabs + isPackageInstalled
+     */
     fun openTabUrl(context: Context, url: String) {
-            val customTabIntent: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
-            customTabIntent.setToolbarColor(Color.parseColor("#FFF5E6"))
-            customTabIntent.setStartAnimations(
-                context,
-                R.anim.slide_in_right,
-                R.anim.slide_out_left
-            )
-            customTabIntent.setExitAnimations(
-                context,
-                R.anim.slide_in_left,
-                R.anim.slide_out_right
-            )
-            customTabIntent.setShowTitle(true)
-            openCustomTabs(
-                context,
-                customTabIntent.build(),
-                Uri.parse(url)
-            )
+        val customTabIntent: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
+        customTabIntent.setToolbarColor(Color.parseColor("#FFF5E6"))
+        customTabIntent.setStartAnimations(
+            context,
+            R.anim.slide_in_right,
+            R.anim.slide_out_left
+        )
+        customTabIntent.setExitAnimations(
+            context,
+            R.anim.slide_in_left,
+            R.anim.slide_out_right
+        )
+        customTabIntent.setShowTitle(true)
+        openCustomTabs(
+            context,
+            customTabIntent.build(),
+            Uri.parse(url)
+        )
     }
 
     private fun openCustomTabs(activity: Context, customTabsIntent: CustomTabsIntent, uri: Uri) {

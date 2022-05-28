@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.jetpack.notification
+package com.moataz.afternoonhadeeth.ui.view.notification
 
 import android.annotation.SuppressLint
 import android.app.*
@@ -10,17 +10,15 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.data.source.Hadiths
 import com.moataz.afternoonhadeeth.data.source.MorningHadiths
 import com.moataz.afternoonhadeeth.ui.view.activity.DisplayNotificationHadith
-import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import java.util.*
 
-class ZohorNotification : BroadcastReceiver() {
+class MorningNotification : BroadcastReceiver() {
 
-    private val CHANNEL_ID = "HADITH_ZOHOR_CHANNEL_ID"
-    private var NOTIFICATION_TITLE = "حديث اليوم"
-    private var NOTIFICATION_MESSAGE = Hadiths().firstHadith()
+    private val CHANNEL_ID = "HADITH_MORNING_CHANNEL_ID"
+    private var NOTIFICATION_TITLE = "حديث الصباح"
+    private var NOTIFICATION_MESSAGE = MorningHadiths().morningHadith()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context, intent: Intent?) {
@@ -59,7 +57,7 @@ class ZohorNotification : BroadcastReceiver() {
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channel = NotificationChannel(
             CHANNEL_ID,
-            "Channel_HADITH_ZOHOR_CHANNEL_ID",
+            "Channel_HADITH_MORNING_CHANNEL_ID",
             NotificationManager.IMPORTANCE_HIGH
         )
         channel.enableLights(true)
@@ -69,14 +67,14 @@ class ZohorNotification : BroadcastReceiver() {
         notificationManager.notify(0, notification)
     }
 
-    fun setupZohorNotification(context: Context) {
+    fun setupMorningNotification(context: Context) {
         val cal = Calendar.getInstance()
         cal.timeInMillis = System.currentTimeMillis()
-        cal[Calendar.HOUR_OF_DAY] = 12
-        cal[Calendar.MINUTE] = 0
+        cal[Calendar.HOUR_OF_DAY] = 7
+        cal[Calendar.MINUTE] = 30
         cal[Calendar.SECOND] = 0
         if (cal.timeInMillis > System.currentTimeMillis()) {
-            val notificationIntent = Intent(context, ZohorNotification::class.java)
+            val notificationIntent = Intent(context, MorningNotification::class.java)
             @SuppressLint("UnspecifiedImmutableFlag") val broadcast = PendingIntent.getBroadcast(
                 context,
                 0,

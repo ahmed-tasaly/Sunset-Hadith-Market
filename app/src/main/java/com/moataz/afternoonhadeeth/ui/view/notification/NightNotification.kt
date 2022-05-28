@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.jetpack.notification
+package com.moataz.afternoonhadeeth.ui.view.notification
 
 import android.annotation.SuppressLint
 import android.app.*
@@ -10,16 +10,15 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.moataz.afternoonhadeeth.R
-import com.moataz.afternoonhadeeth.data.source.Hadiths
+import com.moataz.afternoonhadeeth.data.source.NightHadiths
 import com.moataz.afternoonhadeeth.ui.view.activity.DisplayNotificationHadith
-import com.moataz.afternoonhadeeth.ui.view.activity.MainActivity
 import java.util.*
 
-class AfternoonNotification : BroadcastReceiver() {
+class NightNotification : BroadcastReceiver() {
 
-    private val CHANNEL_ID = "HADITH_AFTERNOON_CHANNEL_ID"
-    private var NOTIFICATION_TITLE = "كنز الحسنات"
-    private var NOTIFICATION_MESSAGE = Hadiths().firstHadith()
+    private val CHANNEL_ID = "HADITH_NIGHT_CHANNEL_ID"
+    private var NOTIFICATION_TITLE = "حديث المساء"
+    private var NOTIFICATION_MESSAGE = NightHadiths().nightHadith()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context, intent: Intent?) {
@@ -28,7 +27,6 @@ class AfternoonNotification : BroadcastReceiver() {
         val notificationIntent = Intent(context, DisplayNotificationHadith::class.java)
         notificationIntent.putExtra("hadithNotification", NOTIFICATION_MESSAGE)
         notificationIntent.putExtra("titleNotification", NOTIFICATION_TITLE)
-        context.startActivity(notificationIntent)
 
         val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(context).run {
             // Add the intent, which inflates the back stack
@@ -59,7 +57,7 @@ class AfternoonNotification : BroadcastReceiver() {
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channel = NotificationChannel(
             CHANNEL_ID,
-            "Channel_HADITH_Afternoon_ID",
+            "Channel_HADITH_NIGHT_CHANNEL_ID",
             NotificationManager.IMPORTANCE_HIGH
         )
         channel.enableLights(true)
@@ -69,24 +67,19 @@ class AfternoonNotification : BroadcastReceiver() {
         notificationManager.notify(0, notification)
     }
 
-    fun setupAfternoonNotification(context: Context) {
+    fun setupNightNotification(context: Context) {
         val cal = Calendar.getInstance()
         cal.timeInMillis = System.currentTimeMillis()
-        cal[Calendar.HOUR_OF_DAY] = 16
-        cal[Calendar.MINUTE] = 45
+        cal[Calendar.HOUR_OF_DAY] = 22
+        cal[Calendar.MINUTE] = 0
         cal[Calendar.SECOND] = 0
         if (cal.timeInMillis > System.currentTimeMillis()) {
-            val notificationIntent = Intent(
-                context,
-                AfternoonNotification::class.java
-            )
-            @SuppressLint("UnspecifiedImmutableFlag")
-            val broadcast =
-                PendingIntent.getBroadcast(
+            val notificationIntent = Intent(context, NightNotification::class.java)
+            @SuppressLint("UnspecifiedImmutableFlag") val broadcast = PendingIntent.getBroadcast(
                 context,
                 0,
                 notificationIntent,
-                    PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             alarmManager.setInexactRepeating(

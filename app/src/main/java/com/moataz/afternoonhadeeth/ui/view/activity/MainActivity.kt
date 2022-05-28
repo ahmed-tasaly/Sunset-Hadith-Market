@@ -3,20 +3,18 @@ package com.moataz.afternoonhadeeth.ui.view.activity
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
-import com.google.android.play.core.review.ReviewManagerFactory
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
-import com.moataz.afternoonhadeeth.ui.jetpack.notification.*
+import com.moataz.afternoonhadeeth.ui.view.notification.MorningNotification
+import com.moataz.afternoonhadeeth.ui.view.notification.NightNotification
 import com.moataz.afternoonhadeeth.utils.helper.Views
 import com.suddenh4x.ratingdialog.AppRating
 import com.suddenh4x.ratingdialog.preferences.RatingThreshold
@@ -43,8 +41,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNotification() {
         MorningNotification().setupMorningNotification(this)
-        ZohorNotification().setupZohorNotification(this)
-        AfternoonNotification().setupAfternoonNotification(this)
         NightNotification().setupNightNotification(this)
     }
 

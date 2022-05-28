@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/list_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_height="@dimen/_150sdp"
             android:padding="1.2dp"
             android:scaleType="fitXY"
             app:imageUrlWithPlaceHolder="@{imagesModel.imageUrl}"

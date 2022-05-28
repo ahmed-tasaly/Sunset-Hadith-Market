@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/image_display_other_images"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_260sdp"
+        android:layout_height="@dimen/_290sdp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scaleType="fitXY"

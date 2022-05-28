@@ -1,12 +1,12 @@
 package com.moataz.afternoonhadeeth.ui.view.activity
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import coil.load
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityDisplayBookBinding
+import com.moataz.afternoonhadeeth.utils.helper.Intents
 import com.moataz.afternoonhadeeth.utils.helper.Views
 
 class DisplayBookActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class DisplayBookActivity : AppCompatActivity() {
 
     private fun intiView() {
         Views.intiViews(window)
-        window.navigationBarColor = resources.getColor(R.color.card_color)
+        window.navigationBarColor = resources.getColor(R.color.black_overlay)
     }
 
     private fun intiToolbar() {
@@ -50,10 +50,7 @@ class DisplayBookActivity : AppCompatActivity() {
     }
 
     private fun downloadBookFromUrl() {
-        val url = intent.getStringExtra("bookUrl")
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = url?.toUri()
-        startActivity(intent)
+        Intents.openTabUrl(this, intent.getStringExtra("bookUrl")?.toUri().toString())
     }
 
     private fun backToLastActivity() {

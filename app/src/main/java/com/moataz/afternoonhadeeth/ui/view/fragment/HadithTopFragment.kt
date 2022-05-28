@@ -17,6 +17,7 @@ import com.moataz.afternoonhadeeth.ui.adapter.HadithAdapter
 import com.moataz.afternoonhadeeth.ui.viewmodel.HadithViewModel
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
+import es.dmoral.toasty.Toasty
 
 class HadithTopFragment : Fragment() {
 

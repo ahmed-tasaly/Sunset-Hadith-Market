@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.jetpack.widget
+package com.moataz.afternoonhadeeth.ui.view.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager

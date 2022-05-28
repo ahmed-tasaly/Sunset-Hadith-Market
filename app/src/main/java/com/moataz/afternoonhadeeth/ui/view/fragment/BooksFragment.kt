@@ -30,9 +30,7 @@ class BooksFragment : Fragment() {
             BooksViewPagerAdapter(requireActivity() as AppCompatActivity)
         TabLayoutMediator(binding.videosTabLayout, binding.videosViewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "مميز"
-                1 -> "السيرة"
-                else -> "أحاديث"
+                else -> "السيرة"
             }
         }.attach()
         binding.videosViewPager.isUserInputEnabled = false

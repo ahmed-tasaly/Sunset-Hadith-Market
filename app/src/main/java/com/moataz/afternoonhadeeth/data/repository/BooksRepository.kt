@@ -13,12 +13,4 @@ class BooksRepository {
     fun executeBooksTopApi(): Single<BooksResponse> {
         return apiServiceBooks.getBooksTopList()
     }
-
-    fun executeBooksSerahApi(): Single<BooksResponse> {
-        return apiServiceBooks.getBooksSerahList()
-    }
-
-    fun executeBooksHadithApi(): Single<BooksResponse> {
-        return apiServiceBooks.getBooksHadithList()
-    }
 }
