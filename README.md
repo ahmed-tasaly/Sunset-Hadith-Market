@@ -40,7 +40,9 @@ Home | Videos | Hadiths
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
 - [Jetpack Navigation](https://developer.android.com/jetpack/compose/navigation) - Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
-
+<br />
+  
+  
 ## Project Architecture MVVM
 ![MVVM3](https://user-images.githubusercontent.com/1812129/68319232-446cf900-00be-11ea-92cf-cad817b2af2c.png)
 - Yes , liveData is easy , powerful , but you should know how to use.
@@ -54,16 +56,9 @@ Home | Videos | Hadiths
    mixing the responsibilities .
 
   ![mvvm2](https://user-images.githubusercontent.com/1812129/68319008-e9d39d00-00bd-11ea-9245-ebedd2a2c067.png)
-  
 <br />
-
-## Build-tool 🧰
-You need to have [Android Studio Beta 3 or above](https://developer.android.com/studio/preview) to build this project.
-<br>
-<img src="./beta_android.png" height="200" alt="Beta-studio"/>
-
-<br>
-
+  
+  
 ## Contributing 🤝
 
 If you'd like to contribute, please take a look at the [PRs Welcome](https://github.com/MoatazBadawy/Sunset-hadith/labels) label on the issue tracker. For new features, please open an issue to discuss it before beginning implementation.
