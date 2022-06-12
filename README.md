@@ -7,11 +7,16 @@
   <img alt="MVVM" src="https://img.shields.io/badge/MVVM-Architecture-orange"/>
 </p>
 
-
-An interactive islamic app that lets users discover Biography of the Prophet Muhammed, Watch videos, set wallpaper Images, download and reading books.
-
-
 ## Overview 🕌
+An interactive islamic app that lets users discover Biography of the Prophet Muhammed, Watch videos, set wallpaper Images, download and reading books.
+- fwfwf
+- ddl
+- wpodkwpo
+- dsf
+- ggi
+
+
+## App Image 🕌
 Home | Videos | Hadiths 
 --- | --- | --- | 
 ![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | 
