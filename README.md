@@ -9,14 +9,15 @@
 
 ## Overview 🕌
 An interactive islamic app that lets users discover Biography of the Prophet Muhammed, Watch videos, set wallpaper Images, download and reading books.
-- fwfwf
-- ddl
-- wpodkwpo
-- dsf
-- ggi
+- Ability to read articles and brochures.
+- Ability to copy and share hadiths with others.
+- Watch and view Islamic videos through Youtube player API.
+- The ability to search in the hadiths of the Prophet.
+- Download images and set them as wallpapers for your device, whether for the home screen or lock screen through the application
+- A selection of books with the ability to read directly and download them
 
 
-## App Image 🕌
+## App Images 🌹
 Home | Videos | Hadiths 
 --- | --- | --- | 
 ![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | 
