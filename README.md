@@ -8,10 +8,10 @@
 </p>
 
 
-# Overview 🕌
 An interactive islamic app that lets users discover Biography of the Prophet Muhammed, Watch videos, set wallpaper Images, download and reading books.
 
-## Day Mode 🌞
+
+## Overview 🕌
 Home | Videos | Hadiths 
 --- | --- | --- | 
 ![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | 
