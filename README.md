@@ -9,7 +9,7 @@
 
 ![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png | width=100)
 
-![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png =250x250)
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png" width="200" height="400" />
 
 
 ## Overview 🕌
