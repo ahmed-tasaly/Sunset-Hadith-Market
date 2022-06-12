@@ -12,10 +12,13 @@
 An interactive islamic app that lets users discover Biography of the Prophet Muhammed, Watch videos, set wallpaper Images, download and reading books.
 
 ## Day Mode 🌞
-Home | Videos | Hadiths | Wallpapers | Books | DisplayBook (Scrolled)
---- | --- | --- | --- | --- | --- |
-![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | ![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/FbtQ69F/books.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
+Home | Videos | Hadiths 
+--- | --- | --- | 
+![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | 
 
+| Wallpapers | Books | DisplayBook (Scrolled)
+--- | --- | --- |
+![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/FbtQ69F/books.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
 <br />
 
 ## Built With 🛠
