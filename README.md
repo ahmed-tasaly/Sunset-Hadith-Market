@@ -9,7 +9,7 @@
 
 ![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png)
 # Overview 🕌
-An interactive app that lets users discover videos, set wallpaper Images, download and reading books.
+An interactive islamic app that lets users discover Biography of the Prophet Muhammed, Watch videos, set wallpaper Images, download and reading books.
 
 * most of Hadiths got from internet and paper books.
 * more than 49 hadith.
