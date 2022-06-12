@@ -31,7 +31,6 @@ Home | Videos | Hadiths
 ![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
 <br />
   
-  
 ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
 - [RxJava](https://github.com/ReactiveX/RxJava) - Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences.
@@ -41,7 +40,6 @@ Home | Videos | Hadiths
 - [Jetpack Navigation](https://developer.android.com/jetpack/compose/navigation) - Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
 <br />
-  
   
 ## Project Architecture MVVM
 ![MVVM3](https://user-images.githubusercontent.com/1812129/68319232-446cf900-00be-11ea-92cf-cad817b2af2c.png)
@@ -57,7 +55,6 @@ Home | Videos | Hadiths
 
   ![mvvm2](https://user-images.githubusercontent.com/1812129/68319008-e9d39d00-00bd-11ea-9245-ebedd2a2c067.png)
 <br />
-  
   
 ## Contributing 🤝
 
