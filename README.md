@@ -8,6 +8,7 @@
 </p>
 
 ![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png)
+<br />
 
 
 ## Overview 🕌
@@ -18,6 +19,7 @@ An interactive islamic app that lets users discover Biography of the Prophet Muh
 - The ability to search in the hadiths of the Prophet.
 - Download images and set them as wallpapers for your device, whether for the home screen or lock screen through the application
 - A selection of books with the ability to read directly and download them
+<br />
 
 ## App Images 🌹
 Home | Videos | Hadiths 
@@ -28,6 +30,7 @@ Home | Videos | Hadiths
 --- | --- | --- |
 ![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
 <br />
+  
   
 ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
@@ -55,7 +58,7 @@ Home | Videos | Hadiths
 <br />
 
 ## Build-tool 🧰
-You need to have [Android Studio 4.2 or above](https://developer.android.com/studio/preview) to build this project.
+You need to have [Android Studio Beta 3 or above](https://developer.android.com/studio/preview) to build this project.
 <br>
 <img src="./beta_android.png" height="200" alt="Beta-studio"/>
 
