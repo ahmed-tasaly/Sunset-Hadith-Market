@@ -27,7 +27,7 @@ Home | Videos | Hadiths
 
 | Wallpapers | Books | DisplayBook (Scrolled)
 --- | --- | --- |
-![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/FbtQ69F/books.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
+![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
 <br />
 
 ## Project Architecture MVVM
@@ -46,9 +46,9 @@ Home | Videos | Hadiths
   
 ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
-- [RxJava](https://developer.android.com/jetpack/compose) - Jetpack Compose is Android’s modern toolkit for building native UI.
-- [Retrofit](https://developer.android.com/jetpack/compose) - Jetpack Compose is Android’s modern toolkit for building native UI.
-- [OkHttp](https://developer.android.com/jetpack/compose) - Jetpack Compose is Android’s modern toolkit for building native UI.
+- [RxJava](https://github.com/ReactiveX/RxJava) - Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences.
+- [Retrofit](https://github.com/square/retrofit) - A type-safe HTTP client for Android and Kotlin.
+- [OkHttp](https://square.github.io/okhttp/) - HTTP is the way modern applications network. It’s how we exchange data & media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
 - [Jetpack Navigation](https://developer.android.com/jetpack/compose/navigation) - Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
