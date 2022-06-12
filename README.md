@@ -7,9 +7,7 @@
   <img alt="MVVM" src="https://img.shields.io/badge/MVVM-Architecture-orange"/>
 </p>
 
-![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png | width=100)
-
-<img src="https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png" width="800" height="350" />
+![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png)
 
 
 ## Overview 🕌
@@ -20,17 +18,6 @@ An interactive islamic app that lets users discover Biography of the Prophet Muh
 - The ability to search in the hadiths of the Prophet.
 - Download images and set them as wallpapers for your device, whether for the home screen or lock screen through the application
 - A selection of books with the ability to read directly and download them
-
-
-## App Images 🌹
-Home | Videos | Hadiths 
---- | --- | --- | 
-![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | 
-
-| Wallpapers | Books | DisplayBook (Scrolled)
---- | --- | --- |
-![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
-<br />
 
 ## Project Architecture MVVM
 ![MVVM3](https://user-images.githubusercontent.com/1812129/68319232-446cf900-00be-11ea-92cf-cad817b2af2c.png)
@@ -45,6 +32,16 @@ Home | Videos | Hadiths
    mixing the responsibilities .
 
   ![mvvm2](https://user-images.githubusercontent.com/1812129/68319008-e9d39d00-00bd-11ea-9245-ebedd2a2c067.png)
+
+## App Images 🌹
+Home | Videos | Hadiths 
+--- | --- | --- | 
+![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | 
+
+| Wallpapers | Books | DisplayBook (Scrolled)
+--- | --- | --- |
+![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
+<br />
   
 ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
