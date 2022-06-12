@@ -1,4 +1,4 @@
-<h1 align="center">Sunset Hadith</h1>
+<h1 align="center">Sunset Hadith - حديث الغروب</h1>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
@@ -7,7 +7,7 @@
   <img alt="MVVM" src="https://img.shields.io/badge/MVVM-Architecture-orange"/>
 </p>
 
-![](https://i.ibb.co/983fBnp/Cover.png)
+![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png)
 # Overview
 This is a simple app for Android that display Hadiths.
 
