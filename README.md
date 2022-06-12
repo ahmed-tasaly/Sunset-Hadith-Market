@@ -7,7 +7,7 @@
   <img alt="MVVM" src="https://img.shields.io/badge/MVVM-Architecture-orange"/>
 </p>
 
-![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png)
+![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png | width=100))
 
 
 ## Overview 🕌
