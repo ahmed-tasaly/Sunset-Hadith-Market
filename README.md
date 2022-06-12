@@ -19,20 +19,6 @@ An interactive islamic app that lets users discover Biography of the Prophet Muh
 - Download images and set them as wallpapers for your device, whether for the home screen or lock screen through the application
 - A selection of books with the ability to read directly and download them
 
-## Project Architecture MVVM
-![MVVM3](https://user-images.githubusercontent.com/1812129/68319232-446cf900-00be-11ea-92cf-cad817b2af2c.png)
-- Yes , liveData is easy , powerful , but you should know how to use.
- - For livedate which will emit data stream , it has to be in your
-   data layer , and don't inform those observables any thing else like
-   in which thread those will consume , cause it is another
- - For livedata which will emit UI binding events, it has to be in your ViewModel Layer.
- - Observers in UI Consume and react to live data values and bind it.
-   responsibility , and according to `Single responsibility principle`
-  in `SOLID (object-oriented design)` , so don't break this concept by
-   mixing the responsibilities .
-
-  ![mvvm2](https://user-images.githubusercontent.com/1812129/68319008-e9d39d00-00bd-11ea-9245-ebedd2a2c067.png)
-
 ## App Images 🌹
 Home | Videos | Hadiths 
 --- | --- | --- | 
@@ -52,7 +38,29 @@ Home | Videos | Hadiths
 - [Jetpack Navigation](https://developer.android.com/jetpack/compose/navigation) - Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
 
+## Project Architecture MVVM
+![MVVM3](https://user-images.githubusercontent.com/1812129/68319232-446cf900-00be-11ea-92cf-cad817b2af2c.png)
+- Yes , liveData is easy , powerful , but you should know how to use.
+ - For livedate which will emit data stream , it has to be in your
+   data layer , and don't inform those observables any thing else like
+   in which thread those will consume , cause it is another
+ - For livedata which will emit UI binding events, it has to be in your ViewModel Layer.
+ - Observers in UI Consume and react to live data values and bind it.
+   responsibility , and according to `Single responsibility principle`
+  in `SOLID (object-oriented design)` , so don't break this concept by
+   mixing the responsibilities .
 
-## Contributing
+  ![mvvm2](https://user-images.githubusercontent.com/1812129/68319008-e9d39d00-00bd-11ea-9245-ebedd2a2c067.png)
+  
+<br />
+
+## Build-tool 🧰
+You need to have [Android Studio 4.2 or above](https://developer.android.com/studio/preview) to build this project.
+<br>
+<img src="./beta_android.png" height="200" alt="Beta-studio"/>
+
+<br>
+
+## Contributing 🤝
 
 If you'd like to contribute, please take a look at the [PRs Welcome](https://github.com/MoatazBadawy/Sunset-hadith/labels) label on the issue tracker. For new features, please open an issue to discuss it before beginning implementation.
