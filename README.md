@@ -28,7 +28,7 @@ Home | Videos | Hadiths
 
 | Wallpapers | Books | DisplayBook (Scrolled)
 --- | --- | --- |
-![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
+![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/FbtQ69F/books.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
 <br />
  
   
