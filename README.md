@@ -6,6 +6,7 @@
   <a href="https://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-1.4.xxx-blue"/></a>
   <img alt="MVVM" src="https://img.shields.io/badge/MVVM-Architecture-orange"/>
 </p>
+
 ![](https://i.ibb.co/hs8Z57C/Purple-Modern-App-Instagram-Ad.png)
 
 
