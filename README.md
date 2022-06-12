@@ -11,10 +11,21 @@
 # Overview 🕌
 An interactive islamic app that lets users discover Biography of the Prophet Muhammed, Watch videos, set wallpaper Images, download and reading books.
 
-* most of Hadiths got from internet and paper books.
-* more than 49 hadith.
-* button to change hadith.
-* notification every day with hadith.
+## Day Mode 🌞
+Home | Videos | Hadiths | Wallpapers | Books | DisplayBook (Scrolled)
+--- | --- | --- | --- | --- | --- |
+![](https://i.ibb.co/J7Dgpy4/homePage.jpg) | ![](https://i.ibb.co/pWxsw3h/videos.jpg) | ![](https://i.ibb.co/WzkKR7N/hadith.jpg) | ![](https://i.ibb.co/ChFc9jH/wallpapers.jpg) | ![](https://i.ibb.co/FbtQ69F/books.jpg) | ![](https://i.ibb.co/khq2hfK/displaybook.jpg)
+
+<br />
+
+## Built With 🛠
+- [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) - Jetpack Compose is Android’s modern toolkit for building native UI.
+- [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
+  - [Jetpack Compose Navigation](https://developer.android.com/jetpack/compose/navigation) - Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app
+- [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
+- [Figma](https://figma.com/) - Figma is a vector graphics editor and prototyping tool which is primarily web-based.
+
 
 ## Contributing
 
