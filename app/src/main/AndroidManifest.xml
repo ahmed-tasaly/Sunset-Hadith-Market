@@ -32,12 +32,21 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AfterNoonHadeeth">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
         <activity
-            android:name=".ui.view.activity.DisplayBookActivity"
+            android:name="com.moataz.afternoonhadeeth.ui.books.view.activity.DisplayBookActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.view.activity.MainActivity"
+            android:name=".ui.app.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -46,45 +55,52 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".ui.view.activity.DisplayNotificationHadith"
+            android:name=".ui.app.notification.activity.DisplayNotificationActivity"
             android:exported="true"
-            android:parentActivityName=".ui.view.activity.MainActivity" />
+            android:parentActivityName=".ui.app.main.MainActivity" >
+            <intent-filter>
+                <action android:name="DisplayNotifiation" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
-            android:name=".ui.view.activity.DisplayHomeBlocksActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.view.activity.DisplayVideoBlocksActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.view.activity.DisplayHadithListActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.view.activity.MainOfflineActivity"
+            android:name="com.moataz.afternoonhadeeth.ui.home.view.activity.DisplayHomeBlocksActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.view.activity.YoutubePlayerActivity"
+            android:name="com.moataz.afternoonhadeeth.ui.videos.view.activity.DisplayVideoBlocksActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.moataz.afternoonhadeeth.ui.hadiths.view.activity.DisplayHadithListActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.app.main.MainActivityOffline"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.moataz.afternoonhadeeth.ui.home.view.activity.YoutubePlayerActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ui.view.activity.DisplayImageActivity"
+            android:name="com.moataz.afternoonhadeeth.ui.images.view.activity.DisplayImageActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.view.activity.DisplayWallpaperImageActivity"
+            android:name="com.moataz.afternoonhadeeth.ui.images.view.activity.DisplayWallpaperImageActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.view.activity.PDFActivity"
+            android:name="com.moataz.afternoonhadeeth.ui.home.view.activity.PDFActivity"
             android:exported="true" />
 
         <receiver
-            android:name="com.moataz.afternoonhadeeth.ui.view.widget.ZekrWidget"
+            android:name="com.moataz.afternoonhadeeth.ui.app.widget.ZekrWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -99,15 +115,25 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/zekr_widget_info" />
         </receiver>
-        <receiver android:name="com.moataz.afternoonhadeeth.ui.view.notification.MorningNotification" />
-        <receiver android:name="com.moataz.afternoonhadeeth.ui.view.notification.NightNotification" />
+
+        <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.MorningNotification" />
+        <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.NightNotification" />
+        <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.AfternoonNotification" />
+
         <receiver
-            android:name="com.moataz.afternoonhadeeth.ui.view.notification.BootReceiver"
+            android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.BootReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-    </application>
 
+        <service
+            android:name="com.moataz.afternoonhadeeth.ui.app.notification.firebase.FirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
 </manifest>

@@ -6,22 +6,22 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.HomeFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.home.view.fragment.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/videosFragment"
-        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.VideosFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.videos.view.fragment.VideosFragment"
         android:label="fragment_videos" />
     <fragment
         android:id="@+id/hadithFragment"
-        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.HadithFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.hadiths.view.fragment.HadithFragment"
         android:label="HadithFragment" />
     <fragment
         android:id="@+id/imagesFragment"
-        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.ImagesFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.images.view.fragment.ImagesFragment"
         android:label="ImagesFragment" />
     <fragment
         android:id="@+id/premiumFragment"
-        android:name="com.moataz.afternoonhadeeth.ui.view.fragment.BooksFragment"
+        android:name="com.moataz.afternoonhadeeth.ui.books.view.fragment.BooksFragment"
         android:label="PremiumFragment" />
 </navigation>

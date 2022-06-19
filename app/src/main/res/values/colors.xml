@@ -18,4 +18,5 @@
     <color name="black_images_activity">#0E0E0E</color>
     <color name="black_text">#2f3137</color>
     <color name="blue_text">#5476aa</color>
+    <color name="gray">#808080</color>
 </resources>
