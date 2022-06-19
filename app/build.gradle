@@ -46,9 +46,9 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -94,7 +94,7 @@ dependencies {
     // zoom
     implementation 'com.jsibbold:zoomage:1.3.1'
     // animation library
-    implementation 'com.airbnb.android:lottie:4.2.2'
+    implementation 'com.airbnb.android:lottie:5.0.3'
     // extensions library for Play Core:
     implementation 'com.suddenh4x.ratingdialog:awesome-app-rating:2.4.0'
     // in App review
@@ -117,7 +117,7 @@ dependencies {
     // in app rating
     implementation 'com.suddenh4x.ratingdialog:awesome-app-rating:2.4.0'
     // ADD Glide library
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }
