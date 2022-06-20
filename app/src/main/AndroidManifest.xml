@@ -75,7 +75,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DisplayHadithListActivity"
+            android:name="com.moataz.afternoonhadeeth.ui.hadiths.view.activity.DisplayHadithListActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity

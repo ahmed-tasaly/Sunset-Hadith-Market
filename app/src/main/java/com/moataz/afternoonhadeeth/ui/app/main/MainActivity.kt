@@ -8,11 +8,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
+import com.google.firebase.messaging.FirebaseMessaging
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
+import com.moataz.afternoonhadeeth.ui.app.notification.activity.DisplayNotificationActivity
 import com.moataz.afternoonhadeeth.ui.app.notification.schedulie.AfternoonNotification
 import com.moataz.afternoonhadeeth.ui.app.notification.schedulie.MorningNotification
 import com.moataz.afternoonhadeeth.ui.app.notification.schedulie.NightNotification
@@ -33,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         initializeBottomNavigation()
         inAppUpdate()
         inAppRating()
-        //firebaseDeviceToken()
+        firebaseDeviceToken()
     }
 
     private fun initializeView() {
@@ -87,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private fun firebaseDeviceToken() {
+    private fun firebaseDeviceToken() {
 //        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
 //            if (!task.isSuccessful) {
 //                Log.w("MainActivity", "Fetching FCM registration token failed", task.exception)
@@ -96,14 +99,20 @@ class MainActivity : AppCompatActivity() {
 //            val token = task.result
 //            Log.d("MainActivity", token)
 //        })
-//                if (intent.extras != null) {
-//            val notificationIntent = Intent(this, DisplayNotificationActivity::class.java)
-//            // get the data from the Firebase notification payload received in the intent extras bundle and put it in the notificationIntent intent extras bundle to be used in the DisplayNotificationActivity class
-//            notificationIntent.putExtra("titleNotification", intent.extras!!.getString("titleNotification"))
-//            notificationIntent.putExtra("hadithNotification", intent.extras!!.getString("hadithNotification"))
-//            startActivity(notificationIntent)
-//        }
-//    }
+        if (intent.extras != null) {
+            val notificationIntent = Intent(this, DisplayNotificationActivity::class.java)
+            // get the data from the Firebase notification payload received in the intent extras bundle and put it in the notificationIntent intent extras bundle to be used in the DisplayNotificationActivity class
+            notificationIntent.putExtra(
+                "titleNotification",
+                intent.extras!!.getString("titleNotification")
+            )
+            notificationIntent.putExtra(
+                "hadithNotification",
+                intent.extras!!.getString("hadithNotification")
+            )
+            startActivity(notificationIntent)
+        }
+    }
 
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
