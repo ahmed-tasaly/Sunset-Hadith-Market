@@ -6,14 +6,15 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.data.model.hadith.HadithResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentHadithTopBinding
 import com.moataz.afternoonhadeeth.ui.hadiths.adapter.HadithAdapter
+import com.moataz.afternoonhadeeth.ui.hadiths.view.activity.SearchHadithActivity
 import com.moataz.afternoonhadeeth.ui.hadiths.viewmodel.HadithViewModel
+import com.moataz.afternoonhadeeth.utils.helper.Intents
 import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
@@ -39,7 +40,7 @@ class HadithTopFragment : Fragment() {
 
     private fun setupEditText() {
         binding.editText.setOnClickListener {
-            Toast.makeText(requireContext(), "ميزة البحث عن الأحاديث ستتوفر قريبا", Toast.LENGTH_SHORT).show()
+            Intents.openNewActivity(requireContext(), SearchHadithActivity::class.java)
         }
         binding.editText.inputType = InputType.TYPE_NULL
     }

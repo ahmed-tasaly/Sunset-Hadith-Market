@@ -19,7 +19,6 @@
             <action android:name="com.google.android.youtube.api.service.START" />
         </intent>
     </queries>
-
     <queries>
         <package android:name="com.android.chrome" />
     </queries>
@@ -32,11 +31,13 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AfterNoonHadeeth">
+        <activity
+            android:name="com.moataz.afternoonhadeeth.ui.hadiths.view.activity.SearchHadithActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_notification" />
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
@@ -55,17 +56,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.app.notification.activity.DisplayNotificationActivity"
             android:exported="true"
-            android:parentActivityName=".ui.app.main.MainActivity" >
+            android:parentActivityName=".ui.app.main.MainActivity">
             <intent-filter>
                 <action android:name="DisplayNotifiation" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.moataz.afternoonhadeeth.ui.home.view.activity.DisplayHomeBlocksActivity"
             android:exported="true"
@@ -75,7 +75,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.moataz.afternoonhadeeth.ui.hadiths.view.activity.DisplayHadithListActivity"
+            android:name=".DisplayHadithListActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -115,11 +115,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/zekr_widget_info" />
         </receiver>
-
         <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.MorningNotification" />
         <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.NightNotification" />
         <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.AfternoonNotification" />
-
         <receiver
             android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.BootReceiver"
             android:exported="true">
@@ -136,4 +134,5 @@
             </intent-filter>
         </service>
     </application>
+
 </manifest>
