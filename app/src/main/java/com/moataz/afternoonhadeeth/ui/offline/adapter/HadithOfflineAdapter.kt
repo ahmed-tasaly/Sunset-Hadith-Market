@@ -1,84 +1,81 @@
-package com.moataz.afternoonhadeeth.ui.offline.adapter;
+package com.moataz.afternoonhadeeth.ui.offline.adapter
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.annotation.SuppressLint
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
+import com.moataz.afternoonhadeeth.R
+import com.moataz.afternoonhadeeth.data.model.offline.HadithOffline
+import com.moataz.afternoonhadeeth.databinding.ListHadithOfflineBinding
+import com.moataz.afternoonhadeeth.utils.helper.Intents.copyText
+import com.moataz.afternoonhadeeth.utils.helper.Intents.shareTextSnackbar
+import com.moataz.afternoonhadeeth.utils.helper.Intents.sharedText
+import java.util.*
 
-import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.moataz.afternoonhadeeth.R;
-import com.moataz.afternoonhadeeth.databinding.ListHadithOfflineBinding;
-import com.moataz.afternoonhadeeth.data.model.offline.HadithOffline;
-import com.moataz.afternoonhadeeth.utils.helper.Intents;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-
-public class HadithOfflineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
-    private List<HadithOffline> items = new ArrayList<>();
-    private final Context context;
+class HadithOfflineAdapter(private val context: Context) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var items: List<HadithOffline?>? = ArrayList()
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setHadithList(List<HadithOffline> items) {
-        this.items = items;
-        Collections.shuffle(items);
-        notifyDataSetChanged();
+    fun setHadithList(items: List<HadithOffline?>?) {
+        this.items = items
+        Collections.shuffle(items)
+        notifyDataSetChanged()
     }
 
-    public HadithOfflineAdapter(Context context) {
-        this.context = context;
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return HadithOfflineViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                R.layout.list_hadith_offline,
+                parent,
+                false
+            )
+        )
     }
 
-    @NonNull
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new HadithOfflineViewHolder(
-                DataBindingUtil.inflate(
-                        LayoutInflater.from(parent.getContext()),
-                        R.layout.list_hadith_offline,
-                        parent,
-                        false
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val hadithOffline = items!![position]
+        (holder as HadithOfflineViewHolder).listHadithBinding.hadithModelOffline = hadithOffline
+        holder.setOnClick(hadithOffline)
+    }
+
+    override fun getItemCount(): Int {
+        return if (items == null) 0 else items!!.size
+    }
+
+    internal class HadithOfflineViewHolder(var listHadithBinding: ListHadithOfflineBinding) :
+        RecyclerView.ViewHolder(
+            listHadithBinding.root
+        ) {
+        fun setOnClick(hadithOffline: HadithOffline?) {
+            listHadithBinding.copyButtonOnClick.setOnClickListener { view: View? ->
+                copyText(
+                    Objects.requireNonNull(
+                        hadithOffline!!.hadith
+                    ), itemView.context, ""
                 )
-        );
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        HadithOffline hadithOffline = items.get(position);
-        ((HadithOfflineViewHolder) holder).listHadithBinding.setHadithModelOffline(hadithOffline);
-        ((HadithOfflineViewHolder) holder).setOnClick(hadithOffline);
-    }
-
-    @Override
-    public int getItemCount() {
-        if (items == null) return 0;
-        return items.size();
-    }
-
-    static class HadithOfflineViewHolder extends RecyclerView.ViewHolder {
-        ListHadithOfflineBinding listHadithBinding;
-
-        HadithOfflineViewHolder(@NonNull ListHadithOfflineBinding itemView) {
-            super(itemView.getRoot());
-            listHadithBinding = itemView;
-        }
-
-        void setOnClick(HadithOffline hadithOffline) {
-            listHadithBinding.copyButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext(),"");
-                Intents.INSTANCE.shareTextSnackbar(itemView.getRootView(), "تم نسخ الحديث", Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext());
-            });
-
-            listHadithBinding.shareButtonOnClick.setOnClickListener(view -> {
-                Intents.INSTANCE.copyText(Objects.requireNonNull(hadithOffline.getHadith()), itemView.getContext(),"");
-                Intents.INSTANCE.sharedText(itemView.getContext(), Objects.requireNonNull(hadithOffline.getHadith()), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ","");
-            });
+                shareTextSnackbar(
+                    itemView.rootView, "تم نسخ الحديث", Objects.requireNonNull(
+                        hadithOffline.hadith
+                    ), itemView.context
+                )
+            }
+            listHadithBinding.shareButtonOnClick.setOnClickListener { view: View? ->
+                copyText(
+                    Objects.requireNonNull(
+                        hadithOffline!!.hadith
+                    ), itemView.context, ""
+                )
+                sharedText(
+                    itemView.context, Objects.requireNonNull(
+                        hadithOffline.hadith
+                    ), "تم الإرسال من تطبيق حديث الغروب: أحاديث النبي ﷺ", ""
+                )
+            }
         }
     }
 }
