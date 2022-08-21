@@ -51,9 +51,9 @@ Home | Videos | Hadiths
   
   ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
-- [RxJava](https://github.com/ReactiveX/RxJava) - Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences.
-- [Retrofit](https://github.com/square/retrofit) - A type-safe HTTP client for Android and Kotlin.
-- [OkHttp](https://square.github.io/okhttp/) - HTTP is the way modern applications network. It’s how we exchange data & media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.
+- [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) - Asynchronous or non-blocking programming is an important part of the development landscape.
+- [Flow](https://kotlinlang.org/docs/flow.html) - A suspending function asynchronously returns a single value, but how can we return multiple asynchronously computed values? This is where Kotlin Flows come in.
+- [Ktor](https://ktor.io/) - Create asynchronous client and server applications. Anything from microservices to multiplatform HTTP client apps in a simple way. Open Source, free, and fun!.
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
 - [Jetpack Navigation](https://developer.android.com/jetpack/compose/navigation) - Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
