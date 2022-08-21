@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.app.main
+package com.moataz.afternoonhadeeth.ui.offline.activity
 
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -8,9 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainOfflineBinding
-import com.moataz.afternoonhadeeth.ui.hadiths.view.fragment.HadithFragmentOffline
-import com.moataz.afternoonhadeeth.ui.home.view.fragment.HomeFragmentOffline
-import com.moataz.afternoonhadeeth.ui.books.view.fragment.BooksFragmentOffline
+import com.moataz.afternoonhadeeth.ui.offline.fragment.AboutFragmentOffline
+import com.moataz.afternoonhadeeth.ui.offline.fragment.HadithFragmentOffline
+import com.moataz.afternoonhadeeth.ui.offline.fragment.HomeFragmentOffline
+import com.moataz.afternoonhadeeth.ui.offline.fragment.BooksFragmentOffline
 import com.moataz.afternoonhadeeth.utils.helper.Views
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 

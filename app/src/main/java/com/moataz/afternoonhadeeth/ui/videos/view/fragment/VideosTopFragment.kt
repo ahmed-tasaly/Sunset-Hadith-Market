@@ -63,7 +63,7 @@ class VideosTopFragment : Fragment() {
                 Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
                     blocksAdapter.setTopVideosBlocks(response.data)
-                    listAdapter.setTopVideosList(response.data)
+                    listAdapter.setTopVideosList(response.data!!)
                 }
             }
         }

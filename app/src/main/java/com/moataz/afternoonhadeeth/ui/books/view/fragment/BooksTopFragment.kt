@@ -56,7 +56,7 @@ class BooksTopFragment : Fragment() {
                 }
                 Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
-                    adapter.setBooksList(response.data)
+                    adapter.setBooksList(response.data!!)
                 }
             }
         }

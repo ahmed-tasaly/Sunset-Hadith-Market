@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.books.view.fragment
+package com.moataz.afternoonhadeeth.ui.offline.fragment
 
 import android.content.Intent
 import android.os.Bundle

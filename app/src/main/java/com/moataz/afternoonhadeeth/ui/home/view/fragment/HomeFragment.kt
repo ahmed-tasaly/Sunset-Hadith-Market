@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -20,8 +19,7 @@ import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentHomeBinding
 import com.moataz.afternoonhadeeth.ui.home.adapter.HomeAdapter
 import com.moataz.afternoonhadeeth.ui.app.main.MainActivity
-import com.moataz.afternoonhadeeth.ui.app.main.MainActivityOffline
-import com.moataz.afternoonhadeeth.ui.hadiths.viewmodel.HadithViewModel
+import com.moataz.afternoonhadeeth.ui.offline.activity.MainActivityOffline
 import com.moataz.afternoonhadeeth.ui.home.viewmodel.HomeViewModel
 import com.moataz.afternoonhadeeth.utils.helper.Intents.openUrl
 import com.moataz.afternoonhadeeth.utils.helper.URL_Telegram_Channel

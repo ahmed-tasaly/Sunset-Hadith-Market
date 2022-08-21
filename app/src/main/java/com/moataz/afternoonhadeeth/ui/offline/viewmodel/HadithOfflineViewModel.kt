@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.hadiths.viewmodel
+package com.moataz.afternoonhadeeth.ui.offline.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

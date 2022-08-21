@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.app.main
+package com.moataz.afternoonhadeeth.ui.offline.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.FragmentPremiumOfflineBinding
-import com.moataz.afternoonhadeeth.ui.home.view.fragment.HomeFragmentOffline
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 
 class AboutFragmentOffline : Fragment(), IOnBackPressed {

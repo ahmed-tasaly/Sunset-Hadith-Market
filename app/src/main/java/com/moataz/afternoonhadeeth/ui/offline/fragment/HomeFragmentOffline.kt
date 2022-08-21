@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.home.view.fragment
+package com.moataz.afternoonhadeeth.ui.offline.fragment
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod

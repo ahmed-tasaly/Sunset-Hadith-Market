@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.hadiths.adapter;
+package com.moataz.afternoonhadeeth.ui.offline.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

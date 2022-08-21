@@ -1,4 +1,4 @@
-package com.moataz.afternoonhadeeth.ui.hadiths.view.fragment
+package com.moataz.afternoonhadeeth.ui.offline.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,9 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.FragmentHadithOfflineBinding
-import com.moataz.afternoonhadeeth.ui.home.view.fragment.HomeFragmentOffline
-import com.moataz.afternoonhadeeth.ui.hadiths.adapter.HadithOfflineAdapter
-import com.moataz.afternoonhadeeth.ui.hadiths.viewmodel.HadithOfflineViewModel
+import com.moataz.afternoonhadeeth.ui.offline.adapter.HadithOfflineAdapter
+import com.moataz.afternoonhadeeth.ui.offline.viewmodel.HadithOfflineViewModel
 import com.moataz.afternoonhadeeth.utils.interfaces.IOnBackPressed
 
 class HadithFragmentOffline : Fragment(), IOnBackPressed {
