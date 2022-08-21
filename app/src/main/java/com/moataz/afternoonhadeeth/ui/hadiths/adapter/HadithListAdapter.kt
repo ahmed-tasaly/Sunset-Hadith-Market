@@ -19,8 +19,8 @@ class HadithListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     @SuppressLint("NotifyDataSetChanged")
     fun setHadithList(items: List<Hadith?>?) {
         this.items = items
+        Collections.shuffle(items)
         notifyDataSetChanged()
-        items!!.shuffled()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

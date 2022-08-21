@@ -20,7 +20,7 @@ class VideosTopListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     @SuppressLint("NotifyDataSetChanged")
     fun setTopVideosList(items: TopVideosResponse) {
         this.items = items
-        items.topVideosList.shuffled()
+        Collections.shuffle(items.topVideosList)
         notifyDataSetChanged()
     }
 
