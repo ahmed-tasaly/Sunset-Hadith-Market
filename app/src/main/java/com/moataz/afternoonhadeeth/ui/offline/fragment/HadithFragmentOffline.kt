@@ -18,7 +18,7 @@ class HadithFragmentOffline : Fragment(), IOnBackPressed {
 
     private var adapter =
         HadithOfflineAdapter(
-            context
+            requireContext()
         )
     private var viewModel = HadithOfflineViewModel()
     private lateinit var binding: FragmentHadithOfflineBinding
