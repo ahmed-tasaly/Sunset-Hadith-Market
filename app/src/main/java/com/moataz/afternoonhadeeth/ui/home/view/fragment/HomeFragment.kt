@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -20,6 +21,7 @@ import com.moataz.afternoonhadeeth.databinding.FragmentHomeBinding
 import com.moataz.afternoonhadeeth.ui.home.adapter.HomeAdapter
 import com.moataz.afternoonhadeeth.ui.app.main.MainActivity
 import com.moataz.afternoonhadeeth.ui.app.main.MainActivityOffline
+import com.moataz.afternoonhadeeth.ui.hadiths.viewmodel.HadithViewModel
 import com.moataz.afternoonhadeeth.ui.home.viewmodel.HomeViewModel
 import com.moataz.afternoonhadeeth.utils.helper.Intents.openUrl
 import com.moataz.afternoonhadeeth.utils.helper.URL_Telegram_Channel
@@ -29,9 +31,8 @@ import com.moataz.afternoonhadeeth.utils.status.Status
 
 class HomeFragment : BottomSheetDialogFragment() {
 
-    private var adapter =
-        HomeAdapter()
-    private var viewModel = HomeViewModel()
+    private var adapter = HomeAdapter()
+    private val viewModel: HomeViewModel by viewModels()
     lateinit var bottomSheetDialog: BottomSheetDialog
     private lateinit var binding: FragmentHomeBinding
 
@@ -43,7 +44,6 @@ class HomeFragment : BottomSheetDialogFragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         setOnClickToolbarIcons()
         initializeAdapter()
-        initializeViewModel()
         getTopList()
         showBottomSheetDialog()
         return binding.root
@@ -68,7 +68,7 @@ class HomeFragment : BottomSheetDialogFragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallHome().observe(requireActivity()
+        viewModel.onResponse.observe(requireActivity()
         ) { response: Resource<HomeResponse> ->
             when (response.status) {
                 Status.ERROR -> {
@@ -84,11 +84,6 @@ class HomeFragment : BottomSheetDialogFragment() {
             }
         }
     }
-
-    private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-    }
-
 
     @SuppressLint("NotifyDataSetChanged")
     private fun showBottomSheetDialog() {

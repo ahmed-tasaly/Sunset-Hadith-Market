@@ -3,29 +3,28 @@ package com.moataz.afternoonhadeeth.ui.home.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.moataz.afternoonhadeeth.data.model.home.HomeResponse
 import com.moataz.afternoonhadeeth.data.repository.HomeRepository
 import com.moataz.afternoonhadeeth.utils.status.Resource
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
-    private val disposables = CompositeDisposable()
-    private val mediumObjectsList = MutableLiveData<Resource<HomeResponse>>()
-    private val articlesRepository = HomeRepository()
+    private val homeRepository = HomeRepository()
+    private val _onResponse: MutableLiveData<Resource<HomeResponse>> = MutableLiveData()
+    val onResponse: LiveData<Resource<HomeResponse>> = _onResponse
 
-    fun makeApiCallHome(): LiveData<Resource<HomeResponse>> {
-        disposables.add(articlesRepository.executeHomeApi()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { result: HomeResponse? -> mediumObjectsList.postValue(Resource.success(result)) }
-            ) { mediumObjectsList.postValue(Resource.error("error")) })
-        return mediumObjectsList
+    private fun makeHomeResponseApiCall() {
+        viewModelScope.launch {
+            val response: Flow<Resource<HomeResponse>> = homeRepository.getHomeListKtor()
+            response.collect {
+                _onResponse.postValue(it)
+            }
+        }
     }
 
-    override fun onCleared() {
-        disposables.clear()
+    init {
+        makeHomeResponseApiCall()
     }
 }

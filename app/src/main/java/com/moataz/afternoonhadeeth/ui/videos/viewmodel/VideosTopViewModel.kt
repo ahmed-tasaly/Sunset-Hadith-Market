@@ -3,29 +3,28 @@ package com.moataz.afternoonhadeeth.ui.videos.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse
 import com.moataz.afternoonhadeeth.data.repository.VideosRepository
 import com.moataz.afternoonhadeeth.utils.status.Resource
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class VideosTopViewModel : ViewModel() {
-    private val disposables = CompositeDisposable()
-    private val topVideosObjectsList = MutableLiveData<Resource<TopVideosResponse>>()
     private val videosRepository = VideosRepository()
+    private val _onResponse: MutableLiveData<Resource<TopVideosResponse>> = MutableLiveData()
+    val onResponse: LiveData<Resource<TopVideosResponse>> = _onResponse
 
-    fun makeApiCallTopVideos(): LiveData<Resource<TopVideosResponse>> {
-        disposables.add(videosRepository.executeTopVideosApi()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { result: TopVideosResponse? -> topVideosObjectsList.postValue(Resource.success(result)) }
-            ) { topVideosObjectsList.postValue(Resource.error("error")) })
-        return topVideosObjectsList
+    private fun makeVideosResponseApiCall() {
+        viewModelScope.launch {
+            val response: Flow<Resource<TopVideosResponse>> = videosRepository.getVideosKtor()
+            response.collect {
+                _onResponse.postValue(it)
+            }
+        }
     }
 
-    override fun onCleared() {
-        disposables.clear()
+    init {
+        makeVideosResponseApiCall()
     }
 }

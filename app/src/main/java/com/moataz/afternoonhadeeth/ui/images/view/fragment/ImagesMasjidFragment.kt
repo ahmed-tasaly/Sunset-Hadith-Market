@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.moataz.afternoonhadeeth.data.model.image.Images
 import com.moataz.afternoonhadeeth.databinding.FragmentImagesMasjedBinding
@@ -16,9 +16,8 @@ import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
 class ImagesMasjidFragment : Fragment() {
-    private var adapter =
-        ImagesOtherAdapter()
-    private var viewModel = ImagesMasjidViewModel()
+    private var adapter = ImagesOtherAdapter()
+    private val viewModel: ImagesMasjidViewModel by viewModels()
     private lateinit var binding: FragmentImagesMasjedBinding
 
     override fun onCreateView(
@@ -27,7 +26,6 @@ class ImagesMasjidFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentImagesMasjedBinding.inflate(layoutInflater)
-        initializeViewModel()
         initializeAdapter()
         getTopList()
         return binding.root
@@ -35,7 +33,8 @@ class ImagesMasjidFragment : Fragment() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initializeAdapter() {
-        binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.recyclerView.layoutManager =
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.adapter = adapter
         // disable the touch on items when scroll the recyclerview
@@ -46,7 +45,7 @@ class ImagesMasjidFragment : Fragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallImages().observe(
+        viewModel.onResponse.observe(
             requireActivity()
         ) { response: Resource<List<Images>> ->
             when (response.status) {
@@ -62,9 +61,5 @@ class ImagesMasjidFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(ImagesMasjidViewModel::class.java)
     }
 }

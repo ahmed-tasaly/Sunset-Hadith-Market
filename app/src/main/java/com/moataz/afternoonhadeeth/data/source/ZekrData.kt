@@ -1,8 +1,13 @@
 package com.moataz.afternoonhadeeth.data.source
 
-class ZekrData {
+import android.content.Context
+import android.util.Log
+import com.moataz.afternoonhadeeth.utils.helper.PrefConfigNumber
 
-    private val zekrList = arrayListOf(
+class ZekrData {
+    var zekr = ""
+
+    private val zekrList = mutableListOf(
         "سبحان اللّه وبحمده سبحان اللّه العظيم",
         "اللهم قنا عذابك يوم يبعث عبادك",
         "أعوذ بكلمات اللّه التّامّات من شرّ ما خلق",
@@ -31,11 +36,17 @@ class ZekrData {
         "ربنا آمنا فأغفر لنا وارحمنا"
     )
 
-    fun getZekr(): String {
-        val random = (0 until zekrList.size).random()
-        if (random == zekrList.lastIndex) {
-            return getZekr()
+    fun getNewZekr(context: Context): String {
+        var chosenNumber = PrefConfigNumber.restoreChosenNumber(context)
+        if (chosenNumber != zekrList.size) {
+            zekr = zekrList[chosenNumber]
+            chosenNumber++
+            PrefConfigNumber.saveChosenNumber(context, chosenNumber)
+        } else {
+            zekr = zekrList[0]
+            chosenNumber = 1
+            PrefConfigNumber.saveChosenNumber(context, chosenNumber)
         }
-        return zekrList[random]
+        return zekr
     }
 }

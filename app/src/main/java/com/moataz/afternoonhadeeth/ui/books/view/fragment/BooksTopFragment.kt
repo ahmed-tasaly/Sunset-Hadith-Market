@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.data.model.books.BooksResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentBooksTopBinding
@@ -16,9 +16,8 @@ import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
 class BooksTopFragment : Fragment() {
-    private var adapter =
-        BooksAdapter()
-    private var viewModel = BooksTopViewModel()
+    private var adapter = BooksAdapter()
+    private val viewModel: BooksTopViewModel by viewModels()
     private lateinit var binding: FragmentBooksTopBinding
 
     override fun onCreateView(
@@ -27,7 +26,6 @@ class BooksTopFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBooksTopBinding.inflate(layoutInflater)
-        initializeViewModel()
         initializeAdapter()
         getBooksList()
         return binding.root
@@ -46,7 +44,7 @@ class BooksTopFragment : Fragment() {
     }
 
     private fun getBooksList() {
-        viewModel.makeApiCallBooks().observe(
+        viewModel.onResponse.observe(
             requireActivity()
         ) { response: Resource<BooksResponse> ->
             when (response.status) {
@@ -62,9 +60,5 @@ class BooksTopFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(BooksTopViewModel::class.java)
     }
 }

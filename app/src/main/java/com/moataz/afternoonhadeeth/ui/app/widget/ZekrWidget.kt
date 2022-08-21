@@ -52,12 +52,12 @@ internal fun updateAppWidget(
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.zekr_widget)
 
-    views.setTextViewText(R.id.appwidget_text, ZekrData().getZekr())
+    views.setTextViewText(R.id.appwidget_text, ZekrData().getNewZekr(context))
 
     views.setTextViewText(R.id.date_time, dateTimeArabic)
     views.setTextViewText(R.id.date_name, dateName)
 
-    views.setOnClickPendingIntent(R.id.zekr_layout, pendingIntent);
+    views.setOnClickPendingIntent(R.id.zekr_layout, pendingIntent)
 
     // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)

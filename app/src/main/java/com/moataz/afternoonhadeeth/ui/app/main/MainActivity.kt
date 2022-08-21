@@ -8,15 +8,12 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
-import com.google.firebase.messaging.FirebaseMessaging
 import com.moataz.afternoonhadeeth.R
 import com.moataz.afternoonhadeeth.databinding.ActivityMainBinding
 import com.moataz.afternoonhadeeth.ui.app.notification.activity.DisplayNotificationActivity
-import com.moataz.afternoonhadeeth.ui.app.notification.schedulie.AfternoonNotification
 import com.moataz.afternoonhadeeth.ui.app.notification.schedulie.MorningNotification
 import com.moataz.afternoonhadeeth.ui.app.notification.schedulie.NightNotification
 import com.moataz.afternoonhadeeth.utils.helper.Views
@@ -47,7 +44,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupNotification() {
         MorningNotification().setupMorningNotification(this)
         NightNotification().setupNightNotification(this)
-        AfternoonNotification().setupAfternoonNotification(this)
     }
 
     private fun initializeBottomNavigation() {

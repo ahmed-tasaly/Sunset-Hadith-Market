@@ -1,10 +1,9 @@
 package com.moataz.afternoonhadeeth.data.api
 
 import com.moataz.afternoonhadeeth.data.model.hadith.HadithResponse
-import io.reactivex.Single
-import retrofit2.http.GET
+import com.moataz.afternoonhadeeth.utils.status.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface HadithsAPIService {
-    @GET("hadithlist.json")
-    fun getHadithList(): Single<HadithResponse>
+    suspend fun getHadithsKtor(): Flow<Resource<HadithResponse>>
 }

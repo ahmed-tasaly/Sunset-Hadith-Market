@@ -1,10 +1,9 @@
 package com.moataz.afternoonhadeeth.data.api
 
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse
-import io.reactivex.Single
-import retrofit2.http.GET
+import com.moataz.afternoonhadeeth.utils.status.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface VideosAPIService {
-    @GET("topvideos.json")
-    fun getTopVideosList(): Single<TopVideosResponse>
+    suspend fun getVideosKtor(): Flow<Resource<TopVideosResponse>>
 }

@@ -3,29 +3,28 @@ package com.moataz.afternoonhadeeth.ui.books.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.moataz.afternoonhadeeth.data.model.books.BooksResponse
 import com.moataz.afternoonhadeeth.data.repository.BooksRepository
 import com.moataz.afternoonhadeeth.utils.status.Resource
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class BooksTopViewModel : ViewModel() {
-    private val disposables = CompositeDisposable()
-    private val booksObjectsList = MutableLiveData<Resource<BooksResponse>>()
     private val repository = BooksRepository()
+    private val _onResponse: MutableLiveData<Resource<BooksResponse>> = MutableLiveData()
+    val onResponse: LiveData<Resource<BooksResponse>> = _onResponse
 
-    fun makeApiCallBooks(): LiveData<Resource<BooksResponse>> {
-        disposables.add(repository.executeBooksTopApi()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { result: BooksResponse? -> booksObjectsList.postValue(Resource.success(result)) }
-            ) { booksObjectsList.postValue(Resource.error("error")) })
-        return booksObjectsList
+    private fun makeBooksResponseApiCall() {
+        viewModelScope.launch {
+            val response: Flow<Resource<BooksResponse>> = repository.getBooksKtor()
+            response.collect {
+                _onResponse.postValue(it)
+            }
+        }
     }
 
-    override fun onCleared() {
-        disposables.clear()
+    init {
+        makeBooksResponseApiCall()
     }
 }

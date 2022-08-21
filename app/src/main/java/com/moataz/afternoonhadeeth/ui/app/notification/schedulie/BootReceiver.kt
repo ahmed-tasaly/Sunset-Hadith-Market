@@ -10,7 +10,6 @@ class BootReceiver : BroadcastReceiver() {
         if (intent.action == "android.intent.action.BOOT_COMPLETED") {
             MorningNotification().setupMorningNotification(context)
             NightNotification().setupNightNotification(context)
-            AfternoonNotification().setupAfternoonNotification(context)
         }
     }
 }

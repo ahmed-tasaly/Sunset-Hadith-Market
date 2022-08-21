@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moataz.afternoonhadeeth.data.model.image.Images
 import com.moataz.afternoonhadeeth.databinding.FragmentImagesWallpaperBinding
@@ -16,9 +16,8 @@ import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
 class ImagesWallpaperFragment : Fragment() {
-    private var adapter =
-        ImagesWallpaperAdapter()
-    private var viewModel = ImagesWallpaperViewModel()
+    private var adapter = ImagesWallpaperAdapter()
+    private val viewModel: ImagesWallpaperViewModel by viewModels()
     private lateinit var binding: FragmentImagesWallpaperBinding
 
     override fun onCreateView(
@@ -27,7 +26,6 @@ class ImagesWallpaperFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentImagesWallpaperBinding.inflate(layoutInflater)
-        initializeViewModel()
         initializeAdapter()
         getTopList()
         return binding.root
@@ -46,7 +44,7 @@ class ImagesWallpaperFragment : Fragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallImages().observe(
+        viewModel.onResponse.observe(
             requireActivity()
         ) { response: Resource<List<Images>> ->
             when (response.status) {
@@ -62,9 +60,5 @@ class ImagesWallpaperFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(ImagesWallpaperViewModel::class.java)
     }
 }

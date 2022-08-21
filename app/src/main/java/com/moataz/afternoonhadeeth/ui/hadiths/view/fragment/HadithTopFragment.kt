@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.data.model.hadith.HadithResponse
 import com.moataz.afternoonhadeeth.databinding.FragmentHadithTopBinding
@@ -20,9 +20,8 @@ import com.moataz.afternoonhadeeth.utils.status.Status
 
 class HadithTopFragment : Fragment() {
 
-    private var adapter =
-        HadithAdapter()
-    private var viewModel = HadithViewModel()
+    private var adapter = HadithAdapter()
+    private val viewModel: HadithViewModel by viewModels()
     private lateinit var binding: FragmentHadithTopBinding
 
     override fun onCreateView(
@@ -32,7 +31,6 @@ class HadithTopFragment : Fragment() {
     ): View {
         binding = FragmentHadithTopBinding.inflate(layoutInflater)
         setupEditText()
-        initializeViewModel()
         getTopList()
         initializeAdapter()
         return binding.root
@@ -58,7 +56,7 @@ class HadithTopFragment : Fragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallHadith().observe(
+        viewModel.onResponse.observe(
             requireActivity()
         ) { response: Resource<HadithResponse> ->
             when (response.status) {
@@ -74,9 +72,5 @@ class HadithTopFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(HadithViewModel::class.java)
     }
 }

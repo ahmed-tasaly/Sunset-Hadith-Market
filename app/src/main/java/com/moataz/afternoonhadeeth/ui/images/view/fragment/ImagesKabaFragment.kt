@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.moataz.afternoonhadeeth.data.model.image.Images
 import com.moataz.afternoonhadeeth.databinding.FragmentImagesMasjedBinding
@@ -16,9 +16,8 @@ import com.moataz.afternoonhadeeth.utils.status.Resource
 import com.moataz.afternoonhadeeth.utils.status.Status
 
 class ImagesKabaFragment : Fragment() {
-    private var adapter =
-        ImagesOtherAdapter()
-    private var viewModel = ImagesKabaViewModel()
+    private var adapter = ImagesOtherAdapter()
+    private val viewModel: ImagesKabaViewModel by viewModels()
     private lateinit var binding: FragmentImagesMasjedBinding
 
     override fun onCreateView(
@@ -27,7 +26,6 @@ class ImagesKabaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentImagesMasjedBinding.inflate(layoutInflater)
-        initializeViewModel()
         initializeAdapter()
         getTopList()
         return binding.root
@@ -47,7 +45,7 @@ class ImagesKabaFragment : Fragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallImages().observe(
+        viewModel.onResponse.observe(
             requireActivity()
         ) { response: Resource<List<Images>> ->
             when (response.status) {
@@ -63,9 +61,5 @@ class ImagesKabaFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(ImagesKabaViewModel::class.java)
     }
 }

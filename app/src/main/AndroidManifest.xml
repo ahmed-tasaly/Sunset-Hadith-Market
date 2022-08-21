@@ -117,7 +117,6 @@
         </receiver>
         <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.MorningNotification" />
         <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.NightNotification" />
-        <receiver android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.AfternoonNotification" />
         <receiver
             android:name="com.moataz.afternoonhadeeth.ui.app.notification.schedulie.BootReceiver"
             android:exported="true">

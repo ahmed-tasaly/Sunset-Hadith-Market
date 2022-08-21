@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.moataz.afternoonhadeeth.data.model.videos.top.TopVideosResponse
@@ -20,12 +20,10 @@ import com.moataz.afternoonhadeeth.utils.status.Status
 class VideosTopFragment : Fragment() {
 
     private lateinit var binding: FragmentVideosTopBinding
-    private var blocksAdapter =
-        VideosTopBlocksAdapter()
-    private var listAdapter =
-        VideosTopListAdapter()
+    private var blocksAdapter = VideosTopBlocksAdapter()
+    private var listAdapter = VideosTopListAdapter()
     private val concatAdapter = ConcatAdapter(blocksAdapter, listAdapter)
-    private var viewModel = VideosTopViewModel()
+    private val viewModel: VideosTopViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +31,6 @@ class VideosTopFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentVideosTopBinding.inflate(layoutInflater)
-        initializeViewModel()
         initializeAdapter()
         getTopList()
         return binding.root
@@ -53,7 +50,7 @@ class VideosTopFragment : Fragment() {
     }
 
     private fun getTopList() {
-        viewModel.makeApiCallTopVideos().observe(
+        viewModel.onResponse.observe(
             requireActivity()
         ) { response: Resource<TopVideosResponse> ->
             when (response.status) {
@@ -70,9 +67,5 @@ class VideosTopFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun initializeViewModel() {
-        viewModel = ViewModelProvider(this).get(VideosTopViewModel::class.java)
     }
 }

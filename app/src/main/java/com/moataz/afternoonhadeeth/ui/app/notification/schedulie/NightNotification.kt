@@ -18,13 +18,13 @@ class NightNotification : BroadcastReceiver() {
 
     private val CHANNEL_ID = "HADITH_NIGHT_CHANNEL_ID"
     private var NOTIFICATION_TITLE = "حديث المساء"
-    private var NOTIFICATION_MESSAGE = NightHadithsData().nightHadith()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context, intent: Intent?) {
 
         // send content of notification to activity
         val notificationIntent = Intent(context, DisplayNotificationActivity::class.java)
+        val NOTIFICATION_MESSAGE = NightHadithsData().getNewNightHadith(context)
         notificationIntent.putExtra("hadithNotification", NOTIFICATION_MESSAGE)
         notificationIntent.putExtra("titleNotification", NOTIFICATION_TITLE)
 
