@@ -41,7 +41,7 @@ internal fun updateAppWidget(
 ) {
     // displaying the Islamic date and time
     val locale = Locale("ar")
-    val dateTimeArabic = DateTime.now().plusDays(1).withChronology(IslamicChronology.getInstance())
+    val dateTimeArabic = DateTime.now().withChronology(IslamicChronology.getInstance())
         .toString("dd-MMMM-YYYY", locale)
     val dateName = DateTime.now().toString("E", locale)
 

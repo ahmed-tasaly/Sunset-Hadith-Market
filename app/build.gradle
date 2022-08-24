@@ -17,8 +17,8 @@ android {
         applicationId "com.moataz.afternoonhadeeth"
         minSdk 23
         targetSdk 33
-        versionCode 25
-        versionName "5.0.0"
+        versionCode 26
+        versionName "5.0.1"
         multiDexEnabled true  // to fix error "cannot fit requested classes in a single dex file"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
